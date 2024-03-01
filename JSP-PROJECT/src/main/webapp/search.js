@@ -17,18 +17,18 @@ $(function() {
 			success: sucFuncJson,  // 요청 성공 시 호출할 메서드 설정
 			error: errFunc         // 요청 실패 시 호출할 메서드 설정
 		});
+		
 	});
 });
-
 // 검색 성공 시 결과를 화면에 뿌려줍니다.
 function sucFuncJson(d) {
 	var str = "";
 	$.each(d.items, function(index, item) {
 		str += "<ul>";
 		str += "    <li>" + (index + 1) + "</li>";
-		str += "    <li> 제목 : " + item.title + "</li>";
+		str += "    <li class='title'> 제목 : " + item.title + "</li>";
 		str += "    <img src='" + item.image + "'width='304' height='228'>";
-		str += "    <li> 저자 : " + item.author + "</li>";
+		str += "    <li class='meta-info' > 저자 : " + item.author + "</li>";
 		str += "    <li> 출판사 : " + item.publisher + "</li>";
 		str += "    <li> 가격 : " + item.discount + "</li>";
 		str += "    <li> 출간일 : " + item.postdate + "</li>";
@@ -37,7 +37,6 @@ function sucFuncJson(d) {
 	});
 	$('#searchResult').html(str);
 }
-
 // 실패 시 경고창을 띄워줍니다.
 function errFunc(e) {
 	alert("실패: " + e.status);
