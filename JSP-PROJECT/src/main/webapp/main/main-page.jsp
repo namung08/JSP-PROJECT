@@ -8,10 +8,10 @@
 </head>
 <body>
 	<div>
-		<a href="${pageContext.request.contextPath}/search/SearchDb.bo"> 검색</a>
+		<a href="${pageContext.request.contextPath}/search/SearchDb.bo">검색</a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
+		<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인하러 가기</a>
 	</div>
 </body>
 </html>
