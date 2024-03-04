@@ -84,8 +84,8 @@ h1 {
         <form method="post">
             <input name="userid" id="userid" type="text" placeholder="아이디를 입력하세요">
             <input name="userpw" id="userpw" type="password" placeholder="비밀번호를 입력하세요">
-            <button id="login" name="login" onclick="location.href='${pageContext.request.contextPath}/login/Sign-InDB.us'">로그인</button>
-            <button id="signup" name="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
+            <button type="button" id="login" name="login" onclick="location.href='${pageContext.request.contextPath}/login/Sign-InDB.us'">로그인</button>
+            <button type="button" id="signup" name="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
             <div class="find-buttons">
                 <button  id="findid" name="findid">아이디 찾기</button>
                 <button id="findpw" name="findpw">비밀번호 찾기</button>

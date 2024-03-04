@@ -9,7 +9,7 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 
-@WebFilter("/*")
+@WebFilter("*.us")
 public class CharacterEncodingFilter implements Filter{
 
 	@Override
