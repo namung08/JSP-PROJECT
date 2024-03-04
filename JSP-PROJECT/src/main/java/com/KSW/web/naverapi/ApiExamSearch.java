@@ -1,4 +1,4 @@
-package com.jspproject.web.naverapi;
+package com.KSW.web.naverapi;
 
 import java.io.BufferedReader;
 import java.io.IOException;

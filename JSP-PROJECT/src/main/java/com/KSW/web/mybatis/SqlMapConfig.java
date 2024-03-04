@@ -1,4 +1,4 @@
-package com.codingbox.web.mybatis;
+package com.KSW.web.mybatis;
 
 import java.io.Reader;
 

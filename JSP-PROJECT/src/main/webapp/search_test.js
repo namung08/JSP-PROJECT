@@ -52,7 +52,6 @@ function sucFuncJson(d) {
 		str += "    <li> 출판사 : " + item.publisher + "</li>";
 		str += "    <li> 가격 : " + item.discount + "</li>";
 		str += "    <li> 출간일 : " + item.postdate + "</li>";
-		str += "    <li><a href='" + item.link + "' target='_blank'>바로가기</a></li>";
 		str += "</ul>";
 	});
 	$('#searchResult').html(str);
