@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	검색할 공간
+	<form action="${pageContext.request.contextPath}/search/SearchDb.se"></form>
 </body>
 </html>
