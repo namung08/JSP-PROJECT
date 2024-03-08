@@ -5,18 +5,18 @@
 <mapper namespace="Member">
 	<!-- "SELECT COUNT(*) FROM TBL_MEMBER WHERE USERID=?" -->
 	<select id="checkId" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM TBL_MEMBER WHERE USERID=#{userid}
+		SELECT COUNT(*) FROM KSW_USERS WHERE USERID=#{userid}
 	</select>
 	<insert id="join" parameterType="com.KSW.web.dto.UsersDTO">
-		INSERT INTO TBL_MEMBER VALUES (#{userid},#{userpw},#{username},#{userbirth},#{userphone},#{useraddr},#{useremail})
+		INSERT INTO KSW_USERS VALUES (#{userid},#{userpw},#{username},#{userbirth},#{userphone},#{useraddr},#{useremail})
 	</insert>
 	<select id="login" parameterType="hashmap" resultType="com.KSW.web.dto.UsersDTO">
-		SELECT * FROM TBL_MEMBER WHERE USERID =#{userid} AND USERPW =#{userpw}
+		SELECT * FROM KSW_USERS WHERE USERID =#{userid} AND USERPW =#{userpw}
 	</select>
 	<select id="searchById" parameterType="string" resultType="com.KSW.web.dto.UsersDTO">
-		SELECT * FROM TBL_MEMBER WHERE USERID =#{userid}
+		SELECT * FROM KSW_USERS WHERE USERID =#{userid}
 	</select>
 	<select id="getList" resultType="com.KSW.web.dto.UsersDTO">
-		SELECT * FROM TBL_MEMBER
+		SELECT * FROM KSW_USERS
 	</select>
 </mapper>
