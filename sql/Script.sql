@@ -25,7 +25,7 @@ CREATE TABLE KSW_CART(
 	CARTNUM NUMBER (10) PRIMARY KEY,
 	USERID VARCHAR2(50) NOT NULL,
 	title VARCHAR2(300) NOT NULL,
-	discount NUMBER (10) NOT NULL,	-- 책 가격
+	discount NUMBER (10),	-- 책 가격 / 값이 null 인경우 매진, 절판 등등
 	image VARCHAR2(500) NOT NULL,
 	isbn varchar2(500) NOT NULL,	-- 국제표준 도서번호
 	COUNT NUMBER (10) NOT NULL,		-- 책 수량
