@@ -40,4 +40,5 @@ public class OrderlistDAO {
 	public int getOrderCnt(String userid) {
 		return sqlSession.selectOne("Orderlist.getOrderCnt", userid);
 	}
+	
 }
