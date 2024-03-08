@@ -26,16 +26,19 @@ public class SearchNaverBookAPI extends HttpServlet {
 		String clientSecret = "gRrs4ttE30"; // 애플리케이션 클라이언트 시크릿
 
 		int startNum = 0;
+//		int displayPage = 0;
 		String text = null;
 		try {
 			startNum = Integer.parseInt(req.getParameter("startNum"));
 			String searchText = req.getParameter("keyword");
+//			displayPage = Integer.parseInt(req.getParameter("displayPage"));
 			text = URLEncoder.encode(searchText, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException("검색어 인코딩 실패", e);
 		}
 
-		String apiURL = "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=12&start=" + startNum; // JSON
+//		String apiURL = "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=12&start=" + startNum; // JSON
+		String apiURL = "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=12&sort=sim&start=" + startNum;
 																													// 결과
 		// String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text;
 		// // XML 결과

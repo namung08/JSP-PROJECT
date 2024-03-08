@@ -9,7 +9,7 @@ $(function() {
 });
 
 function loadResults(page) {
-    var startNum = (page - 1) * 10 + 1; // 페이지 번호에 따른 시작 번호 계산
+    var startNum = page; // 페이지 번호에 따른 시작 번호 계산
     $.ajax({
         url: "../../NaverSearchAPI.do",
         type: "get",

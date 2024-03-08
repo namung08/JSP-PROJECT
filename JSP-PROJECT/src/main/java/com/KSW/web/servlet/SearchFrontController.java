@@ -26,7 +26,7 @@ public class SearchFrontController extends HttpServlet{
         ActionForward forward = null;
         
         switch (requestURI) {
-        case "/search/SearchMain.se":
+        case "/search/SearchDb.api":
         	forward = new ActionForward(true, "/search/searchview.jsp");
 			break;
 		}

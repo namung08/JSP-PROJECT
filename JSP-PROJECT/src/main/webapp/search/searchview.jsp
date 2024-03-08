@@ -11,7 +11,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
-    padding: 20px;
+    padding: 40px;
 }
 
 /* 검색 양식 스타일 */
@@ -67,6 +67,16 @@ body {
     cursor: pointer;
 }
 
+/* 페이지네이션 버튼 스타일 */
+.page-btn1 {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
 .page-btn:hover, .page-btn.active {
     background-color: #007bff;
     color: #fff;
@@ -77,15 +87,27 @@ body {
     margin-top: 20px;
 }
 
+/* 검색 결과 그리드 스타일 */
+#searchResult {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 컬럼으로 나눔 */
+    gap: 20px; /* 그리드 아이템 간의 간격 */
+    padding: 20px; /* 컨테이너의 내부 여백 */
+}
+
 /* 검색 결과 상세 스타일 */
 #searchResult ul {
-    margin: 10px;
+    margin: 0; /* 기존 마진 제거 */
+    padding: 10px; /* 패딩 유지 */
     background-color: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: box-shadow 0.3s ease;
+    display: flex; /* 이미지와 텍스트를 세로로 정렬 */
+    flex-direction: column; /* 컨텐츠를 세로로 정렬 */
+    align-items: center; /* 가운데 정렬 */
 }
 
 #searchResult ul:hover {
@@ -93,8 +115,10 @@ body {
 }
 
 #searchResult img {
-    display: block;
-    width: 100%;
+    width: 100%; /* 이미지 너비를 ul에 맞춤 */
+    height: 50%; /* 이미지 비율 유지 */
+    max-width: 150px; /* 최대 너비 설정 */
+    margin-bottom: 10px; /* 이미지와 텍스트 사이의 마진 */
 }
 
 #searchResult li {
@@ -118,9 +142,11 @@ body {
 			<button type="button" id="searchBtn">검색</button>
 		</div>
 	</form>
-	<div class="row" id="searchResult">
-        여기에 검색 결과가 출력됩니다.
-    </div>
+	<form action="">
+		<div class="row" id="searchResult">
+	        여기에 검색 결과가 출력됩니다.
+	    </div>
+	</form>
     <div id="pagination">
 			<!-- 페이지네이션 버튼이 여기에 들어갑니다 -->
 	</div>

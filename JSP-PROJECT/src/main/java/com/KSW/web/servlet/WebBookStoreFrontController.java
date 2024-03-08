@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+// 메인페이지 이동 서블릿
 @WebServlet("*.bo")
 public class WebBookStoreFrontController extends HttpServlet{
 	@Override
@@ -25,7 +25,7 @@ public class WebBookStoreFrontController extends HttpServlet{
 		String requestURI = req.getRequestURI();
         ActionForward forward = null;
         switch (requestURI) {
-		case "/search/SearchDb.bo": 
+		case "/search/SearchView.bo": 
 			forward = new ActionForward(true, "/search/searchview.jsp");
 			break;
 		case "/login/Sign-up-in.bo":
