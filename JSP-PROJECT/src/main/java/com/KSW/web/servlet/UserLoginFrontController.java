@@ -34,6 +34,15 @@ public class UserLoginFrontController extends HttpServlet{
 			System.out.println("/login/Sign-up.us");
 			forward = new ActionForward(false, "/login/sign-up.jsp");
 			break;
+		// 아이디와 비밀번호 찾기
+		case "/login/Find-id.us":
+			System.out.println("/login/Find-id.us");
+			forward = new ActionForward(true, "/login/find-id.jsp");
+			break;
+		case "/login/Find-pw.us":
+			System.out.println("/login/Find-pw.us");
+			forward = new ActionForward(true, "/login/find-pw.jsp");
+			break;
 		}
 
         
