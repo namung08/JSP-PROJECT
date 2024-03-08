@@ -144,7 +144,7 @@ body {
 	</form>
 	<form action="">
 		<div class="row" id="searchResult">
-	        여기에 검색 결과가 출력됩니다.
+	        
 	    </div>
 	</form>
     <div id="pagination">
