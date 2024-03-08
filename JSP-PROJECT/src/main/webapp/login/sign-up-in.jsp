@@ -87,8 +87,8 @@ h1 {
             <button type="button" id="login" name="login" onclick="location.href='${pageContext.request.contextPath}/login/Sign-InDB.us'">로그인</button>
             <button type="button" id="signup" name="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
             <div class="find-buttons">
-                <button  id="findid" name="findid">아이디 찾기</button>
-                <button id="findpw" name="findpw">비밀번호 찾기</button>
+                <button type="button" id="findid" name="findid" onclick="location.href='${pageContext.request.contextPath}/login/Find-id.us'">아이디 찾기</button>
+                <button type="button" id="findpw" name="findpw" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.us'">비밀번호 찾기</button>
             </div>
         </form>
     </div>
