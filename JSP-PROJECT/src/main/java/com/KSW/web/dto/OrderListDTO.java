@@ -12,9 +12,9 @@ public class OrderListDTO {
     private String publisher;		//책 출판사
     private Date pubDate;			//책 출간 날짜
     private String deliveryStatus;	//책 배송 상태
+    private String isbn;		//국제표준도서번호
     private int count;				//책 수량
     private String category;		//책 카테고리
-    private String isbn;		//국제표준도서번호
 	
     public int getOrderNum() {
 		return orderNum;

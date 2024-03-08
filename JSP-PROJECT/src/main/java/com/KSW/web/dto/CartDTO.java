@@ -6,8 +6,8 @@ public class CartDTO {
     private String title;		//책 제목
     private int discount;		//책 가격
     private String image;		//책 이미지 URL
-    private int count;			//책 수량
     private String isbn;		//국제표준도서번호
+    private int count;			//책 수량
 	
     public int getCartNum() {
 		return cartNum;
