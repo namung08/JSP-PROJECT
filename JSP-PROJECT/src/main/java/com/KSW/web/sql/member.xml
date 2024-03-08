@@ -7,16 +7,16 @@
 	<select id="checkId" parameterType="string" resultType="_int">
 		SELECT COUNT(*) FROM TBL_MEMBER WHERE USERID=#{userid}
 	</select>
-	<insert id="join" parameterType="com.codingbox.web.dto.MemberDTO">
-		INSERT INTO TBL_MEMBER VALUES (#{userid},#{userpw},#{username},#{usergender},#{userphone},#{zipcode},#{addr},#{addrdetail},#{addrdetc})
+	<insert id="join" parameterType="com.KSW.web.dto.UsersDTO">
+		INSERT INTO TBL_MEMBER VALUES (#{userid},#{userpw},#{username},#{userbirth},#{userphone},#{useraddr},#{useremail})
 	</insert>
-	<select id="login" parameterType="hashmap" resultType="com.codingbox.web.dto.MemberDTO">
+	<select id="login" parameterType="hashmap" resultType="com.KSW.web.dto.UsersDTO">
 		SELECT * FROM TBL_MEMBER WHERE USERID =#{userid} AND USERPW =#{userpw}
 	</select>
-	<select id="searchById" parameterType="string" resultType="com.codingbox.web.dto.MemberDTO">
+	<select id="searchById" parameterType="string" resultType="com.KSW.web.dto.UsersDTO">
 		SELECT * FROM TBL_MEMBER WHERE USERID =#{userid}
 	</select>
-	<select id="getList" resultType="com.codingbox.web.dto.MemberDTO">
+	<select id="getList" resultType="com.KSW.web.dto.UsersDTO">
 		SELECT * FROM TBL_MEMBER
 	</select>
 </mapper>
