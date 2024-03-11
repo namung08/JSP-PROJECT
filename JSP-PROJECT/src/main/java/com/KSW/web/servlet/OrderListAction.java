@@ -2,9 +2,9 @@ package com.KSW.web.servlet;
 
 import java.awt.print.Pageable;
 
-import com.KSW.web.DAO.OrderlistDAO;
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.OrderlistDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

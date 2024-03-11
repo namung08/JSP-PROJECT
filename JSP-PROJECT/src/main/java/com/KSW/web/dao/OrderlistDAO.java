@@ -1,4 +1,4 @@
-package com.KSW.web.DAO;
+package com.KSW.web.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
