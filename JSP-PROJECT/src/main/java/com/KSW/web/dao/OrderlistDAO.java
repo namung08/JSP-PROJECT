@@ -33,4 +33,8 @@ public class OrderlistDAO {
 		return sqlSession.selectOne("getOrderCnt", userid);
 	}
 	
+	public String getUserName(String userid) {
+		return sqlSession.selectOne("getUserName", userid);
+	}
+	
 }

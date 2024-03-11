@@ -12,4 +12,7 @@
 		SELECT COUNT(*) FROM KSW_ORDERLIST WHERE USERID=#{userid}
 	</select>
 	
+	<select id="getUserName" resultType="String" parameterType="String">
+		SELECT username FROM KSW_USERS WHERE USERID=#{userid}
+	</select>
 </mapper>

@@ -33,7 +33,7 @@ table {
 	<div>
 		<table style="width: 900px; border: 1px;">
 			<tr align="center" valign="middle">
-				<td><h3>MVC 게시판</h3></td>
+				<td><h3>${username }님의 구매내역</h3></td>
 			</tr>
 			<tr align="right" valign="middle">
 				<td>총 구매내역 : ${totalCnt} 개</td>
