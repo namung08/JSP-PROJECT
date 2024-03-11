@@ -141,6 +141,20 @@ body {
 		<div>
 			<input type="text" name="search" id="keyword" placeholder="검색하실 책 제목을 입력하세요">
 			<button type="button" id="searchBtn">검색</button>
+			<c:choose>
+				<c:when test="${userid != null && userid == "" }">
+					<div>
+						${userid }님 안녕하세요.
+						<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a>
+						<a>마이페이지</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div>
+						<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인하러 가기</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</form>
 	<form action="">

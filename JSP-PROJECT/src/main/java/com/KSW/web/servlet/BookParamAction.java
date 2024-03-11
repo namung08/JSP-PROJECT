@@ -20,6 +20,7 @@ public class BookParamAction implements Action {
 		HttpSession session = req.getSession();
 		if(session.getAttribute("userid") != null) {
 		   String userid = (String)session.getAttribute("userid");
+		   System.out.println(userid);   
 		}
 		ActionForward forward = new ActionForward();
 		BookDTO bdto = new BookDTO();

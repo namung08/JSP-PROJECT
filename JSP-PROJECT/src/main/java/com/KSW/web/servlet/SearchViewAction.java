@@ -16,8 +16,10 @@ public class SearchViewAction implements Action{
 		if(session.getAttribute("userid") != null) {
 			String userid = (String)session.getAttribute("userid");
 			System.out.println(userid);
+		} else {
+			System.out.println("아이디 값 없음");
 		}
-		System.out.println("아이디 값 없음");
+		
 		forward.setPath(req.getContextPath() + "/search/searchview.jsp");
 		forward.setRedirect(true);
 		return forward;

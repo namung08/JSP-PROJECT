@@ -80,6 +80,8 @@ h1 {
 </style>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 비밀번호 암호화 스크립트 라이브러리 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 <script src="logins.js"></script>
 <body>
 	<c:if test="${not empty param.flag}">
@@ -94,6 +96,8 @@ h1 {
         <form name="loginForm" id="loginForm" action="${pageContext.request.contextPath}/login/Sign-InDB.us" method="post">
             <input name="userid" id="userid" type="text" placeholder="아이디를 입력하세요">
             <input name="userpw" id="userpw" type="password" placeholder="비밀번호를 입력하세요">
+            <!-- 해시된 비밀번호를 저장할 새 hidden 필드 추가 -->
+            <input type="hidden" id="hashedPassword" name="hashedPassword">
             <button type="button" id="login">로그인</button>
             <button type="button" id="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
             <div class="find-buttons">
