@@ -30,13 +30,6 @@ public class OrderlistDAO {
 		return OrderList;
 	}
 	
-//	public List<OrderListDTO> getOrderList(String userid) {
-//		List<OrderListDTO> OrderList = new ArrayList<OrderListDTO>();
-//		
-//		OrderList = sqlSession.selectList("Orderlist.getOrderlist", userid);
-//		return OrderList;
-//	}
-	
 	public int getOrderCnt(String userid) {
 		return sqlSession.selectOne("Orderlist.getOrderCnt", userid);
 	}
