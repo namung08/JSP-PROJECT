@@ -5,10 +5,10 @@
 <mapper namespace="Orderlist">
 	<select id="getOrderList" resultType="orderdto" parameterType="hashmap">
 		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST ORDER BY ORDERNUM DESC) a) b
-		WHERE b.r BETWEEN#{startRow} AND #{endRow}
+		WHERE b.r BETWEEN#{startRow} AND #{endRow} AND b.USERID=#{userid}
 	</select>
 	
-	<select id="getOrderCnt" resultType="_int">
+	<select id="getOrderCnt" resultType="_int" parameterType="String">
 		SELECT COUNT(*) FROM KSW_ORDERLIST WHERE USERID=#{userid}
 	</select>
 	
