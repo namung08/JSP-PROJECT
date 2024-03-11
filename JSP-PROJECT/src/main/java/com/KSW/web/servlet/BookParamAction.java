@@ -18,7 +18,9 @@ public class BookParamAction implements Action {
 		ActionForward forward = new ActionForward();
 		BookDTO bdto = new BookDTO();
 		bdto.setIsbn(req.getParameter("isbn"));
-		bdto.setDescription(req.getParameter("description"));
+		String description = req.getParameter("description");
+		description = description.replace("\n", "<br>");
+		bdto.setDescription(description);
 		bdto.setImage(req.getParameter("imageSrc"));
 		bdto.setTitle(req.getParameter("title"));
 		bdto.setAuthor(req.getParameter("author"));

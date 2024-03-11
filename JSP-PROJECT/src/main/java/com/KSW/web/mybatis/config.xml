@@ -4,15 +4,11 @@
  "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-<<<<<<< HEAD
 		<typeAlias type="com.KSW.web.dto.BookDTO"
 			alias="bookdto" />
-	</typeAliases>
-=======
 		<typeAlias type="com.KSW.web.dto.OrderListDTO" alias="orderdto"/>
 	</typeAliases>
 	
->>>>>>> 537ad1d2c99379745b60b5849ef65545a4bd5802
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -28,11 +24,8 @@
 	</environments>
 
 	<mappers>
-<<<<<<< HEAD
 		<mapper resource="com/codingbox/web/sql/search.xml" />
-=======
 		<mapper resource="com/codingbox/web/sql/member.xml"/>
 		<mapper resource="com/KSW/web/sql/orderlist.xml"/>
->>>>>>> 537ad1d2c99379745b60b5849ef65545a4bd5802
 	</mappers>
 </configuration>
