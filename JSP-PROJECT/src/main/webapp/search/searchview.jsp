@@ -136,6 +136,7 @@ body {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="searchAPI.js"></script>
 <body>
+<input type="hidden" value="${userid }">
 	<form id="searchFrm">
 		<div>
 			<input type="text" name="search" id="keyword" placeholder="검색하실 책 제목을 입력하세요">

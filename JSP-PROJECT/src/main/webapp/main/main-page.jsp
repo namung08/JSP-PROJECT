@@ -8,15 +8,16 @@
 <title>KSW 임시페이지</title>
 </head>
 <body> 
-<input type="hidden" value="${usersinfo.userid }">
+<input type="hidden" value="${userid }">
 	<div>
 		<a href="${pageContext.request.contextPath}/search/SearchView.bo">검색</a>
 	</div>
 	<c:choose>
-		<c:when test="${not empty usersinfo.userid }">
+		<c:when test="${not empty userid }">
 			<div>
-				${usersinfo.userid }님 안녕하세요.
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/login/LogOut.bo'">로그아웃</button>
+				${userid }님 안녕하세요.
+				<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a>
+				<a>마이페이지</a>
 			</div>
 		</c:when>
 		<c:otherwise>

@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 @WebServlet("*.bo")
@@ -23,10 +24,12 @@ public class WebBookStoreFrontController extends HttpServlet{
 	}
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestURI = req.getRequestURI();
+		HttpSession session = req.getSession();
         ActionForward forward = null;
         switch (requestURI) {
 		case "/search/SearchView.bo": 
-			forward = new ActionForward(true, "/search/searchview.jsp");
+			 forward = new SearchViewAction().execute(req, resp);
+			//forward = new ActionForward(true, "/search/searchview.jsp");
 			break;
 		case "/login/Sign-up-in.bo":
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");

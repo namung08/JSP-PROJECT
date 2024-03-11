@@ -10,11 +10,17 @@ import com.KSW.web.dto.BookDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class BookParamAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
+		// 세션에 아이디를 저장 하기 위한 세션 객체 생성
+		HttpSession session = req.getSession();
+		if(session.getAttribute("userid") != null) {
+		   String userid = (String)session.getAttribute("userid");
+		}
 		ActionForward forward = new ActionForward();
 		BookDTO bdto = new BookDTO();
 		bdto.setIsbn(req.getParameter("isbn"));
