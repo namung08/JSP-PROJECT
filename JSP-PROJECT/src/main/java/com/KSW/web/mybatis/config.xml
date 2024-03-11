@@ -23,15 +23,10 @@
 	</environments>
 
 	<mappers>
-<<<<<<< HEAD
-		<mapper resource="com/KSW/web/sql/member.xml"/>
-=======
-<<<<<<< HEAD
-		<mapper resource="com/codingbox/web/sql/search.xml" />
-=======
-		<mapper resource="com/codingbox/web/sql/member.xml"/>
->>>>>>> e61818087b42c21702a0ca7c79dabe64585607f0
+
+		<mapper resource="com/KSW/web/sql/search.xml" />
+
 		<mapper resource="com/KSW/web/sql/orderlist.xml"/>
->>>>>>> 537ad1d2c99379745b60b5849ef65545a4bd5802
+
 	</mappers>
 </configuration>
