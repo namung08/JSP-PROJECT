@@ -8,16 +8,20 @@ import com.KSW.web.dao.OrderlistDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class OrderListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		// 세션에 아이디를 저장 하기 위한 세션 객체 생성
+		HttpSession session = request.getSession();
+		String userid = (String) session.getAttribute("userid");
+		
 		ActionForward forward = new ActionForward();
 		OrderlistDAO bdao = new OrderlistDAO();
-		int totalCnt = bdao.getOrderCnt("ljw");
-		String username = bdao.getUserName("ljw");
-		String userid = "ljw";
+		int totalCnt = bdao.getOrderCnt(userid);
+		String username = bdao.getUserName(userid);
 		// 현재 페이지 넘겨받기
 		String temp = request.getParameter("page");
 		int page = 0;

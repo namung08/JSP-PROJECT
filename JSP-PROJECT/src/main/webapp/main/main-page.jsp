@@ -16,13 +16,13 @@
 		<c:when test="${not empty userid }">
 			<div>
 				${userid }님 안녕하세요.
-				<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a>
-				<a>마이페이지</a>
+				<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a><br>
+				<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a>
 			</div>
 		</c:when>
 		<c:otherwise>
 			<div>
-				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인하러 가기</a>
+				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인하러 가기</a><br>
 			</div>
 		</c:otherwise>
 	</c:choose>
