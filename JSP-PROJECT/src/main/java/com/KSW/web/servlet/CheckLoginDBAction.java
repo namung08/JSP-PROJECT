@@ -24,7 +24,6 @@ public class CheckLoginDBAction implements Action{
 		System.out.println("userpw : "+userpw);
 		if(udao.login(userid, userpw)) {
 			udto = udao.getparam(userid,userpw);
-			req.setAttribute("usersinfo", udto);
 			session.setAttribute("userid", udto.getUserid());
 			forward.setPath(req.getContextPath() + "/main/main-page.jsp");
 			forward.setRedirect(false);
