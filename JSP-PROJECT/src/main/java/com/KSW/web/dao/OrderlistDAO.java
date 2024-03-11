@@ -26,7 +26,6 @@ public class OrderlistDAO {
 		
 		List<OrderListDTO> OrderList 
 			= sqlSession.selectList("getOrderList", datas);
-		System.out.println(OrderList);
 		return OrderList;
 	}
 	
