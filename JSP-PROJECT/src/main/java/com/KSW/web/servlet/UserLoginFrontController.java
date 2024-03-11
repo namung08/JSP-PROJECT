@@ -28,7 +28,7 @@ public class UserLoginFrontController extends HttpServlet{
         switch (requestURI) {
 		case "/login/Sign-InDB.us": 
 			System.out.println("/login/Sign-InDB.us");
-			forward = new ActionForward(true, "/login/sign-indb.jsp");
+			forward = new CheckLoginDBAction().execute(req, resp);
 			break;
 		case "/login/Sign-up.us":
 			System.out.println("/login/Sign-up.us");

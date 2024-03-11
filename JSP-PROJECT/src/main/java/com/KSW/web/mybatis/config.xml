@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.KSW.web.dto.BookDTO" alias="boarddto" />
 		<typeAlias type="com.KSW.web.dto.OrderListDTO" alias="orderdto"/>
+		<typeAlias type="com.KSW.web.dto.UsersDTO" alias="usersdto"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,8 +26,7 @@
 	<mappers>
 
 		<mapper resource="com/KSW/web/sql/search.xml" />
-
 		<mapper resource="com/KSW/web/sql/orderlist.xml"/>
-
+		<mapper resource="com/KSW/web/sql/users.xml"/>
 	</mappers>
 </configuration>

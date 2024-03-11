@@ -30,6 +30,9 @@ public class WebBookStoreFrontController extends HttpServlet{
 			break;
 		case "/login/Sign-up-in.bo":
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");
+			break;
+		case "/login/LogOut.bo":
+			forward = new LogOutAction().execute(req, resp);
 		}
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {

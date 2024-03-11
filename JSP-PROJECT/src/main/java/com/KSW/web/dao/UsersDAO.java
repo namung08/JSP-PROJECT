@@ -36,16 +36,23 @@ public class UsersDAO {
 	}
 	
 	// 로그인 기능
-	public UsersDTO login(String userid, String userpw) {
-		UsersDTO users = null;
+	public boolean login(String userid, String userpw) {
+		boolean result = false;
+		HashMap<String, String> idpw = new HashMap<>();
+		idpw.put("userid", userid);
+		idpw.put("userpw", userpw);
+		if((Integer)sqlSession.selectOne("Users.loginboolean", idpw) == 1) {
+			result = true;
+		}
 		
-		HashMap<String,String> datas = new HashMap<String, String>();
-		datas.put("USERID", userid);
-		datas.put("USERPW", userpw);
-		
-		users = sqlSession.selectOne("Users.login", datas);
-		
-		return users;
+		return result;
+	}
+	
+	public UsersDTO getparam(String userid, String userpw) {
+		HashMap<String, String> idpw = new HashMap<>();
+		idpw.put("userid", userid);
+		idpw.put("userpw", userpw);
+		return sqlSession.selectOne("Users.login", idpw);
 	}
 	
 	// 로그인 확인 절차
@@ -86,6 +93,8 @@ public class UsersDAO {
 
         return userId;
    		}
+
+		
 
     // 다른 메서드들...
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,17 +79,26 @@ h1 {
 
 </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="logins.js"></script>
 <body>
+	<c:if test="${not empty param.flag}">
+		<c:if test="${not param.flag}">
+			<script>
+ 				alert("로그인 실패");
+ 			</script>
+		</c:if>
+	</c:if>
     <div class="login-container">
         <h1>KSW 로그인</h1>
-        <form method="post">
+        <form name="loginForm" id="loginForm" action="${pageContext.request.contextPath}/login/Sign-InDB.us" method="post">
             <input name="userid" id="userid" type="text" placeholder="아이디를 입력하세요">
             <input name="userpw" id="userpw" type="password" placeholder="비밀번호를 입력하세요">
-            <button type="button" id="login" name="login" onclick="location.href='${pageContext.request.contextPath}/login/Sign-InDB.us'">로그인</button>
-            <button type="button" id="signup" name="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
+            <button type="button" id="login">로그인</button>
+            <button type="button" id="signup" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up.us'" >회원가입</button>
             <div class="find-buttons">
-                <button type="button" id="findid" name="findid" onclick="location.href='${pageContext.request.contextPath}/login/Find-id.us'">아이디 찾기</button>
-                <button type="button" id="findpw" name="findpw" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.us'">비밀번호 찾기</button>
+                <button type="button" id="findid" onclick="location.href='${pageContext.request.contextPath}/login/Find-id.us'">아이디 찾기</button>
+                <button type="button" id="findpw" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.us'">비밀번호 찾기</button>
             </div>
         </form>
     </div>
