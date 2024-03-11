@@ -19,7 +19,6 @@ public class BookParamAction implements Action {
 		BookDTO bdto = new BookDTO();
 		bdto.setIsbn(req.getParameter("isbn"));
 		String description = req.getParameter("description");
-		description = description.replace("\n", "<br>");
 		bdto.setDescription(description);
 		bdto.setImage(req.getParameter("imageSrc"));
 		bdto.setTitle(req.getParameter("title"));
