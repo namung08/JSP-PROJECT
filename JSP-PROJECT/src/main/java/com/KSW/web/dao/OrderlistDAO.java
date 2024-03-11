@@ -26,12 +26,15 @@ public class OrderlistDAO {
 		
 		List<OrderListDTO> OrderList 
 			= sqlSession.selectList("getOrderList", datas);
-		System.out.println(OrderList);
 		return OrderList;
 	}
 	
 	public int getOrderCnt(String userid) {
 		return sqlSession.selectOne("getOrderCnt", userid);
+	}
+	
+	public String getUserName(String userid) {
+		return sqlSession.selectOne("getUserName", userid);
 	}
 	
 }

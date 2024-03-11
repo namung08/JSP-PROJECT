@@ -15,8 +15,9 @@ public class OrderListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		OrderlistDAO bdao = new OrderlistDAO();
-		int totalCnt = bdao.getOrderCnt("admin");
-		String userid = "admin";
+		int totalCnt = bdao.getOrderCnt("ljw");
+		String username = bdao.getUserName("ljw");
+		String userid = "ljw";
 		// 현재 페이지 넘겨받기
 		String temp = request.getParameter("page");
 		int page = 0;
@@ -39,6 +40,7 @@ public class OrderListAction implements Action {
 		request.setAttribute("OrderList", bdao.getOrderList(startRow, endRow, userid));
 		// 전체 구매내역의 갯수를 cnt ,
 		request.setAttribute("totalCnt", totalCnt);
+		request.setAttribute("username", username);
 		
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("nowPage", page);

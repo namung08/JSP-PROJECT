@@ -4,12 +4,15 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Orderlist">
 	<select id="getOrderList" resultType="orderdto" parameterType="hashmap">
-		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST ORDER BY ORDERNUM DESC) a) b
-		WHERE b.r BETWEEN#{startRow} AND #{endRow} AND b.USERID=#{userid}
+		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST WHERE USERID = #{userid} ORDER BY ORDERNUM DESC) a) b
+		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
 	<select id="getOrderCnt" resultType="_int" parameterType="String">
 		SELECT COUNT(*) FROM KSW_ORDERLIST WHERE USERID=#{userid}
 	</select>
 	
+	<select id="getUserName" resultType="String" parameterType="String">
+		SELECT username FROM KSW_USERS WHERE USERID=#{userid}
+	</select>
 </mapper>

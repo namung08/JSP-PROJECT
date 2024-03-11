@@ -33,10 +33,10 @@ table {
 	<div>
 		<table style="width: 900px; border: 1px;">
 			<tr align="center" valign="middle">
-				<td><h3>MVC 게시판</h3></td>
+				<td><h3>${username }님의 구매내역</h3></td>
 			</tr>
 			<tr align="right" valign="middle">
-				<td>총 구매내역 : ${totalCnt } 개</td>
+				<td>총 구매내역 : ${totalCnt} 개</td>
 			</tr>
 		</table>
 		<table border="1"
@@ -53,23 +53,23 @@ table {
 			<!-- 게시글 작성 : 게시글이 있는경우 -->
 			<c:choose>
 				<c:when test="${OrderList != null and fn:length(OrderList) > 0 }">
-					<c:forEach var="board" items="${OrderList }">
+					<c:forEach var="order" items="${OrderList }">
 						<tr align="center" valign="middle"
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
-							<td height="23px;">${OrderList.orderNum }</td>
-							<td height="23px;">${OrderList.image }</td>
-							<td height="23px;">${OrderList.title }</td>
-							<td height="23px;">${OrderList.discount }</td>
-							<td height="23px;">${OrderList.deliveryStatus }</td>
-							<td height="23px;">${OrderList.isbn }</td>
-							<td height="23px;">${OrderList.count }</td>
+							<td height="23px;">${order.orderNum }</td>
+							<td height="23px;">${order.image }</td>
+							<td height="23px;">${order.title }</td>
+							<td height="23px;">${order.discount }</td>
+							<td height="23px;">${order.deliveryStatus }</td>
+							<td height="23px;">${order.isbn }</td>
+							<td height="23px;">${order.count }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
 					<tr style="height: 50px;">
-		               <td colspan="5" style="text-align: center">
+		               <td colspan="7" style="text-align: center">
 		                  구매 내역이 없습니다.
 		               </td>
 		            </tr>
@@ -82,18 +82,18 @@ table {
 			<tr align="center" valign="middle" >
 				<td>
 					<c:if test="${nowPage > 1 }">
-						<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${nowPage -1}">[&lt;]</a>
+						<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${nowPage -1}">[&lt;]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
 						<c:choose>
 							<c:when test="${i == nowPage }">[${i }]</c:when>
 							<c:otherwise>
-								<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${i}">[${i}]</a>
+								<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${i}">[${i}]</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${nowPage < totalPage }">
-						<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${nowPage + 1}">[&gt;]</a>
+						<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${nowPage + 1}">[&gt;]</a>
 					</c:if>
 				</td>
 			</tr>
