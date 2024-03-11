@@ -4,11 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-<<<<<<< HEAD
-		<typeAlias type="com.KSW.web.dto.BookDTO"
-			alias="bookdto" />
-=======
->>>>>>> 8a79e100a090c6141314be639f991d6625824f18
+		<typeAlias type="com.KSW.web.dto.BookDTO" alias="bookdto" />
 		<typeAlias type="com.KSW.web.dto.OrderListDTO" alias="orderdto"/>
 	</typeAliases>
 	
@@ -25,12 +21,7 @@
 	</environments>
 	
 	<mappers>
-<<<<<<< HEAD
-		<mapper resource="com/codingbox/web/sql/search.xml" />
-		<mapper resource="com/codingbox/web/sql/member.xml"/>
-=======
 		<mapper resource="com/KSW/web/sql/member.xml"/>
->>>>>>> 8a79e100a090c6141314be639f991d6625824f18
 		<mapper resource="com/KSW/web/sql/orderlist.xml"/>
 	</mappers>
 </configuration>
