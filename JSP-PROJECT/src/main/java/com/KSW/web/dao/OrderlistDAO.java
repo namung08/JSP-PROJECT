@@ -25,13 +25,13 @@ public class OrderlistDAO {
 		datas.put("userid", userid);
 		
 		List<OrderListDTO> OrderList 
-			= sqlSession.selectList("Orderlist.getOrderlist", datas);
+			= sqlSession.selectList("getOrderList", datas);
 		System.out.println(OrderList);
 		return OrderList;
 	}
 	
 	public int getOrderCnt(String userid) {
-		return sqlSession.selectOne("Orderlist.getOrderCnt", userid);
+		return sqlSession.selectOne("getOrderCnt", userid);
 	}
 	
 }
