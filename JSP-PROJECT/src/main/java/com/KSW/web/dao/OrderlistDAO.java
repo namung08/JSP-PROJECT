@@ -1,4 +1,4 @@
-package com.KSW.web.DAO;
+package com.KSW.web.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,20 +25,13 @@ public class OrderlistDAO {
 		datas.put("userid", userid);
 		
 		List<OrderListDTO> OrderList 
-			= sqlSession.selectList("Orderlist.getOrderlist", datas);
+			= sqlSession.selectList("getOrderList", datas);
 		System.out.println(OrderList);
 		return OrderList;
 	}
 	
-//	public List<OrderListDTO> getOrderList(String userid) {
-//		List<OrderListDTO> OrderList = new ArrayList<OrderListDTO>();
-//		
-//		OrderList = sqlSession.selectList("Orderlist.getOrderlist", userid);
-//		return OrderList;
-//	}
-	
 	public int getOrderCnt(String userid) {
-		return sqlSession.selectOne("Orderlist.getOrderCnt", userid);
+		return sqlSession.selectOne("getOrderCnt", userid);
 	}
 	
 }
