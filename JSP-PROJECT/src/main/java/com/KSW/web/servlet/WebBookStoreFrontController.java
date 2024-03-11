@@ -25,8 +25,8 @@ public class WebBookStoreFrontController extends HttpServlet{
 		String requestURI = req.getRequestURI();
         ActionForward forward = null;
         switch (requestURI) {
-		case "/search/SearchDb.bo": 
-			forward = new ActionForward(true, "/search/searchdb.jsp");
+		case "/search/SearchView.bo": 
+			forward = new ActionForward(true, "/search/searchview.jsp");
 			break;
 		case "/login/Sign-up-in.bo":
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");

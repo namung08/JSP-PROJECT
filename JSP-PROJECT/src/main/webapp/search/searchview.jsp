@@ -116,7 +116,7 @@ body {
 
 #searchResult img {
     width: 100%; /* 이미지 너비를 ul에 맞춤 */
-    height: 50%; /* 이미지 비율 유지 */
+    height: 50%; /* 이미지 비율 유지 */  
     max-width: 150px; /* 최대 너비 설정 */
     margin-bottom: 10px; /* 이미지와 텍스트 사이의 마진 */
 }
