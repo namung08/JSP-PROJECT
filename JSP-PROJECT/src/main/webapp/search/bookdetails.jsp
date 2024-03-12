@@ -181,6 +181,10 @@ button {
     border: 1px solid #dcdcdc; /* 리뷰 경계선 스타일 */
     border-radius: 4px; /* 경계선 둥글게 */
 }
+a {
+	text-decoration: none;
+	color: inherit;
+}
 .header-flex {
 	display: flex;
 	flex-direction : row;

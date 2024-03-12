@@ -3,7 +3,10 @@ package com.KSW.web.servlet.Front;
 import java.io.IOException;
 
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.servlet.Action.BookParamAction;
+import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.LogOutAction;
+import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
 
 import jakarta.servlet.ServletException;
@@ -30,6 +33,7 @@ public class MainFrontController extends HttpServlet{
 		session.setAttribute("userid", session.getAttribute("userid"));
         ActionForward forward = null;
         switch (requestURI) {
+        // 메인페이지로 이동
         case "/main/main-page.bo" :
         	forward = new ActionForward(true, "/main/main-page.jsp");
         	break;
@@ -45,6 +49,34 @@ public class MainFrontController extends HttpServlet{
 			break;
 		case "/login/LogOut.bo":
 			forward = new LogOutAction().execute(req, resp);
+			break;
+		case "/myPage/OrderList.od":
+			forward = new OrderListAction().execute(req, resp);
+			break;
+		// 책 상세 페이지 이동
+		case "/search/bookDetails.se":
+        	forward = new BookParamAction().execute(req, resp);
+			break;
+		// 로그인
+		case "/login/Sign-InDB.us": 
+			System.out.println("/login/Sign-InDB.us");
+			forward = new CheckLoginDBAction().execute(req, resp);
+			break;
+		case "/login/Sign-up.us":
+			System.out.println("/login/Sign-up.us");
+			forward = new ActionForward(false, "/login/sign-up.jsp");
+			break;
+		// 아이디와 비밀번호 찾기
+		case "/login/Find-id.us":
+			System.out.println("/login/Find-id.us");
+			forward = new ActionForward(true, "/login/find-id.jsp");
+			break;
+		case "/login/Find-pw.us":
+			System.out.println("/login/Find-pw.us");
+			forward = new ActionForward(true, "/login/find-pw.jsp");
+			break;
+		case "/login/Sign-Up-Db.si": 
+			forward = new ActionForward(true, "");
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리
