@@ -8,9 +8,11 @@ import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
+import com.oracle.wls.shaded.org.apache.bcel.generic.NEW;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -37,17 +39,22 @@ public class MainFrontController extends HttpServlet{
         case "/main/main-page.bo" :
         	forward = new ActionForward(true, "/main/main-page.jsp");
         	break;
+        // 검색페이지로 이동
 		case "/search/SearchView.bo": 
+			// 검색페이지로 이동할 때에 userid 값을 가져가기 위한 코드 실행
 			 forward = new SearchViewAction().execute(req, resp);
 			//forward = new ActionForward(true, "/search/searchview.jsp");
 			break;
+		// 로그인 페이지로 이동
 		case "/login/Sign-up-in.bo":
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");
 			break;
 		case "/myPage/myPage.bo":
 			forward = new ActionForward(true, "/myPage/myPage.jsp");
 			break;
+		// 로그아웃
 		case "/login/LogOut.bo":
+			// 로그아웃을 위한 메서드
 			forward = new LogOutAction().execute(req, resp);
 			break;
 		case "/myPage/OrderList.bo":
@@ -63,13 +70,21 @@ public class MainFrontController extends HttpServlet{
 			forward = new CheckLoginDBAction().execute(req, resp);
 			break;
 		case "/login/Sign-up.bo":
-			System.out.println("/login/Sign-up.us");
 			forward = new ActionForward(false, "/login/sign-up.jsp");
 			break;
-		// 아이디와 비밀번호 찾기
+		// 아이디 찾기 페이지로 이동
 		case "/login/Find-id.bo":
 			System.out.println("/login/Find-id.us");
-			forward = new ActionForward(true, "/login/find-id.jsp");
+			forward = new ActionForward(false, "/login/find-id.jsp");
+			break;
+		// 아이디 찾기 액션
+		case "/login/FindId.bo" :
+			System.out.println("아이디 찾기 시작");
+			forward = new FindIdAction().execute(req, resp);
+			break;
+		// 아이디 찾기 결과 페이지 이동
+		case "/login/FindIdResult.bo":
+			forward = new ActionForward(false, "/login/find-id-result.jsp");
 			break;
 		case "/login/Find-pw.bo":
 			System.out.println("/login/Find-pw.us");

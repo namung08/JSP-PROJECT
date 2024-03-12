@@ -9,6 +9,12 @@
 	<select id="loginboolean" parameterType="hashmap" resultType="_int" >
 			SELECT count(*) FROM KSW_USERS WHERE USERID = #{userid} and USERPW = #{userpw}
 	</select>
+	<select id="findid" parameterType="hashmap" resultType="_int">
+			SELECT COUNT(*) FROM KSW_USERS WHERE USERNAME = #{username} AND USEREMAIL = #{useremail}
+	</select>
+	<select id="getid" parameterType="hashmap" resultType="String">
+			SELECT USERID FROM KSW_USERS WHERE USERNAME = #{username} AND USEREMAIL = #{useremail}
+	</select>
 </mapper>
  
  

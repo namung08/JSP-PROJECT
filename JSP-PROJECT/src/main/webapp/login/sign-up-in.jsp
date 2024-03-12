@@ -127,29 +127,12 @@ a {
 
 <body>
 	<header>
-		<input type="hidden" value="${userid }">
 		<div class="header-flex">
 		   <div class="header-left">
 		      <h2>
 		         <a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
 		      </h2>
 		   </div>
-		   <c:choose>
-		      <c:when test="${not empty userid}">
-		         <div class="header-right">
-		            <div>${userid }님 안녕하세요.</div>
-		            <div class="header-menu" >
-		               <div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
-		               <div><a>마이페이지</a></div>
-		            </div>
-		         </div>
-		      </c:when>
-		      <c:otherwise>
-		         <div class="header-right">
-		            <a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-		         </div>
-		      </c:otherwise>
-		   </c:choose>
 		</div>
 	</header>
 	<c:if test="${not empty param.flag}">

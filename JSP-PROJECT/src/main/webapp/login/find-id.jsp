@@ -53,14 +53,11 @@
             opacity: 0.9;
         }
     </style>
-    <script>
-        function displayFoundId(userId) {
-            alert("찾은 아이디: " + userId);
-        }
-    </script>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="findid.js"></script>
 <body>
-<form class="form-horizontal" role="form" method="POST" action="starters?cmd=findIdAction">
+<form class="form-horizontal" role="form" method="POST" action="${pageContext.request.contextPath}/login/FindId.bo">
 	<h3 style="text-align: center;">아이디 찾기</h3>
     <div class="row">
         <div class="col-md-10 inputbb">
@@ -82,9 +79,10 @@
     </div>
     <div class="row">
         <div class="col-md-10 inputbb">
-            <button type="submit" class="btn btn-outline-secondary findbtn" onclick="displayFoundId('사용자아이디')">찾기</button>
+            <button type="submit" class="btn btn-outline-secondary findbtn">찾기</button>
         </div>
     </div>
 </form>
 </body>
+
 </html>

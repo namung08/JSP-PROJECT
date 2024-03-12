@@ -66,33 +66,32 @@ public class UsersDAO {
 		return result;
 	}
 	
-	 // 사용자 이름과 이메일로 사용자 아이디를 찾는 메서드
-   		public String findUserIdByNameAndEmail(String name, String email) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        String userId = null;
-        
-        try {
-            conn = getConnection(); // getConnection() 메서드는 데이터베이스 연결을 반환하는 것으로 가정합니다.
 
-            String query = "SELECT userid FROM users WHERE name = ? AND email = ?";
-            pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, name);
-            pstmt.setString(2, email);
-            rs = pstmt.executeQuery();
+	public boolean findId(String username, String useremail) {
+		boolean result = false;
+		HashMap<String, String> data = new HashMap<String, String>();
+		data.put("username", username);
+		data.put("useremail", useremail);
+		
+		if((Integer)sqlSession.selectOne("Users.findid",data) == 1) {
+			System.out.println("아이디 찾기 성공");
+			result = true;
+		} else {
+			System.out.println("아이디 찾기 실패");
+		}
+		
+		return result;
+	}
 
-            if (rs.next()) {
-                userId = rs.getString("userid");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // 리소스 해제 코드들...
-        }
-
-        return userId;
-   		}
+	public String getid(String username, String useremail) {
+		String id = null;
+		HashMap<String, String> data = new HashMap<String, String>();
+		data.put("username", username);
+		data.put("useremail", useremail);
+		id = sqlSession.selectOne("Users.getid",data);
+		
+		return id;
+	}
 
 		
 
