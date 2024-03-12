@@ -127,7 +127,7 @@ $(document).on('click', 'ul', function() {
 
 	// form 속성을 설정합니다.
 	form.attr('method', 'post');
-	form.attr('action',  '/search/bookDetails.se');
+	form.attr('action',  '/search/bookDetails.bo');
 
 	// 필드를 생성하고 값을 설정합니다.
 	form.append('<input type="hidden" name="isbn" value="' + isbn + '">');

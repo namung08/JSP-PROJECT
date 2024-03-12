@@ -50,32 +50,32 @@ public class MainFrontController extends HttpServlet{
 		case "/login/LogOut.bo":
 			forward = new LogOutAction().execute(req, resp);
 			break;
-		case "/myPage/OrderList.od":
+		case "/myPage/OrderList.bo":
 			forward = new OrderListAction().execute(req, resp);
 			break;
 		// 책 상세 페이지 이동
-		case "/search/bookDetails.se":
+		case "/search/bookDetails.bo":
         	forward = new BookParamAction().execute(req, resp);
 			break;
 		// 로그인
-		case "/login/Sign-InDB.us": 
+		case "/login/Sign-InDB.bo": 
 			System.out.println("/login/Sign-InDB.us");
 			forward = new CheckLoginDBAction().execute(req, resp);
 			break;
-		case "/login/Sign-up.us":
+		case "/login/Sign-up.bo":
 			System.out.println("/login/Sign-up.us");
 			forward = new ActionForward(false, "/login/sign-up.jsp");
 			break;
 		// 아이디와 비밀번호 찾기
-		case "/login/Find-id.us":
+		case "/login/Find-id.bo":
 			System.out.println("/login/Find-id.us");
 			forward = new ActionForward(true, "/login/find-id.jsp");
 			break;
-		case "/login/Find-pw.us":
+		case "/login/Find-pw.bo":
 			System.out.println("/login/Find-pw.us");
 			forward = new ActionForward(true, "/login/find-pw.jsp");
 			break;
-		case "/login/Sign-Up-Db.si": 
+		case "/login/Sign-Up-Db.bo": 
 			forward = new ActionForward(true, "");
 			break;
 		}

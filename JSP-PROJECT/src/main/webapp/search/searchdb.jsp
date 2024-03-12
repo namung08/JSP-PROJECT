@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/search/SearchDb.se"></form>
+	<form action="${pageContext.request.contextPath}/search/SearchDb.bo"></form>
 </body>
 </html>
