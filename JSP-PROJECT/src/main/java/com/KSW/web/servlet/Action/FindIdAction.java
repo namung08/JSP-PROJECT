@@ -1,4 +1,4 @@
-package com.KSW.web.servlet.Front;
+package com.KSW.web.servlet.Action;
 
 import java.net.HttpCookie;
 import java.util.HashMap;

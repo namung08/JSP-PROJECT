@@ -5,6 +5,8 @@ import java.io.IOException;
 import com.KSW.web.action.ActionForward;
 import com.KSW.web.servlet.Action.BookParamAction;
 import com.KSW.web.servlet.Action.CheckLoginDBAction;
+import com.KSW.web.servlet.Action.FindIdAction;
+import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
@@ -86,12 +88,18 @@ public class MainFrontController extends HttpServlet{
 		case "/login/FindIdResult.bo":
 			forward = new ActionForward(false, "/login/find-id-result.jsp");
 			break;
+		// 비밀번호 찾기 페이지로 이동
 		case "/login/Find-pw.bo":
 			System.out.println("/login/Find-pw.us");
-			forward = new ActionForward(true, "/login/find-pw.jsp");
+			forward = new ActionForward(false, "/login/find-pw.jsp");
 			break;
-		case "/login/Sign-Up-Db.bo": 
-			forward = new ActionForward(true, "");
+		// 비밀번호 찾기 액션
+		case "/login/FindPw.bo":
+			forward = new FindPwAction().execute(req, resp);
+			break;
+		// 비밀번호 찾기 결과 페이지 이동
+		case "/login/FindPwResult.bo": 
+			forward = new ActionForward(false, "/login/find-pw-result.jsp");
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

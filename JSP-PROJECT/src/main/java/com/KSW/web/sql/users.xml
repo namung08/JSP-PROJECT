@@ -15,6 +15,12 @@
 	<select id="getid" parameterType="hashmap" resultType="String">
 			SELECT USERID FROM KSW_USERS WHERE USERNAME = #{username} AND USEREMAIL = #{useremail}
 	</select>
+	<select id="findpw" parameterType="hashmap" resultType="_int">
+			SELECT COUNT(*) FROM KSW_USERS WHERE USERNAME = #{username} AND USERID = #{userid} AND USEREMAIL = #{useremail} 
+	</select>
+	<select id="getpw" parameterType="hashmap" resultType="String">
+			SELECT USERPW FROM KSW_USERS WHERE USERNAME = #{username} AND USERID = #{userid} AND USEREMAIL = #{useremail} 
+	</select>
 </mapper>
  
  

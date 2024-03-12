@@ -93,6 +93,31 @@ public class UsersDAO {
 		return id;
 	}
 
+	public boolean findpw(String username, String userid, String useremail) {
+		boolean result = false;
+		HashMap<String, String> data = new HashMap<String, String>();
+		data.put("username", username);
+		data.put("userid", userid);
+		data.put("useremail", useremail);
+		if((Integer)sqlSession.selectOne("Users.findpw",data) == 1) {
+			System.out.println("비밀번호 찾기 성공");
+			result = true;
+		} else {
+			System.out.println("비밀번호 찾기 실패");
+		}
+		return result;
+	}
+
+	public String getpw(String username, String userid, String useremail) {
+		String pw = null;
+		HashMap<String, String> data = new HashMap<String, String>();
+		data.put("username", username);
+		data.put("userid", userid);
+		data.put("useremail", useremail);
+		pw = sqlSession.selectOne("Users.getpw",data);
+		return pw;
+	}
+
 		
 
     // 다른 메서드들...
