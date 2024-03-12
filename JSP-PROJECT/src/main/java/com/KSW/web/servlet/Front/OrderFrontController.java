@@ -1,14 +1,16 @@
-package com.KSW.web.servlet;
+package com.KSW.web.servlet.Front;
 
 import java.io.IOException;
 
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.servlet.Action.OrderListAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("*.od")
 public class OrderFrontController extends HttpServlet{
@@ -24,6 +26,8 @@ public class OrderFrontController extends HttpServlet{
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestRUI = req.getRequestURI();
 		ActionForward forward = null;
+		HttpSession session = req.getSession();
+		session.setAttribute("userid", session.getAttribute("userid"));
 		
 		switch (requestRUI) {
 		case "/myPage/OrderList.od":

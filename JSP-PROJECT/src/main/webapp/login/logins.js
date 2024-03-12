@@ -27,15 +27,15 @@ function login(e) {
 		userpw.focus();
 		return false;
 	}
-	sessionStorage.setItem("userid",userid.value);
+	/*sessionStorage.setItem("userid",userid.value);
 	sessionStorage.setItem("userpw",userpw.value);
     // 기존 코드 유지...
-//    e.preventDefault();
-  //  var password = document.getElementById('userpw').value;
-//    var hashedPassword = CryptoJS.SHA256(password).toString();
+    e.preventDefault();
+    var password = document.getElementById('userpw').value;
+    var hashedPassword = CryptoJS.SHA256(password).toString();
     // hashedPassword를 hidden 필드에 설정
-//    document.getElementById('hashedPassword').value = hashedPassword;
-    // 원본 비밀번호 필드를 비움
+    document.getElementById('hashedPassword').value = hashedPassword;
+    // 원본 비밀번호 필드를 비움*/
     
     loginForm.submit();
 //    document.getElementById('userpw').valu ;

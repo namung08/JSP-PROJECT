@@ -1,4 +1,4 @@
-package com.KSW.web.servlet;
+package com.KSW.web.servlet.Action;
 
 import java.awt.print.Pageable;
 

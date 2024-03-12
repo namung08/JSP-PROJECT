@@ -61,6 +61,11 @@ button {
     width: 49%; /* Adjust width to fit in one line */
 }
 
+#goMainPage {
+	background-color: #e7e7e7;
+	color: #333;
+}
+
 button:hover {
     opacity: 0.9;
 }
@@ -92,7 +97,7 @@ h1 {
 		</c:if>
 	</c:if>
     <div class="login-container">
-        <h1>KSW 로그인</h1>
+    	<h1>K S W 로그인</h1>
         <form name="loginForm" id="loginForm" action="${pageContext.request.contextPath}/login/Sign-InDB.us" method="post">
             <input name="userid" id="userid" type="text" placeholder="아이디를 입력하세요">
             <input name="userpw" id="userpw" type="password" placeholder="비밀번호를 입력하세요">
@@ -104,7 +109,9 @@ h1 {
                 <button type="button" id="findid" onclick="location.href='${pageContext.request.contextPath}/login/Find-id.us'">아이디 찾기</button>
                 <button type="button" id="findpw" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.us'">비밀번호 찾기</button>
             </div>
+            <button type="button" id="goMainPage" onclick="location.href='${pageContext.request.contextPath}/main/main-page.bo'" >메인 페이지로</button>
         </form>
+        
     </div>
 </body>
 </html>

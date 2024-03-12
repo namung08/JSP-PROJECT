@@ -181,12 +181,62 @@ button {
     border: 1px solid #dcdcdc; /* 리뷰 경계선 스타일 */
     border-radius: 4px; /* 경계선 둥글게 */
 }
-
+.header-flex {
+	display: flex;
+	flex-direction : row;
+	align-items: center;
+	justify-content: space-between;
+	padding : 10px 40px;
+}
+.header-left {
+	color: #007bff;
+}
+.header-right {
+	display:flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	border: 1px #007bff solid;
+	padding: 10px
+}
+.header-menu {
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	justify-content: space-between;
+	margin-top: 10px;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="bookdetail.js"></script>
 </head>
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+		<h2>
+			<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
+		</h2>
+	</div>
+	<c:choose>
+		<c:when test="${not empty userid}">
+			<div class="header-right">
+				<div>${userid }님 안녕하세요.</div>
+				<div class="header-menu" >
+					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+					<div><a>마이페이지</a></div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="header-right">
+				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
+			</div>
+		</c:otherwise>
+	</c:choose>
+</div>
+</header>
 <body>
 	<div class="container">
 		<div class="book-detail">

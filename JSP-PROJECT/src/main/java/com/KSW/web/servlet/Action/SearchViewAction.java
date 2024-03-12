@@ -1,4 +1,4 @@
-package com.KSW.web.servlet;
+package com.KSW.web.servlet.Action;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
@@ -15,6 +15,7 @@ public class SearchViewAction implements Action{
 		HttpSession session = req.getSession();
 		if(session.getAttribute("userid") != null) {
 			String userid = (String)session.getAttribute("userid");
+			session.setAttribute("userid", userid);
 			System.out.println(userid);
 		} else {
 			System.out.println("아이디 값 없음");

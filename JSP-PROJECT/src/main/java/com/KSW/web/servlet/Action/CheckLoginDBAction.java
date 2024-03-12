@@ -1,4 +1,4 @@
-package com.KSW.web.servlet;
+package com.KSW.web.servlet.Action;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
@@ -24,11 +24,6 @@ public class CheckLoginDBAction implements Action{
 		System.out.println("userpw : "+userpw);
 		if(udao.login(userid, userpw)) {
 			udto = udao.getparam(userid,userpw);
-<<<<<<< HEAD
-			session.setAttribute("userpw", userpw);
-			req.setAttribute("usersinfo", udto);
-=======
->>>>>>> f668e1406fb87a4931d40d6542700016dec40abe
 			session.setAttribute("userid", udto.getUserid());
 			forward.setPath(req.getContextPath() + "/main/main-page.jsp");
 			forward.setRedirect(true);
