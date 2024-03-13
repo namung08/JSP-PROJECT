@@ -74,7 +74,7 @@ public class SignUpAction implements Action{
 		// 이메일
 		udto.setUseremail(useremail);
 		if(udao.insertJoin(udto)) {
-			forward.setPath(req.getContextPath() + "/search/bookdetails.jsp");
+			forward.setPath(req.getContextPath() + "/login/Sign-Up-result.bo");
 			forward.setRedirect(true);
 		}
 		

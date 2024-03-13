@@ -36,7 +36,7 @@ form {
     align-items: center;
 	align-self: center;
 }
-#login-page {
+#login-page, #main-page {
     background-color: #4CAF50;
     width: 49%;
 }
@@ -81,6 +81,15 @@ a {
    justify-content: space-between;
    margin-top: 10px;
 }
+.page-function {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+.result {
+	padding-bottom: 20px;
+}
 </style>
 <body>
 	<header>
@@ -92,32 +101,11 @@ a {
 		   </div>
 		</div>
 	</header>
-	<form action="">
-		<div class="id_find_result">
-			<c:choose>
-				<c:when test="${not empty userid }">
-					<div>
-						<p>회원님의 아이디는 <strong>'${userid }'</strong> 입니다.</p>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<div>
-						<p>검색 결과가 없습니다.</p>
-						<p>이름 혹은 이메일을 다시 확인해 주세요.</p>
-					</div>
-				</c:otherwise>
-			</c:choose>
-			<div class="button-row">
-				<c:choose>
-					<c:when test="${not empty userid }">
-						<button id="findid" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.bo'">비밀번호 찾기</button>
-					</c:when>
-					<c:otherwise>
-					`	<button id="findpw" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Find-id.bo'">아이디 찾기</button>
-					</c:otherwise>
-				</c:choose>
-				<button id="login-page" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up-in.bo'">로그인</button>
-			</div>
+	<form>
+		<strong class="result">회원가입을 완료하였습니다.</strong>
+		<div class="page-function">
+			<button type="button" id="main-page" onclick="location.href='${pageContext.request.contextPath}/main/main-page.bo'">메인페이지</button>
+			<button type="button" id="login-page" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up-in.bo'">로그인</button>
 		</div>
 	</form>
 </body>
