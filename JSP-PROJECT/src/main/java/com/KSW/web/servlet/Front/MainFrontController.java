@@ -10,6 +10,7 @@ import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
+import com.KSW.web.servlet.Action.UserInfoCheckAction;
 import com.oracle.wls.shaded.org.apache.bcel.generic.NEW;
 
 import jakarta.servlet.ServletException;
@@ -68,7 +69,6 @@ public class MainFrontController extends HttpServlet{
 			break;
 		// 로그인
 		case "/login/Sign-InDB.bo": 
-			System.out.println("/login/Sign-InDB.us");
 			forward = new CheckLoginDBAction().execute(req, resp);
 			break;
 		case "/login/Sign-up.bo":
@@ -100,6 +100,12 @@ public class MainFrontController extends HttpServlet{
 		// 비밀번호 찾기 결과 페이지 이동
 		case "/login/FindPwResult.bo": 
 			forward = new ActionForward(false, "/login/find-pw-result.jsp");
+			break;
+		case "/myPage/UserInfoCheck.bo": 
+			forward = new ActionForward(false, "/myPage/UserInfoCheck.jsp");
+			break;
+		case "/myPage/UserInfoChange.bo": 
+			forward = new UserInfoCheckAction().execute(req, resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

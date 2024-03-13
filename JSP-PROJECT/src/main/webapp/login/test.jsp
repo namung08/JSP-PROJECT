@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-test
+	<div>
+		${userid }님 안녕하세요. 
+		<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a><br>
+		<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a>
+	</div>
 </body>
 </html>

@@ -40,9 +40,7 @@ public class OrderListAction implements Action {
 		endPage = endPage> totalPage ? totalPage : endPage;
 		
 		
-		// DAO 객체생성, getOrderList(),  DB select
 		request.setAttribute("OrderList", bdao.getOrderList(startRow, endRow, userid));
-		// 전체 구매내역의 갯수를 cnt ,
 		request.setAttribute("totalCnt", totalCnt);
 		request.setAttribute("username", username);
 		
@@ -51,7 +49,7 @@ public class OrderListAction implements Action {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		// forward방식으로 페이지 이동 -> boardlist.jsp
+		// forward방식으로 페이지 이동
 		forward.setRedirect(false);
 		forward.setPath(request.getContextPath() + "/myPage/OrderList.jsp");
 		

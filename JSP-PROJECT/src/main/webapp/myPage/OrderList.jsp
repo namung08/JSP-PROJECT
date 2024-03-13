@@ -36,6 +36,9 @@ table {
 				<td><h3>${username }(${userid })님의 구매내역</h3></td>
 			</tr>
 			<tr align="right" valign="middle">
+				<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
+			</tr>
+			<tr align="right" valign="middle">
 				<td>총 구매내역 : ${totalCnt} 개</td>
 			</tr>
 		</table>
@@ -82,18 +85,18 @@ table {
 			<tr align="center" valign="middle" >
 				<td>
 					<c:if test="${nowPage > 1 }">
-						<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${nowPage -1}">[&lt;]</a>
+						<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${nowPage -1}">[&lt;]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
 						<c:choose>
 							<c:when test="${i == nowPage }">[${i }]</c:when>
 							<c:otherwise>
-								<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${i}">[${i}]</a>
+								<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${i}">[${i}]</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${nowPage < totalPage }">
-						<a href="${pageContext.request.contextPath }/myPage/OrderList.od?page=${nowPage + 1}">[&gt;]</a>
+						<a href="${pageContext.request.contextPath }/myPage/OrderList.bo?page=${nowPage + 1}">[&gt;]</a>
 					</c:if>
 				</td>
 			</tr>
