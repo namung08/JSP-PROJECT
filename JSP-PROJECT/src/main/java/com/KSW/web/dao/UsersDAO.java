@@ -118,6 +118,14 @@ public class UsersDAO {
 		return pw;
 	}
 
+	public boolean insertJoin(UsersDTO udto) {
+		boolean result = false;
+		if(sqlSession.insert("Users.join",udto) == 1) {
+			result = true;
+		}
+		return result;
+	}
+
 		
 
     // 다른 메서드들...
