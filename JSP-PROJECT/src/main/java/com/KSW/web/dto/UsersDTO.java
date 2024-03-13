@@ -5,7 +5,7 @@ import java.util.Date;
 public class UsersDTO {
 	private String userid;		//유저 아이디
 	private String userpw;		//유저 비밀번호
-	private String username;	//유저이름
+	private String username;	//유저 이름
 	private Date userbirth;		//유저 생년월일
 	private String userphone;	//유저 전화번호
 	private String useraddr;	//유저 주소

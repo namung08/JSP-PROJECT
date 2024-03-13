@@ -10,7 +10,11 @@ import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
+<<<<<<< HEAD
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
+=======
+import com.KSW.web.servlet.Action.SignUpAction;
+>>>>>>> 4a814d528cbf36ecd439fedcf875f43556f6c43c
 import com.oracle.wls.shaded.org.apache.bcel.generic.NEW;
 
 import jakarta.servlet.ServletException;
@@ -71,8 +75,17 @@ public class MainFrontController extends HttpServlet{
 		case "/login/Sign-InDB.bo": 
 			forward = new CheckLoginDBAction().execute(req, resp);
 			break;
+		// 화원가입 페이지로 이동
 		case "/login/Sign-up.bo":
 			forward = new ActionForward(false, "/login/sign-up.jsp");
+			break;
+		// 회원가입 버튼 클릭 액션
+		case "/login/Sign-Up.bo":
+			forward = new SignUpAction().execute(req, resp);
+			break;
+		// 회원가입 완료 시 이동 페이지
+		case "/login/Sign-Up-result.bo":
+			forward = new ActionForward(true, "/login/find-id-result.jsp");
 			break;
 		// 아이디 찾기 페이지로 이동
 		case "/login/Find-id.bo":
