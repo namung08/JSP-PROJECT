@@ -82,7 +82,7 @@ public class MainFrontController extends HttpServlet{
 			break;
 		// 회원가입 완료 시 이동 페이지
 		case "/login/Sign-Up-result.bo":
-			forward = new ActionForward(true, "/login/find-id-result.jsp");
+			forward = new ActionForward(true, "/login/sign-up-result.jsp");
 			break;
 		// 아이디 찾기 페이지로 이동
 		case "/login/Find-id.bo":
