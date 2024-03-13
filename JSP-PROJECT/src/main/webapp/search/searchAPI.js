@@ -121,6 +121,10 @@ $(document).on('click', 'ul', function() {
     var author = ulElement.find('li[name="author"]').text().replace('저자 : ', '');
     var publisher = ulElement.find('li[name="publisher"]').text().replace('출판사 : ', '');
     var discount = ulElement.find('li[name="discount"]').text().replace('가격 : ', '');
+    if(discount == ' 0원') {
+		alert("해당 책은 판매하지 않습니다. 다른 책을 골라 주세요");
+		return false;
+	}
     var pubdate = ulElement.find('li[name="pubdate"]').text().replace('출간일 : ', '');
 	// 새 form 엘리먼트를 생성합니다.
 	var form = $('<form></form>');

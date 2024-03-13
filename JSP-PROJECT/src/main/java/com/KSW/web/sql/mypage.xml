@@ -15,4 +15,7 @@
 	<select id="getUserName" resultType="String" parameterType="String">
 		SELECT username FROM KSW_USERS WHERE USERID=#{userid}
 	</select>
+	<insert id="setCart" parameterType="cartdto">
+		INSERT INTO KSW_CART VALUES (cart_seq.nextval,#{userId},#{title},#{discount},#{image},#{isbn},1)
+	</insert>
 </mapper>

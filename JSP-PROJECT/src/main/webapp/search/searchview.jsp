@@ -188,7 +188,7 @@ a {
 				<div>${userid }님 안녕하세요.</div>
 				<div class="header-menu" >
 					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
-					<div><a>마이페이지</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
 				</div>
 			</div>
 		</c:when>

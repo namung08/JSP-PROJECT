@@ -7,6 +7,7 @@ import com.KSW.web.servlet.Action.BookParamAction;
 import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.FindIdAction;
 import com.KSW.web.servlet.Action.FindPwAction;
+import com.KSW.web.servlet.Action.InsertCartAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
@@ -117,6 +118,8 @@ public class MainFrontController extends HttpServlet{
 		case "/myPage/UserInfoChange.bo": 
 			forward = new UserInfoCheckAction().execute(req, resp);
 			break;
+		case "/myPage/insertCart.bo":
+			forward = new InsertCartAction().execute(req, resp);
 		}
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {

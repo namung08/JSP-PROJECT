@@ -229,7 +229,7 @@ a {
 				<div>${userid }님 안녕하세요.</div>
 				<div class="header-menu" >
 					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
-					<div><a>마이페이지</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
 				</div>
 			</div>
 		</c:when>
@@ -242,6 +242,7 @@ a {
 </div>
 </header>
 <body>
+<input type="hidden" id="isbn" value="${bookdetails.isbn}">
 	<div class="container">
 		<div class="book-detail">
 			<div class="topColLeft book-cover">
@@ -256,7 +257,7 @@ a {
 					<table>
 						<tr>
 							<th align="left">가격</th>
-							<td align="center">${bookdetails.discount}</td>
+							<td id="bk_dis" align="center">${bookdetails.discount}</td>
 						</tr>
 						<tr>
 							<th align="left">저자</th>
@@ -274,8 +275,8 @@ a {
 					</table>
 				</div>
 				<div class="button">
-					<button type="button" class="button-primary">장바구니 담기</button>
-					<button type="button" class="button-primary">구매하기</button>
+					<button type="button" id="cart" class="button-primary">장바구니 담기</button>
+					<button type="button" id="buy" class="button-primary">구매하기</button>
 				</div>
 			</div>
 
