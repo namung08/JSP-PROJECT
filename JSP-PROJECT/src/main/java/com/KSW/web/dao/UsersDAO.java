@@ -55,16 +55,17 @@ public class UsersDAO {
 		return sqlSession.selectOne("Users.login", idpw);
 	}
 	
-	// 로그인 확인 절차
-	public boolean checkid(String userid) {
+	// 아이디 중복체크
+	public boolean CheckId(String userid) {
 		boolean result = false;
 		int cnt = 0;
-		cnt = sqlSession.selectOne("Users.checkId",userid);
+		cnt = sqlSession.selectOne("Users.CheckId",userid);
 		if(cnt >= 1) {
 			result = true;
 		}
 		return result;
 	}
+
 	
 
 	public boolean findId(String username, String useremail) {

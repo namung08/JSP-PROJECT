@@ -58,3 +58,31 @@ function joinsubmit() {
 	document.getElementById('sample4_postcode').disabled = false;
 	signupForm.submit();
 }
+function CheckId(userid){
+	
+	if( userid == "" ){
+		alert("아이디를 입력해주세요");
+		return false;
+	} else {
+		$.ajax({
+			type 	: 'post',
+			url		: 'idcheck.jsp',
+			data	: { "userid" : userid },
+			async	: true,	
+			success	: function(result){
+				if(result.trim() == "ok"){
+
+				document.getElementById("idcheck").innerHTML
+				="사용가능한 아이디입니다."
+				} else {
+				document.getElementById("idcheck").innerHTML
+				= "중복된 아이디입니다."
+				}
+			},
+			error	: function(result, status, error){		// 실패시 콜백함수
+				console.log(error);
+			}
+		});
+
+	}
+}

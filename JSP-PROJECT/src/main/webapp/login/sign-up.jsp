@@ -135,8 +135,7 @@ a {
 			</div>
 			<!-- 사용자 아이디 작성 -->
 			<div class="input-id">
-				<input type="text" id="userid" name="userid" placeholder="사용자 아이디"
-					required>
+				<input type="text" id="btn" name="userid" placeholder="사용자 아이디" required>
 				<button class="btn" type="button" id="dbchkId" name="dbchkId"
 					onclick="fn_dbchkId()">중복확인</button>
 			</div>
