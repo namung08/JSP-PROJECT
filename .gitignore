@@ -1,3 +1,6 @@
 /.metadata/
 Servers/Tomcat v10.1 Server at localhost-config/catalina.properties
 Servers/
+/build/
+/.metadata/
+/.settings/
