@@ -10,11 +10,8 @@ import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
-<<<<<<< HEAD
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
-=======
 import com.KSW.web.servlet.Action.SignUpAction;
->>>>>>> 4a814d528cbf36ecd439fedcf875f43556f6c43c
 import com.oracle.wls.shaded.org.apache.bcel.generic.NEW;
 
 import jakarta.servlet.ServletException;
