@@ -64,7 +64,7 @@ input[type="submit"]:hover {
 	flex-direction: row;
 }
 
-.btn, .idcheck-btn{
+.btn {
 	margin-bottom: 10px;
 	background-color: #007bff;
 	padding: 10px;
@@ -72,9 +72,6 @@ input[type="submit"]:hover {
 	border: none;
 	border-radius: 3px;
 	cursor: pointer;
-}
-.idcheck-btn {
-	width: 33%;
 }
 
 #dbchkId {
@@ -139,9 +136,9 @@ a {
 			</div>
 			<!-- 사용자 아이디 작성 -->
 			<div class="input-id">
-				<input type="text" id="userid" name="userid" placeholder="사용자 아이디(6자리 이상)"
+				<input type="text" id="userid" name="userid" placeholder="사용자 아이디"
 					required>
-				<button class="idcheck-btn" type="button"  name="idcheck"
+				<button class="btn" type="button"  name="idcheck"
 					onclick="CheckId(joinForm.userid.value)">중복확인</button>
 			</div>
 			<span id = "idcheck"></span>

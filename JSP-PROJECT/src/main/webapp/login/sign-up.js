@@ -107,15 +107,15 @@ function CheckId(userid){
 			data	: { userid : userid },
 			async	: true,	
 			success	: function(result){
-				if(result.trim() == "ok"){
-
-				document.getElementById("idcheck").innerHTML
-				="사용가능한 아이디입니다."
-				} else {
-				document.getElementById("idcheck").innerHTML
-				= "중복된 아이디입니다."
-				}
-			},
+				var idcheckMessage = document.getElementById("idcheck");
+                if(result.trim() == "ok"){
+                    idcheckMessage.innerText = "사용 가능한 아이디입니다.";
+                    idcheckMessage.style.color = "green"; // 초록색으로 표시
+                } else {
+                    idcheckMessage.innerText = "중복된 아이디입니다.";
+                    idcheckMessage.style.color = "red"; // 빨간색으로 표시
+                }
+            },
 			error	: function(result, status, error){		// 실패시 콜백함수
 				console.log(error);
 			}
