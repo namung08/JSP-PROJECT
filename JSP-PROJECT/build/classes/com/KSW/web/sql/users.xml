@@ -6,6 +6,7 @@
 	<insert id="join" parameterType="usersdto" >
 		INSERT INTO KSW_USERS VALUES (#{userid},#{userpw},#{username},#{userbirth},#{userphone},#{useraddr},#{useremail})
 	</insert>
+	
 	<select id="login" parameterType="hashmap" resultType="usersdto" >
 			SELECT * FROM KSW_USERS WHERE USERID = #{userid} and USERPW = #{userpw}
 	</select>
@@ -24,6 +25,9 @@
 	<select id="getpw" parameterType="hashmap" resultType="String">
 			SELECT USERPW FROM KSW_USERS WHERE USERNAME = #{username} AND USERID = #{userid} AND USEREMAIL = #{useremail} 
 	</select>
+	<select id = "CheckId" parameterType = "string" resultType = "_int">
+      		SELECT count(*) FROM KSW_USERS WHERE userid = #{userid}
+   </select>
 </mapper>
  
  

@@ -104,7 +104,7 @@ function CheckId(userid){
 		$.ajax({
 			type 	: 'post',
 			url		: 'idcheck.jsp',
-			data	: { "userid" : userid },
+			data	: { userid : userid },
 			async	: true,	
 			success	: function(result){
 				if(result.trim() == "ok"){

@@ -1,6 +1,7 @@
 package com.KSW.web.servlet.Front;
 
 import java.io.IOException;
+import java.net.URL;
 
 import com.KSW.web.action.ActionForward;
 import com.KSW.web.servlet.Action.BookParamAction;
@@ -52,6 +53,9 @@ public class MainFrontController extends HttpServlet{
 			break;
 		// 로그인 페이지로 이동
 		case "/login/Sign-up-in.bo":
+			String undoPage = req.getHeader("Referer");
+			URL undoURL = new URL(undoPage);
+			System.out.println("undoURL:"+undoURL);
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");
 			break;
 		case "/myPage/myPage.bo":

@@ -38,6 +38,8 @@ public class CheckLoginDBAction implements Action {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
+		String undoPage = req.getHeader("Referer");
+		System.out.println(undoPage);
 		// dto 객체에 저장된 비밀번호를 불러옴
 		userpw = udto.getUserpw();
 		System.out.println("userid : " + userid);
