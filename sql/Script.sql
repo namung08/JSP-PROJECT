@@ -119,3 +119,15 @@ CREATE TABLE KSW_BOOK(
 	description clob,
 	pubdate DATE
 );
+
+-----------------------------------------------------
+-- 리뷰 테이블
+CREATE TABLE ksw_reply (
+	replynum number(100) PRIMARY KEY,  -- 리뷰 고유 숫자(int)
+	isbn varchar2(355) NOT null,  -- 책 isbn 값(String)
+	userid varchar2(355) NOT null,  -- 유저 id(String)
+	reply_insert_date DATE NOT null, -- 리뷰 작성 날짜(date)
+	reply_grade number(10) NOT null, -- 리뷰 평점(int)
+	reply clob NOT NULL, -- 리뷰 내용 (자바에서 clob 타입으로 변환이 되어서 넣거나 가져올 때 변환(fometter)을 해야함)
+	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
+);
