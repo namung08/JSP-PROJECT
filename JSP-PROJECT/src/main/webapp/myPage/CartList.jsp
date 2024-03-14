@@ -55,10 +55,10 @@ body {
 	width: 100%; /* 이미지 너비를 ul에 맞춤 */
 	height: 50%; /* 이미지 비율 유지 */
 	max-width: 150px; /* 최대 너비 설정 */
-	margin-bottom: 10px; /* 이미지와 텍스트 사이의 마진 */
 }
 .CartList {
 	margin: 0; /* 기존 마진 제거 */
+	margin-bottom:10px;
 	padding: 10px; /* 패딩 유지 */
 	background-color: #ffffff;
 	border: 1px solid #dddddd;
@@ -90,9 +90,8 @@ body {
 	justify-content: center;
 	flex-wrap: wrap;
 }
-
 /* 페이지네이션 버튼 스타일 */
-.page-btn {
+.count-btn, .creditbtn{
 	padding: 5px 10px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
@@ -111,7 +110,7 @@ body {
 	cursor: pointer;
 }
 
-.page-btn:hover, .page-btn.active .count-btn{
+.count-btn:hover, .page-btn.active, .creditbtn{
 	background-color: #007bff;
 	color: #fff;
 }
@@ -155,10 +154,15 @@ body {
 }
 .count-text {
 	text-align: center;
-	width: 50px;
+	width: 20px;
+	padding: 5px 10px;
+	margin: 10px 5px;
 }
 tr {
 	padding: 5px;
+}
+#credit {
+	flex-direction: row;
 }
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -201,16 +205,19 @@ tr {
 						<th width="15%">수량</th>
 					</tr>
 					<!-- 장바구니에 담은 주문 내역이 출력될 구역 -->
+					
 					<c:choose>
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
+								<input type="hidden" name="cartNum" value="${cart.cartNum }">
 								<tr id="cartResult">
-									<td><input type="checkbox" value="Y"></td>
+									<td style="text-align: center;"><input type="checkbox" value="Y"></td>
 									<td><img alt="${cart.title }" src="${cart.image }"></td>
 									<td>${cart.title }</td>
 									<td>${cart.discount }</td>
 									<td class="td-count-con">
+										<button type="button" class="count-btn" >&#128465;</button>
 										<div class="count-con">
 											<input class="count-btn" type="button" value="&#8592;">
 											<input class="count-text" type="text" readonly value="1">
@@ -229,10 +236,18 @@ tr {
 					</c:choose>
 				</table>
 			</div>
+			<div class="CartList" id="credit" style="justify-content: flex-end;">
+				<div>
+					<table>
+						<tr>
+							<th style="padding-right: 10px;">총 금액</th>
+							<td>금액 * 갯수</td>
+						</tr>
+					</table>
+				</div>
+				<button class="creditbtn" type="button" style=" width: 25%;">결제</button>
+			</div>
 		</form>
-		<div class="Pagination">
-			<!-- 페이징 처리를 위한 구역 -->
-		</div>
 	</div>
 
 </body>
