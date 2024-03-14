@@ -118,6 +118,10 @@ a {
 .password-check {
 	margin-bottom: 10px;
 }
+.email {
+	display: flex;
+	flex-direction: row;
+}
 </style>
 <body>
 
@@ -148,8 +152,16 @@ a {
 			<input type="hidden" name="dbchkId" value="dbchkId" />
 
 			<!-- 사용자 이메일 작성 -->
-			<input type="text" id="useremail" name="useremail"
+			<div class="email">
+				<input type="text" id="useremail" name="useremail"
 				placeholder="사용자 이메일" required>
+				<span>@</span>
+				<select>
+					<option>gmail.com</option>
+					<option>naver.com</option>
+				</select>
+			</div>
+			
 
 			<!-- 사용자 비밀번호 작성 -->
 			<input type="password" id="password" name="password"
