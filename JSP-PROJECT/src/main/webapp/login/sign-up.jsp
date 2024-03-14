@@ -7,6 +7,7 @@
 <title>KSW 회원가입</title>
 <!-- 다음 주소 찾기 API -->
 <script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="sign-up.js"></script>
 </head>
 <style>
@@ -126,7 +127,7 @@ a {
 			</div>
 		</div>
 	</header>
-	<form id="signupForm" name="signupForm"
+	<form id="signForm" name="joinForm"
 		action="${pageContext.request.contextPath}/login/Sign-Up.bo"
 		method="post">
 		<div class="content">
@@ -135,10 +136,12 @@ a {
 			</div>
 			<!-- 사용자 아이디 작성 -->
 			<div class="input-id">
-				<input type="text" id="btn" name="userid" placeholder="사용자 아이디" required>
-				<button class="btn" type="button" id="dbchkId" name="dbchkId"
-					onclick="fn_dbchkId()">중복확인</button>
+				<input type="text" id="userid" name="userid" placeholder="사용자 아이디"
+					required>
+				<button class="btn" type="button"  name="idcheck"
+					onclick="CheckId(joinForm.userid.value)">중복확인</button>
 			</div>
+			<span id = "idcheck"></span>
 			<input type="hidden" name="dbchkId" value="dbchkId" />
 
 			<!-- 사용자 이메일 작성 -->

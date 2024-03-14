@@ -58,6 +58,43 @@ function joinsubmit() {
 	document.getElementById('sample4_postcode').disabled = false;
 	signupForm.submit();
 }
+$(function() {
+	$('#login').click(function(e) {
+		login(e); // 기본적으로 첫 페이지 로드
+	});
+});
+function login() {
+	const loginForm = document.loginForm;
+	const userid = loginForm.userid;
+	const userpw = loginForm.userpw;
+	
+	// 아이디 빈값 체크
+	if (userid.value.trim() == "") {
+		alert("아이디를 입력하세요");
+		userid.focus();
+		return false;
+	}
+	// 비밀번호 빈값 체크
+	if (userpw.value.trim() == "") {
+		alert("비밀번호를 입력하세요");
+		userpw.focus();
+		return false;
+	}
+	
+	
+	/*sessionStorage.setItem("userid",userid.value);
+	sessionStorage.setItem("userpw",userpw.value);
+    // 기존 코드 유지...
+    e.preventDefault();
+    var password = document.getElementById('userpw').value;
+    var hashedPassword = CryptoJS.SHA256(password).toString();
+    // hashedPassword를 hidden 필드에 설정
+    document.getElementById('hashedPassword').value = hashedPassword;
+    // 원본 비밀번호 필드를 비움*/
+    
+    loginForm.submit();
+//    document.getElementById('userpw').valu ;
+}
 function CheckId(userid){
 	
 	if( userid == "" ){
@@ -83,6 +120,6 @@ function CheckId(userid){
 				console.log(error);
 			}
 		});
-
+		
 	}
 }
