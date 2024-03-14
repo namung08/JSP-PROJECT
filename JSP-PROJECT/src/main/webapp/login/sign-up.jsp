@@ -140,8 +140,8 @@ a {
 			</div>
 			<!-- 사용자 아이디 작성 -->
 			<div class="input-id">
-				<input type="text" id="userid" name="userid" placeholder="사용자 아이디"
-					required>
+				<input type="text" id="userid" name="userid" maxlength= "16" placeholder="사용자 아이디(5자 이상,16자 미만)">
+				<dkdhfk>
 				<button class="btn" type="button"  name="idcheck"
 					onclick="CheckId(joinForm.userid.value)">중복확인</button>
 			</div>
@@ -153,12 +153,13 @@ a {
 				<input type="text" id="useremail" name="useremail"
 				placeholder="사용자 이메일" required>
 				<span>@</span>
-				<select>
-					<option>gmail.com</option>
-					<option>naver.com</option>
+
+				<select id="emailSelect">
+					<option value="gmail.com">gmail.com</option>
+					<option value="naver.com">naver.com</option>
 				</select>
 			</div>
-			
+
 
 			<!-- 사용자 비밀번호 작성 -->
 			<input type="password" id="password" name="password"
