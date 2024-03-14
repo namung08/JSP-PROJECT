@@ -119,6 +119,7 @@ public class MainFrontController extends HttpServlet{
 		case "/myPage/UserInfoCheck.bo": 
 			forward = new ActionForward(false, "/myPage/UserInfoCheck.jsp");
 			break;
+			// 개인정보 수정 비밀번호 확인 액션
 		case "/myPage/UserInfoChange.bo": 
 			forward = new UserInfoCheckAction().execute(req, resp);
 			break;
