@@ -34,7 +34,7 @@ public class InsertCartAction implements Action{
 		
 		if(cdao.insertCart(cdto)) {
 			System.out.println("성공!");
-			forward.setPath(req.getContextPath()+"/myPage/CartList.jsp");
+			forward.setPath(req.getContextPath()+"/search/CartList.bo");
 			forward.setRedirect(false);
 		}
 		return forward;

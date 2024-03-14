@@ -6,6 +6,7 @@ import java.net.URL;
 import com.KSW.web.action.ActionForward;
 import com.KSW.web.servlet.Action.BookParamAction;
 import com.KSW.web.servlet.Action.CheckLoginDBAction;
+import com.KSW.web.servlet.Action.DeleteCartAction;
 import com.KSW.web.servlet.Action.FindIdAction;
 import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.InsertCartAction;
@@ -122,11 +123,17 @@ public class MainFrontController extends HttpServlet{
 		case "/myPage/UserInfoChange.bo": 
 			forward = new UserInfoCheckAction().execute(req, resp);
 			break;
+			// 장바구니에 책의 정보를 넣는 액션
 		case "/myPage/insertCart.bo":
 			forward = new InsertCartAction().execute(req, resp);
 			break;
+			// 장바구니 리스트를 불러오는 액션
 		case "/search/CartList.bo":
 			forward = new SelectCartListAction().execute(req, resp);
+			break;
+			// 삭제 버튼을 눌렀을 때 장바구니 테이블에서 삭제하는 액션
+		case "/delete/CartBook.bo":
+			forward = new DeleteCartAction().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

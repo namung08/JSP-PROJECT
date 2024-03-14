@@ -166,7 +166,7 @@ tr {
 }
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="CartList.js"></script>
+<script src="../myPage/CartList.js"></script>
 <body>
 	<header>
 		<input type="hidden" value="${userid }" id="userid">
@@ -210,18 +210,17 @@ tr {
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
-								<input type="hidden" name="cartNum" value="${cart.cartNum }">
 								<tr id="cartResult">
 									<td style="text-align: center;"><input type="checkbox" value="Y"></td>
-									<td><img alt="${cart.title }" src="${cart.image }"></td>
+									<td><img alt="${cart.title }" src="${cart.image }"><input type="hidden" name="cartNum" value="${cart.cartNum }"></td>
 									<td>${cart.title }</td>
 									<td>${cart.discount }</td>
 									<td class="td-count-con">
-										<button type="button" class="count-btn" >&#128465;</button>
+										<button type="button" class="count-btn" value="128465">&#128465;</button>
 										<div class="count-con">
-											<input class="count-btn" type="button" value="&#8592;">
-											<input class="count-text" type="text" readonly value="1">
-											<input class="count-btn" type="button" value="&#8594;">
+											<button class="count-btn" type="button" value="8592">&#8592;</button>
+											<input class="count-text" type="text" readonly value='1'>
+											<button class="count-btn" type="button" value="8594">&#8594;</button>
 										</div>
 									</td>
 								</tr>
@@ -230,7 +229,11 @@ tr {
 						<c:otherwise>
 							<!-- 장바구니에 담은 물건이 없는 경우 -->
 							<tr>
-								<td>등록된 물건이 없습니다.</td>
+								<td>등록된</td>
+								<td>물건이</td>
+								<td>없음</td>
+								<td></td>
+								<td></td>
 							</tr>
 						</c:otherwise>
 					</c:choose>
