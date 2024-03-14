@@ -1,9 +1,13 @@
 package com.KSW.web.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.KSW.web.dto.BookDTO;
+import com.KSW.web.dto.CartDTO;
 import com.KSW.web.mybatis.SqlMapConfig;
 
 public class SearchDAO {
@@ -23,4 +27,27 @@ public class SearchDAO {
 		
 		return result;
 	}
+
+	public boolean countCartList(String userid) {
+		boolean result = false;
+		if((Integer)sqlSession.selectOne("Search.selectCartListCount", userid) != 0) {
+			result = true;
+		}
+		return result;
+	}
+
+	public List<CartDTO> getCartList(int startRow, int endRow, String userid) {
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("startRow", startRow);
+		datas.put("endRow", endRow);
+		datas.put("userid", userid);
+		List<CartDTO> cartList
+			= sqlSession.selectList("Search.getCartList", datas);
+		return cartList;
+	}
+
+	public int getCartCnt(String userid) {
+		return sqlSession.selectOne("Search.getOrderCnt",userid);
+	}
+
 }

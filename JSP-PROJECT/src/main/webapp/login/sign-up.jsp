@@ -115,6 +115,10 @@ a {
 .password-check {
 	margin-bottom: 10px;
 }
+.email {
+	display: flex;
+	flex-direction: row;
+}
 </style>
 <body>
 
@@ -149,11 +153,20 @@ a {
 				<input type="text" id="useremail" name="useremail"
 				placeholder="사용자 이메일" required>
 				<span>@</span>
+<<<<<<< HEAD
 				<select id="emailSelect">
 					<option value="gmail.com">gmail.com</option>
 					<option value="naver.com">naver.com</option>
 				</select>
 			</div>
+=======
+				<select>
+					<option>gmail.com</option>
+					<option>naver.com</option>
+				</select>
+			</div>
+			
+>>>>>>> 004b4113548a0e13138ce07918da60b77cd0bb74
 
 			<!-- 사용자 비밀번호 작성 -->
 			<input type="password" id="password" name="password"
