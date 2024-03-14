@@ -15,7 +15,7 @@
 		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	<select id="getOrderCnt" resultType="_int" parameterType="String">
-		SELECT COUNT(*) FROM KSW_CART WHERE USERID=#{userid}
+		SELECT COUNT(*) FROM KSW_CART WHERE USERID = #{userid}
 	</select>
 </mapper>
  

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,18 +7,22 @@
 <title>${userid }'s myPage</title>
 </head>
 <body>
-	<h1>${userid }´ÔÀÇ ¸¶ÀÌÆäÀÌÁö</h1>
+	<h1>${userid }ë‹˜ì˜ ë§ˆì´íŽ˜ì´ì§€</h1>
 	<a href="${pageContext.request.contextPath }/myPage/UserInfoCheck.bo">
-		[È¸¿øÁ¤º¸ ¼öÁ¤]
+		[íšŒì›ì •ë³´ ìˆ˜ì •]
 	</a><br>
 	<a href="${pageContext.request.contextPath }/myPage/OrderList.bo">
-		[±¸¸Å ³»¿ª]
+		[êµ¬ë§¤ ë‚´ì—­]
 	</a><br>
 	<a href="${pageContext.request.contextPath }/myPage/.bo">
-		[¹®ÀÇ ³»¿ª]
+		[ë¬¸ì˜ ë‚´ì—­]
 	</a><br>
 	<a href="${pageContext.request.contextPath }/main/main-page.jsp">
-		[¸ÞÀÎ ÆäÀÌÁö]
+		[ë©”ì¸ íŽ˜ì´ì§€]
 	</a><br>
+	<a href="${pageContext.request.contextPath }/search/CartList.bo">
+		[ìž¥ë°”êµ¬ë‹ˆ]
+	</a><br>
+	
 </body>
 </html>
