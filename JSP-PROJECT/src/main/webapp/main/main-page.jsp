@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 <body> 
 <header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="main-page-traffic.js"></script>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
@@ -43,5 +45,11 @@
 	</c:choose>
 </div>
 </header>
+<div class="traffic">
+<!-- 사람들의 책 상세페이지를 들어간 횟수에 따른 추천 목록 -->
+</div>
+<div class="order-traffic">
+<!-- 사람들의 주문량에 따른 추천 목록 -->
+</div>
 </body>
 </html>
