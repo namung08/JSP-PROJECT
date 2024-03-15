@@ -28,6 +28,21 @@
 	<select id = "CheckId" parameterType = "string" resultType = "_int">
       		SELECT count(*) FROM KSW_USERS WHERE userid = #{userid}
    </select>
+   <select id="getuseremail" parameterType="String" resultType="String">
+			SELECT useremail FROM KSW_USERS WHERE USERID = #{userid}
+	</select>
+	<select id="getusername" parameterType="String" resultType="String">
+			SELECT username FROM KSW_USERS WHERE USERID = #{userid}
+	</select>
+	<select id="getuserbirth" parameterType="String" resultType="String">
+			SELECT userbirth FROM KSW_USERS WHERE USERID = #{userid}
+	</select>
+	<select id="getuserphone" parameterType="String" resultType="String">
+			SELECT userphone FROM KSW_USERS WHERE USERID = #{userid}
+	</select>
+	<select id="getuseraddr" parameterType="String" resultType="String">
+			SELECT useraddr FROM KSW_USERS WHERE USERID = #{userid}
+	</select>
 </mapper>
  
  
