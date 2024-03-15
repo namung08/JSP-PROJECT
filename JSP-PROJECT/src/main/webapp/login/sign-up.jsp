@@ -141,7 +141,6 @@ a {
 			<!-- 사용자 아이디 작성 -->
 			<div class="input-id">
 				<input type="text" id="userid" name="userid" maxlength= "16" placeholder="사용자 아이디(5자 이상,16자 미만)">
-				<dkdhfk>
 				<button class="btn" type="button"  name="idcheck"
 					onclick="CheckId(joinForm.userid.value)">중복확인</button>
 			</div>

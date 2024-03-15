@@ -36,13 +36,9 @@ public class SearchDAO {
 		return result;
 	}
 
-	public List<CartDTO> getCartList(int startRow, int endRow, String userid) {
-		HashMap<String, Object> datas = new HashMap<>();
-		datas.put("startRow", startRow);
-		datas.put("endRow", endRow);
-		datas.put("userid", userid);
+	public List<CartDTO> getCartList(String userid) {
 		List<CartDTO> cartList
-			= sqlSession.selectList("Search.getCartList", datas);
+			= sqlSession.selectList("Search.getCartList", userid);
 		return cartList;
 	}
 
