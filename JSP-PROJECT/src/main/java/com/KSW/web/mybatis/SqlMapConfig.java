@@ -17,10 +17,8 @@ public class SqlMapConfig {
 			factory = new SqlSessionFactoryBuilder().build(reader);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-	}
-	
+		}		
+	}	
 	public static SqlSessionFactory getFactory() {
 		return factory;
 	}

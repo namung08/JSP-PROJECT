@@ -2,8 +2,11 @@ package com.KSW.web.servlet.Front;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.NotificationDAO;
+import com.KSW.web.dto.NotificationDTO;
 import com.KSW.web.servlet.Action.BookParamAction;
 import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.FindIdAction;
@@ -128,7 +131,13 @@ public class MainFrontController extends HttpServlet{
 		case "/search/CartList.bo":
 			forward = new SelectCartListAction().execute(req, resp);
 			break;
-		}
+			// 공지사항 목록 조회
+		case "/notice/getNotificationList.bo":
+		    List<NotificationDTO> notificationList = new NotificationDAO().getNotificationList();
+		    req.setAttribute("notificationList", notificationList);
+		    forward = new ActionForward(false, "/notice/notification-list.jsp");
+		    break;
+        }
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {
             if (forward.isRedirect()) { // Redirect 방식

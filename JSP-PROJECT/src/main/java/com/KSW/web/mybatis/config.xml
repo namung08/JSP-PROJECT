@@ -29,5 +29,6 @@
 		<mapper resource="com/KSW/web/sql/search.xml" />
 		<mapper resource="com/KSW/web/sql/mypage.xml"/>
 		<mapper resource="com/KSW/web/sql/users.xml"/>
+		<mapper resource="com/KSW/web/sql/notification.xml"/>
 	</mappers>
 </configuration>
