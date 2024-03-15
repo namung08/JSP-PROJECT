@@ -149,12 +149,11 @@ a {
 
 			<!-- 사용자 이메일 작성 -->
 			<div class="email">
-				<input type="text" id="useremail" name="useremail"
+				<input type="text" id="useremail1" name="useremail1"
 				placeholder="사용자 이메일" required>
 				<span>@</span>
-
-				<select id="emailSelect" style="margin-bottom: 10px; padding: 10px;">
-					<option value="gmail.com">gmail.com</option>
+				<select id="useremail2" name="useremail2" style="margin-bottom: 10px; padding: 10px;">
+					<option value="gmail.com" >gmail.com</option>
 					<option value="naver.com">naver.com</option>
 				</select>
 			</div>
@@ -182,8 +181,8 @@ a {
 			<!-- 사용자 주소 작성 -->
 			<button type="button" class="btn btn-outline-secondary findbtn"
 				onclick="sample4_execDaumPostcode()">주소 찾기</button>
-			<input type="text" name="add1" id="sample4_roadAddress" placeholder="도로명주소" disabled>
-			<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" disabled>
+			<input type="text" name="add1" id="sample4_roadAddress" placeholder="도로명주소" readonly>
+			<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" readonly>
 			<span id="guide" style="color: #999; display: none"></span>
 			<input type="text" name="add3" id="sample4_detailAddress" placeholder="상세주소">
 			<input type="submit" value="가입하기" onclick="joinsubmit();">
