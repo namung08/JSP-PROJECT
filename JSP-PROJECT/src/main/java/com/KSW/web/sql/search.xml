@@ -14,7 +14,7 @@
 		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_CART WHERE USERID = #{userid} ORDER BY CARTNUM DESC) a) b
 		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
-	<select id="getOrderCnt" resultType="_int" parameterType="String">
+	<select id="getCartCnt" resultType="_int" parameterType="String">
 		SELECT COUNT(*) FROM KSW_CART WHERE USERID = #{userid}
 	</select>
 </mapper>

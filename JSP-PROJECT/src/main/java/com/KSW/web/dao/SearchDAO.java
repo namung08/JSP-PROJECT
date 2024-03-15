@@ -47,7 +47,7 @@ public class SearchDAO {
 	}
 
 	public int getCartCnt(String userid) {
-		return sqlSession.selectOne("Search.getOrderCnt",userid);
+		return sqlSession.selectOne("Search.getCartCnt",userid);
 	}
 
 }
