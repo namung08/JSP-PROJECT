@@ -96,7 +96,7 @@ a {
    display: flex;
    flex-direction : row;
    align-items: center;
-   justify-content: space-between;
+    justify-content: center;
    padding : 10px 30%;
 }
 .header-left {
@@ -117,6 +117,10 @@ a {
    justify-content: space-between;
    margin-top: 10px;
 }
+.logo {
+    height: 170px;
+    width: 300px;
+}
 </style>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -130,7 +134,7 @@ a {
 		<div class="header-flex">
 		   <div class="header-left">
 		      <h2>
-		         <a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
+		         <a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 		      </h2>
 		   </div>
 		</div>

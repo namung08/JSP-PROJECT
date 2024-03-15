@@ -6,6 +6,9 @@
 const hostIndex = location.href.indexOf(location.host) + location.host.length;
 const contextPath = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
 // [검색 요청] 버튼 클릭 시 실행할 메서드를 정의합니다.
+$(document).ready(function() {
+	loadResults(1);
+});
 $(function() {
 	$('#searchBtn').click(function() {
 		loadResults(1); // 기본적으로 첫 페이지 로드
@@ -116,7 +119,7 @@ $(document).on('click', 'ul', function() {
 	// ul 요소 안에 있는 정보들을 가져옵니다.
     var isbn = ulElement.find('input[name="isbn"]').val();
     var description = ulElement.find('input[name="description"]').val();
-    var imageSrc = ulElement.find('img').attr('src');
+    var imageSrc = ulElement.find('img[id="image."').attr('src');
     var title = ulElement.find('li[name="title"]').text().replace('제목 : ', '');
     var author = ulElement.find('li[name="author"]').text().replace('저자 : ', '');
     var publisher = ulElement.find('li[name="publisher"]').text().replace('출판사 : ', '');

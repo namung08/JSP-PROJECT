@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>KSW 책 검색 페이지</title>
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 <style>
 /* 페이지 전체 스타일 */
 body {
@@ -20,14 +21,8 @@ body {
 #searchFrm {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 20px;
 }
 
-#searchFrm div {
-	width: 100%;
-	max-width: 600px;
-	display: flex;
-}
 
 #keyword {
 	flex-grow: 1;
@@ -36,6 +31,7 @@ body {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin-right: 10px;
+	width: 300px;
 }
 
 #searchBtn {
@@ -133,12 +129,6 @@ body {
 	border-bottom: none;
 }
 
-h2 {
-	align-self: center;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
 a {
 	text-decoration: none;
 	color: inherit;
@@ -159,7 +149,8 @@ a {
 	align-items: flex-start;
 	justify-content: space-between;
 	border: 1px #007bff solid;
-	padding: 10px
+	padding: 10px;
+	margin-left: 10%;
 }
 .header-menu {
 	display: flex;
@@ -167,6 +158,10 @@ a {
 	align-content: flex-start;
 	justify-content: space-between;
 	margin-top: 10px;
+}
+.logo {
+    height: 170px;
+    width: 300px;
 }
 </style>
 
@@ -178,10 +173,17 @@ a {
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
-		<h2>
-			<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
-		</h2>
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 	</div>
+	<form id="searchFrm">
+		<div>
+			<input type="text" name="search" id="keyword" value="${keyward }"
+				placeholder="검색하실 책 제목을 입력하세요" >
+		</div>
+		<div>
+			<button type="button" id="searchBtn">검색</button>
+		</div>
+	</form>
 	<c:choose>
 		<c:when test="${not empty userid}">
 			<div class="header-right">
@@ -202,15 +204,7 @@ a {
 </header>
 <body>
 	
-	<form id="searchFrm">
-		<div>
-			
-			<input type="text" name="search" id="keyword"
-				placeholder="검색하실 책 제목을 입력하세요">
-			<button type="button" id="searchBtn">검색</button>
-
-		</div>
-	</form>
+	
 	<form action="">
 		<div class="row" id="searchResult"></div>
 	</form>

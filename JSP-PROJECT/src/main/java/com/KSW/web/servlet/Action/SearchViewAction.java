@@ -13,6 +13,8 @@ public class SearchViewAction implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		HttpSession session = req.getSession();
+		String keyward = req.getParameter("search");
+		session.setAttribute("keyward", keyward);
 		if(session.getAttribute("userid") != null) {
 			String userid = (String)session.getAttribute("userid");
 			session.setAttribute("userid", userid);

@@ -9,39 +9,6 @@
 <title>Insert title here</title>
 </head>
 <style>
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.header-flex {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	padding: 10px 40px;
-}
-
-.header-left {
-	color: #007bff;
-}
-
-.header-right {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	border: 1px #007bff solid;
-	padding: 10px
-}
-
-.header-menu {
-	display: flex;
-	flex-direction: row;
-	align-content: flex-start;
-	justify-content: space-between;
-	margin-top: 10px;
-}
 body {
 	display: flex;
 	flex-direction: column;
@@ -115,43 +82,6 @@ body {
 	color: #fff;
 }
 
-/* 추가적인 전반적인 스타일 조정 */
-.count-btn {
-}
-
-/* 검색 양식 스타일 */
-#searchFrm {
-	display: flex;
-	justify-content: center;
-}
-
-#searchFrm div {
-	width: 400px;
-	display: flex;
-}
-
-#keyword {
-	flex-grow: 1;
-	padding: 10px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-right: 10px;
-}
-
-#searchBtn {
-	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-#searchBtn:hover {
-	background-color: #0056b3;
-}
 .count-text {
 	text-align: center;
 	width: 20px;
@@ -167,22 +97,26 @@ tr {
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+
 <body>
-	<header>
-		<input type="hidden" value="${userid }" id="userid">
-		<div class="header-flex">
-			<div class="header-left">
-				<h2>
-					<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
-				</h2>
-			</div>
-			<form id="searchFrm">
-				<div>
-					<input type="text" name="search" id="keyword"
-						placeholder="검색하실 책 제목을 입력하세요">
-					<button type="button" id="searchBtn">검색</button>
-				</div>
-			</form>
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+	</div>
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
+		<div>
+			<input type="text" name="search" id="keyword"
+				placeholder="검색하실 책 제목을 입력하세요">
+		</div>
+		<div>
+			<button type="submit" id="searchBtn">검색</button>
+		</div>
+	</form>
+	<c:choose>
+		<c:when test="${not empty userid}">
 			<div class="header-right">
 				<div>${userid }님 안녕하세요.</div>
 				<div class="header-menu" >
@@ -190,8 +124,15 @@ tr {
 					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</c:when>
+		<c:otherwise>
+			<div class="header-right">
+				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
+			</div>
+		</c:otherwise>
+	</c:choose>
+</div>
+</header>
 	<div class="main">
 		<h2>장바구니</h2>
 		<form class="cartForm" action="${pageContext.request.contextPath}/myPage/InsertOrder.bo">
