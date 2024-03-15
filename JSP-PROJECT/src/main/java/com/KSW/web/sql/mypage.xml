@@ -21,4 +21,13 @@
 	<delete id="delCart" parameterType="_int">
 		DELETE FROM KSW_CART WHERE CARTNUM = #{cartNum}
 	</delete>
+	<update id="updateUseremail" parameterType="String">
+		UPDATE KSW_USERS SET username = #{username} WHERE USERID = #{userid};
+	</update>
+	<update id="updateUserpw" parameterType="String">
+		UPDATE KSW_USERS SET userpw = #{userpw} WHERE USERID = #{userid};
+	</update>
+	<update id="updateUseraddr" parameterType="String">
+		UPDATE KSW_USERS SET useraddr = #{useraddr} WHERE USERID = #{userid};
+	</update>
 </mapper>

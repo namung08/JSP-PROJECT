@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -8,6 +9,9 @@
 <meta charset="UTF-8">
 <title>주문내역</title>
 </head>
+<% 
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+%>
 <style>
 a:visited {
 	color: #ce93d8;
@@ -45,11 +49,11 @@ table {
 		<table border="1"
 			style="border-collapse: collapse; border-spacing: 0; width: 900px;">
 			<tr align="center" valign="middle">
-				<th width="8%">번호</th>
-				<th width="30%">이미지</th>
+				<th width="8%">주문번호</th>
+				<th width="30%">주문일</th>
 				<th width="15%">책이름</th>
 				<th width="15%">가격</th>
-				<th width="15%">배송상태</th>
+				<th width="15%">주문상태</th>
 				<th width="10%">ISBN</th>
 				<th width="7">수량</th>
 			</tr>
@@ -61,7 +65,7 @@ table {
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
 							<td height="23px;">${order.orderNum }</td>
-							<td height="23px;">${order.image }</td>
+							<td height="23px;">${order.orderDate}</td>
 							<td height="23px;">${order.title }</td>
 							<td height="23px;">${order.discount }</td>
 							<td height="23px;">${order.deliveryStatus }</td>

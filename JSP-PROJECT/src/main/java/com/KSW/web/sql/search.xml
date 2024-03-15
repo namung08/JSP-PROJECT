@@ -10,9 +10,8 @@
 	<select id="selectCartListCount" parameterType="String" resultType="_int">	
 		SELECT COUNT(*) FROM KSW_CART WHERE USERID = #{userid}
 	</select>
-	<select id="getCartList" parameterType="hashmap" resultType="cartdto">	
-		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_CART WHERE USERID = #{userid} ORDER BY CARTNUM DESC) a) b
-		WHERE b.r BETWEEN #{startRow} AND #{endRow}
+	<select id="getCartList" parameterType="string" resultType="cartdto">	
+	SELECT * FROM KSW_CART WHERE USERID = #{userid} ORDER BY CARTNUM asc
 	</select>
 	<select id="getCartCnt" resultType="_int" parameterType="String">
 		SELECT COUNT(*) FROM KSW_CART WHERE USERID = #{userid}
