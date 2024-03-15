@@ -3,10 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>${userid }'s myPage</title>
+<link rel="stylesheet" href="/css/ksw.css">
 </head>
 <body>
+	<header>
+		<div class="header-flex">
+			<div class="header-left">
+				<h2>
+					<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
+				</h2>
+			</div>
+		</div>
+	</header>
 	<h1>${userid }님의 마이페이지</h1>
 	<a href="${pageContext.request.contextPath }/myPage/UserInfoCheck.bo">
 		[회원정보 수정]
@@ -16,9 +26,6 @@
 	</a><br>
 	<a href="${pageContext.request.contextPath }/myPage/.bo">
 		[문의 내역]
-	</a><br>
-	<a href="${pageContext.request.contextPath }/main/main-page.jsp">
-		[메인 페이지]
 	</a><br>
 	<a href="${pageContext.request.contextPath }/search/CartList.bo">
 		[장바구니]

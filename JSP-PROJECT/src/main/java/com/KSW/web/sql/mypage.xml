@@ -4,7 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MyPage">
 	<select id="getOrderList" resultType="orderdto" parameterType="hashmap">
-		SELECT * FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST WHERE USERID = #{userid} ORDER BY ORDERNUM DESC) a) b
+		SELECT b.ordernum, TO_CHAR(b.orderdate, 'YYYY-MM-DD')orderdate, b.userid, b.title, b.discount, b.deliverystatus, b.isbn, b. count FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST WHERE USERID = #{userid} ORDER BY ORDERNUM DESC) a) b
 		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	

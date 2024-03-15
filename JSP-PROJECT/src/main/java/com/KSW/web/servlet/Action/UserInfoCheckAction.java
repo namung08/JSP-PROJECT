@@ -23,21 +23,29 @@ public class UserInfoCheckAction implements Action {
 		// 세션에 아이디를 저장 하기 위한 세션 객체 생성
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("userid");
-		String userpw = req.getParameter("userpw");
-		String pw = "";
+		String userpw = null;
+		String useremail = udao.getuseremail(userid);
+		String username = udao.getusername(userid);
+		String userbirth = udao.getuserbirth(userid);
+		String userphone = udao.getuserphone(userid);
+		String useraddr = udao.getuseraddr(userid);
+		
+		req.setAttribute("useremail", useremail);
+		req.setAttribute("username", username);
+		req.setAttribute("userbirth", userbirth);
+		req.setAttribute("userphone", userphone);
+		req.setAttribute("useraddr", useraddr);
+		
 		try {
-			// 비밀번호 암호화
-			pw = sha256.encrypt(userpw);
-			pw = pw+userid;
-			pw = sha256.encrypt(pw);
-			pw = userid + pw;
-			pw = sha256.encrypt(pw);
-			System.out.println(pw);
+			userpw = sha256.encrypt(req.getParameter("userpw"));
+			userpw = sha256.encrypt(userpw + userid);
+			userpw = sha256.encrypt(userid + userpw);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		System.out.println(pw);
-		if(udao.login(userid, pw)) {
+		
+		System.out.println(userpw);
+		if(udao.login(userid, userpw)) {
 			forward.setRedirect(false);
 			forward.setPath(req.getContextPath() + "/myPage/UserInfoChange.jsp");
 		} else {

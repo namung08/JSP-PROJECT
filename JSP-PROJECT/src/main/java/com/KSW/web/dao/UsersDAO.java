@@ -127,7 +127,25 @@ public class UsersDAO {
 		return result;
 	}
 
-		
+	public String getuseremail(String userid) {
+		return sqlSession.selectOne("getuseremail", userid);
+	}
+	
+	public String getusername(String userid) {
+		return sqlSession.selectOne("getusername", userid);
+	}
+	
+	public String getuserbirth(String userid) {
+		return sqlSession.selectOne("getuserbirth", userid);
+	}
+	
+	public String getuserphone(String userid) {
+		return sqlSession.selectOne("getuserphone", userid);
+	}
+	
+	public String getuseraddr(String userid) {
+		return sqlSession.selectOne("getuseraddr", userid);
+	}	
 
     // 다른 메서드들...
 }
