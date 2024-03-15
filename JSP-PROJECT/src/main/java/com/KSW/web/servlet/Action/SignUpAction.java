@@ -34,7 +34,11 @@ public class SignUpAction implements Action{
 		String add3 = req.getParameter("add3");
 		System.out.println("1"+add1+"2"+add2);
 		String useraddr = add1+" ("+add2+") "+add3;
-		String useremail = req.getParameter("useremail");
+		String useremail1 = req.getParameter("useremail1");
+		String useremail2 = req.getParameter("useremail2");
+		String userEmailFull = useremail1 + "@" + useremail2;
+		
+
 		// 아이디
 		udto.setUserid(userid);
 		// 비밀번호 암호화 하기
@@ -72,7 +76,7 @@ public class SignUpAction implements Action{
 		// 주소
 		udto.setUseraddr(useraddr);
 		// 이메일
-		udto.setUseremail(useremail);
+		udto.setUseremail(userEmailFull);
 		if(udao.insertJoin(udto)) {
 			forward.setPath(req.getContextPath() + "/login/Sign-Up-result.bo");
 			forward.setRedirect(true);

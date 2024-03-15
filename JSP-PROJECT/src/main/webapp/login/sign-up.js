@@ -54,6 +54,7 @@ function checkPassword() {
 }
 
 function joinsubmit() {
+	sendit();
 	document.getElementById('sample4_roadAddress').disabled = false;
 	document.getElementById('sample4_postcode').disabled = false;
 	signupForm.submit();
@@ -67,71 +68,30 @@ $(function() {
 /**
  *  회원가입 validation check
  */
-function joinsubmit(){
-	let SignForm = document.SignForm;
-	let userid  = SignForm.userid;
-	let userpw = SignForm.userpw;
-	let username = SignForm.username;
-	let userphone = SignForm.userphone;
-	let useraddr = SignForm.useraddr;
-	let useremail = SignForm.useremail;
-	
-	// 아이디 빈값체크 	-> alert 아이디를 입력하세요!
-	if( userid.value == "" ){
-		alert("아이디를 입력하세요.");
-		userid.focus();
-		return false;
+function sendit() {
+   let frm = document.joinForm;
+   let userid = frm.userid;
+   let password = frm.password;
+   let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+   
+   if(userid.value.length < 4 || userid.value.length > 16){
+       alert("아이디는 4자 이상, 16자 이하로 입력해주세요.")
+       userid.focus();
+       return;
+   }   
+   if(!reg.test(password.value)){
+       alert("비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자 모두 포함해야 합니다.");
+       password.focus();
+       return;
+   }	
+	if(frm.password.value.search(/\s/) != -1){
+		alert("비밀번호에 공백 없이 입력해주세요.");
+		frm.password.focus();
+		return;
 	}
-	
-	// 아이디 글자 수 제한	-> alert 아이디는 5자리 이상, 16자리 미만으로 작성
-	if( userid.value.length <= 4 || userid.value.length >= 16 ){
-		alert("아이디는 5자리 이상, 16자리 미만으로 작성해 주세요.");
-		userid.focus();
-		return false;
-	}
-	
-	// 비밀번호 빈값체크	-> alert 비밀번호를 입력하세요!
-	if( userpw.value == "" ){
-		alert("비밀번호를 입력하세요.");
-		userpw.focus();
-		return false;
-	}
-	
-	// 비밀번호 자리체크 	-> alert 비밀번호는 8자리 이상으로 입력하세요
-	if( userpw.value.length < 8 ){
-		alert("비밀번호는 8자리 이상으로 입력하세요.");
-		userpw.focus();
-		return false;
-	}
-	
-	
-	// 이름 빈값체크		-> alert 이름을 입력하세요!
-	if( username.value == "" ){
-		alert("이름을 입력하세요.");
-		username.focus();
-		return false;
-	}
-	
-	// 휴대폰번호 빈값체크	-> alert 휴대폰번호를 입력하세요!
-	if( userphone.value == "" ){
-		alert("휴대폰번호를 입력하세요.");
-		userphone.focus();
-		return false;
-	}
-	
-	// 주소 빈값체크	-> alert 휴대폰번호를 입력하세요!
-	if( useraddr.value == "" ){
-		alert("주소를 입력하세요.");
-		userphone.focus();
-		return false;
-	}
-	
-	// 이메일 빈값체크	-> alert 이메일을 입력하세요!
-	if( useremail.value == "" ){
-		alert("이메일을 입력하세요.");
-		userphone.focus();
-		return false;
-	}
+
+}	
+
 	
 	/*sessionStorage.setItem("userid",userid.value);
 	sessionStorage.setItem("userpw",userpw.value);
@@ -144,24 +104,6 @@ function joinsubmit(){
     // 원본 비밀번호 필드를 비움*/
     
     // Form 제출
-    joinsubmit.submit();
-    
-//    document.getElementById('userpw').valu ;
-}
-// 아이디는 영어 또는 숫자만 가능
-function onlyNumberAndEnglish(str) {
-  return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);
-}
-// 비밀번호는 8글자 이상,영문,숫자,!특수문자 사용!	
-function strongPassword (str) {
-  return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(str);
-}
-
-
-function emailSelect(){
-	
-}
-
 
 
 	
