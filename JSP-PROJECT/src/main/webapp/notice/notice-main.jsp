@@ -33,7 +33,7 @@ a:hover {
 </head>
 <body>
 <h1>코시웨 고객센터</h1>
-	<a href="/notification/getNotificationList.bo">공지사항</a>		
+	<a href="/notice/getNotificationList.bo">공지사항</a>		
 	<a href="/notice/faq.jsp">FAQ</a>
 	<a href="/Inquiry/list.jsp">1:1문의</a>		<!-- @@@@@링크수정 해야함@@@@@ -->
 </body>
