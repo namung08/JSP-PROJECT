@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -146,7 +147,18 @@ public class UsersDAO {
 	public String getuseraddr(String userid) {
 		return sqlSession.selectOne("getuseraddr", userid);
 	}	
-
+    public void updateUserName(String userid, String username) {
+        sqlSession.update("updateUserName", Map.of("userid", userid, "username", username));
+    }
+    
+    public void updateUserPassword(String userid, String userpw) {
+        sqlSession.update("updateUserPassword", Map.of("userid", userid, "userpw", userpw));
+    }
+    
+    public void updateUserAddress(String userid, String useraddr) {
+        sqlSession.update("updateUserAddress", Map.of("userid", userid, "useraddr", useraddr));
+    }
+	
     // 다른 메서드들...
 }
         

@@ -123,11 +123,11 @@ a {
     <form id="signupForm" action="${pageContext.request.contextPath}/myPage/UserInfoChangeSuccess.bo" method="post">
         <h3 style="text-align: center;"> 회원정보 수정 </h3>
         <!-- 사용자 아이디 작성 -->
-        아이디
+        아이디 * 변경불가능
         <input type="text" id="userid" name="userid" value="${userid }" readonly >
         
         <!-- 사용자 이메일 작성 -->
-        이메일
+        이메일 * 변경불가능
 		<input type="text" id="useremail" name="useremail" value="${useremail }" readonly >
         
         <!-- 사용자 비밀번호 작성 -->
@@ -137,21 +137,21 @@ a {
         <span id="passwordMessage" class="error"></span>
         
         <!-- 사용자 이름 작성 -->
-        이름
+        이름 
         <input type="text" id="username" name="username" value="${username }" required>
         
         <!-- 사용자 생일 작성 -->
-        생년월일
+        생년월일 * 변경불가능
         <input type="text" id="userbirth" name="userbirth" value="${userbirth }" readonly>
 		
 		<!-- 사용자 전화번호 작성 -->
-		전화번호
+		전화번호 * 변경불가능
 		<input type="text" id="userphone" name="userphone" value="${userphone }" readonly>
 		
 		<!-- 사용자 주소 작성 -->
 		<button type="button" class="btn btn-outline-secondary findbtn" onclick="sample4_execDaumPostcode()">주소 찾기</button>
-		<input type="text" name="add1" id="sample4_roadAddress" placeholder="도로명주소" disabled> 
-		<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" disabled> 
+		<input type="text" name="add1" id="sample4_roadAddress" placeholder="도로명주소" readonly> 
+		<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" readonly> 
 		<span id="guide" style="color: #999; display: none"></span> 
 		<input type="text" name="add3" id="sample4_detailAddress" placeholder="상세주소">
 		<input type="submit" value="수정하기" onclick="joinsubmit();"> 

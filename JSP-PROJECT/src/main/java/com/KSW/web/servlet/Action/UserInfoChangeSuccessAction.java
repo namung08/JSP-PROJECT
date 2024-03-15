@@ -27,7 +27,10 @@ public class UserInfoChangeSuccessAction implements Action {
 		String useremail = req.getParameter("useremail");
 		String userbirth = req.getParameter("userbirth");
 		String userphone = req.getParameter("userphone");
-		String useraddr = req.getParameter("useraddr");
+		String add1 = req.getParameter("add1");
+		String add2 = req.getParameter("add2");
+		String add3 = req.getParameter("add3");
+		String useraddr = add1+" ("+add2+") "+add3;
 		
 		
 		req.setAttribute("userid", userid);
@@ -45,6 +48,16 @@ public class UserInfoChangeSuccessAction implements Action {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
+		
+		if (useraddr != null && !useraddr.isEmpty()) {
+	        udao.updateUserAddress(userid, useraddr);
+	    }
+	    if (username != null && !username.isEmpty()) {
+	        udao.updateUserName(userid, username);
+	    }
+	    if (userpw != null && !userpw.isEmpty()) {
+	        udao.updateUserPassword(userid, userpw);
+	    }
 		
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath() + "/myPage/UserInfoChangeSuccess.jsp");
