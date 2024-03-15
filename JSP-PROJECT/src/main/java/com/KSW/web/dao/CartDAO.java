@@ -21,6 +21,15 @@ public class CartDAO {
 		}
 		return result;
 	}
+
+	public boolean deleteCart(int cartNum) {
+		boolean result = false;
+		if(sqlSession.delete("MyPage.delCart",cartNum) == 1) {
+			result = true;
+		}
+		return result;
+	}
+
 	
 	
 }

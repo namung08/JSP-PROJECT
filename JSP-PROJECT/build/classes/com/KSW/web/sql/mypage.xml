@@ -18,4 +18,7 @@
 	<insert id="setCart" parameterType="cartdto">
 		INSERT INTO KSW_CART VALUES (cart_seq.nextval,#{userId},#{title},#{discount},#{image},#{isbn},1)
 	</insert>
+	<delete id="delCart" parameterType="_int">
+		DELETE FROM KSW_CART WHERE CARTNUM = #{cartNum}
+	</delete>
 </mapper>
