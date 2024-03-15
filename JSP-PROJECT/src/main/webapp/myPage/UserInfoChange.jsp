@@ -9,43 +9,117 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="sign-up.js"></script>
 </head>
+<style>
+/* 스타일은 여기에 작성합니다 */
+/* 예시: 폼 스타일 */
+form {
+	margin: 20px auto;
+	width: 300px;
+	border: 1px solid #ccc;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#userid {
+	margin-right: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+.error {
+	color: red;
+}
+
+.content {
+	justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-id {
+	display: flex;
+	flex-direction: row;
+}
+
+.btn {
+	margin-bottom: 10px;
+	background-color: #007bff;
+	padding: 10px;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#dbchkId {
+	margin-bottom: 10px;
+	width: 33%;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 30%;
+}
+
+.header-left {
+	color: #007bff;
+}
+
+.header-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	border: 1px #007bff solid;
+	padding: 10px
+}
+
+.header-menu {
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+.password-check {
+	margin-bottom: 10px;
+}
+.email {
+	display: flex;
+	flex-direction: row;
+}
+</style>
 <body>
-    <style>
-        /* 스타일은 여기에 작성합니다 */
-        /* 예시: 폼 스타일 */
-        form {
-            margin: 20px auto;
-            width: 300px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="text"], input[type="password"], input[type="date"] {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .error {
-            color: red;
-        }
-    </style>
-    
     <form id="signupForm" action="${pageContext.request.contextPath}/myPage/UserInfoChangeSuccess.bo" method="post">
         <h3 style="text-align: center;"> 회원정보 수정 </h3>
         <!-- 사용자 아이디 작성 -->
@@ -75,13 +149,12 @@
 		<input type="text" id="userphone" name="userphone" value="${userphone }" readonly>
 		
 		<!-- 사용자 주소 작성 -->
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-		<input type="text" id="sample4_postcode" placeholder="우편번호">
-		<span id="guide" style="color:#999;display:none"></span>
-		<input type="text" id="sample4_detailAddress" placeholder="상세주소">
-
-		<button type="button" class="btn btn-outline-secondary findbtn" onclick="sample4_execDaumPostcode()">주소 찾기</button>	
-        <input type="submit" value="변경하기">
-    </form>
+		<button type="button" class="btn btn-outline-secondary findbtn" onclick="sample4_execDaumPostcode()">주소 찾기</button>
+		<input type="text" name="add1" id="sample4_roadAddress" placeholder="도로명주소" disabled> 
+		<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" disabled> 
+		<span id="guide" style="color: #999; display: none"></span> 
+		<input type="text" name="add3" id="sample4_detailAddress" placeholder="상세주소">
+		<input type="submit" value="수정하기" onclick="joinsubmit();"> 
+	</form>
 </body>
 </html>

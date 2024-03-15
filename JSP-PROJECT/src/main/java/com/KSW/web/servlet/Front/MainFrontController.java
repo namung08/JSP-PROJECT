@@ -20,7 +20,7 @@ import com.KSW.web.servlet.Action.SearchViewAction;
 import com.KSW.web.servlet.Action.SelectCartListAction;
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
 import com.KSW.web.servlet.Action.SignUpAction;
-import com.KSW.web.servlet.Action.UserInfoChangeSuccess;
+import com.KSW.web.servlet.Action.UserInfoChangeSuccessAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -149,7 +149,7 @@ public class MainFrontController extends HttpServlet{
 			forward = new DeleteCartAction().execute(req,resp);
 			break;
 		case "/myPage/UserInfoChangeSuccess.bo":
-			forward = new UserInfoChangeSuccess().execute(req,resp);
+			forward = new UserInfoChangeSuccessAction().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

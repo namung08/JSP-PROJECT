@@ -7,6 +7,12 @@
 <title>회원정보 수정완료</title>
 </head>
 <body>
-
+	${userid }
+	${useremail }
+	${userpw }
+	${username }
+	${userbirth }
+	${userphone }
+	${useraddr }
 </body>
 </html>
