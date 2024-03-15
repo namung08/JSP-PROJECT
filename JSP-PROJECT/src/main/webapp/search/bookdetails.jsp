@@ -217,7 +217,7 @@ a {
 <script src="bookdetail.js"></script>
 </head>
 <header>
-<input type="hidden" value="${userid }">
+<input type="hidden" id="userid" value="${userid }">
 <div class="header-flex">
    <div class="header-left">
          <a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
@@ -249,7 +249,7 @@ a {
    </c:choose>
 </div>
 </header>
-
+<input type="hidden" id="discord" value="${bookdetails.discount}">
 <body>
 <input type="hidden" id="isbn" value="${bookdetails.isbn}">
 	<div class="container">
@@ -260,13 +260,13 @@ a {
 			</div>
 			<div class="topColRight">
 				<div class="bk_infoTop">
-					<h2 class="booktitle" id="bookTitle">${bookdetails.title}</h2>
+					<h2 class="booktitle" id="bookTitle"></h2>
 				</div>
 				<div class="book-info">
 					<table>
 						<tr>
 							<th align="left">가격</th>
-							<td id="bk_dis" align="center">${bookdetails.discount}</td>
+							<td id="bk_dis" align="center"></td>
 						</tr>
 						<tr>
 							<th align="left">저자</th>

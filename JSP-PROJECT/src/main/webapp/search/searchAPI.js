@@ -99,6 +99,7 @@ function sucFuncJson(d) {
 		str += "<ul>";
 		str += "	<input type='hidden' name='isbn' value=" + item.isbn + ">";
 		str += '	<input type="hidden" name="description" value="' + item.description + '">';
+		str += '	<input type="hidden" name="discount" value="' + discount + '">';
 		str += "    <img name='image' id='image' src='" + item.image + "'width='304' height='228' >";
 		str += "    <li name='title' id='title'> 제목 : " + item.title + "</li>";
 		str += "    <li name='author' id='author' > 저자 : " + item.author + "</li>";
@@ -119,11 +120,11 @@ $(document).on('click', 'ul', function() {
 	// ul 요소 안에 있는 정보들을 가져옵니다.
     var isbn = ulElement.find('input[name="isbn"]').val();
     var description = ulElement.find('input[name="description"]').val();
-    var imageSrc = ulElement.find('img[id="image."').attr('src');
+    var imageSrc = ulElement.find('img[id="image"').attr('src');
     var title = ulElement.find('li[name="title"]').text().replace('제목 : ', '');
     var author = ulElement.find('li[name="author"]').text().replace('저자 : ', '');
     var publisher = ulElement.find('li[name="publisher"]').text().replace('출판사 : ', '');
-    var discount = ulElement.find('li[name="discount"]').text().replace('가격 : ', '');
+    var discount = ulElement.find('input[name="discount"]').val();
     if(discount == ' 0원') {
 		alert("해당 책은 판매하지 않습니다. 다른 책을 골라 주세요");
 		return false;

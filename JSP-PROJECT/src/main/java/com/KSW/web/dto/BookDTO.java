@@ -5,7 +5,6 @@ import java.util.Date;
 public class BookDTO {
 	private String isbn;
     private String title;
-    private String link;
     private String image;
     private String author;
     private String discount;
@@ -24,12 +23,6 @@ public class BookDTO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getLink() {
-		return link;
-	}
-	public void setLink(String link) {
-		this.link = link;
 	}
 	public String getImage() {
 		return image;

@@ -3,12 +3,19 @@
  */
 
 window.onload = function() {
+	const discount = $('#discord').val();
+	const discount1 = discount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 	const infoWrap_txtInner = document.getElementById('infoWrap_txtInner');
 	const detail = document.getElementById("txtContentText").value;
 	infoWrap_txtInner.innerText = detail;
+	$('#bk_dis').text(discount1+"원");
 };
 
 $(document).on('click','#cart',function() {
+	if($('#userid').val() == "") {
+		alert('먼저 로그인을 해 주세요.');
+		return false;
+	}
 	// 새 form 엘리먼트를 생성합니다.
 	var form = $('<form></form>');
 
