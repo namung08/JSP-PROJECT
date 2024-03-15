@@ -19,6 +19,7 @@ import com.KSW.web.servlet.Action.SearchViewAction;
 import com.KSW.web.servlet.Action.SelectCartListAction;
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
 import com.KSW.web.servlet.Action.SignUpAction;
+import com.KSW.web.servlet.Action.UserInfoChangeSuccess;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -119,10 +120,11 @@ public class MainFrontController extends HttpServlet{
 		case "/login/FindPwResult.bo": 
 			forward = new ActionForward(false, "/login/find-pw-result.jsp");
 			break;
+			// 개인정보 수정 비밀번호 확인
 		case "/myPage/UserInfoCheck.bo": 
 			forward = new ActionForward(false, "/myPage/UserInfoCheck.jsp");
 			break;
-			// 개인정보 수정 비밀번호 확인 액션
+			// 개인정보 수정 페이지로 이동
 		case "/myPage/UserInfoChange.bo": 
 			forward = new UserInfoCheckAction().execute(req, resp);
 			break;
@@ -143,6 +145,9 @@ public class MainFrontController extends HttpServlet{
 			// 삭제 버튼을 눌렀을 때 장바구니 테이블에서 삭제하는 액션
 		case "/delete/CartBook.bo":
 			forward = new DeleteCartAction().execute(req,resp);
+			break;
+		case "/myPage/UserInfoChangeSuccess.bo":
+			forward = new UserInfoChangeSuccess().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리
