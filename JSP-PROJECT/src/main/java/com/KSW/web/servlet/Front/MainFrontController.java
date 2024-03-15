@@ -2,8 +2,11 @@ package com.KSW.web.servlet.Front;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.NotificationDAO;
+import com.KSW.web.dto.NotificationDTO;
 import com.KSW.web.servlet.Action.BookParamAction;
 import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.DeleteCartAction;
@@ -131,6 +134,12 @@ public class MainFrontController extends HttpServlet{
 		case "/search/CartList.bo":
 			forward = new SelectCartListAction().execute(req, resp);
 			break;
+			// 공지사항 목록 조회
+		case "/notice/getNotificationList.bo":
+		    List<NotificationDTO> notificationList = new NotificationDAO().getNotificationList();
+		    req.setAttribute("notificationList", notificationList);
+		    forward = new ActionForward(false, "/notice/notification-list.jsp");
+		    break;
 			// 삭제 버튼을 눌렀을 때 장바구니 테이블에서 삭제하는 액션
 		case "/delete/CartBook.bo":
 			forward = new DeleteCartAction().execute(req,resp);
