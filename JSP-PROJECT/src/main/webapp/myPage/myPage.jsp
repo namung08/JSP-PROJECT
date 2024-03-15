@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>${userid }'s myPage</title>
 <link rel="stylesheet" href="/css/ksw.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="mypage.js"></script>
 </head>
 <body>
 	<header>
@@ -17,6 +19,7 @@
 			</div>
 		</div>
 	</header>
+	<input type="hidden" id="flag" value="${flag}">
 	<h1>${userid }님의 마이페이지</h1>
 	<a href="${pageContext.request.contextPath }/myPage/UserInfoCheck.bo">
 		[회원정보 수정]
@@ -27,9 +30,8 @@
 	<a href="${pageContext.request.contextPath }/myPage/.bo">
 		[문의 내역]
 	</a><br>
-	<a href="${pageContext.request.contextPath }/search/CartList.bo">
+	<a id="cartlist" href="${pageContext.request.contextPath }/search/CartList.bo">
 		[장바구니]
 	</a><br>
-	
 </body>
 </html>

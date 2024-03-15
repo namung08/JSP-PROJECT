@@ -2,6 +2,7 @@ package com.KSW.web.servlet.Front;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 
 import com.KSW.web.action.ActionForward;
@@ -62,6 +63,7 @@ public class MainFrontController extends HttpServlet{
 			System.out.println("undoURL:"+undoURL);
 			forward = new ActionForward(true, "/login/sign-up-in.jsp");
 			break;
+			// 마이페이지 이동 액션
 		case "/myPage/myPage.bo":
 			forward = new ActionForward(true, "/myPage/myPage.jsp");
 			break;
