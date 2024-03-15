@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.BookDAO;
 import com.KSW.web.dto.BookDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,6 +25,7 @@ public class BookParamAction implements Action {
 		}
 		ActionForward forward = new ActionForward();
 		BookDTO bdto = new BookDTO();
+		BookDAO bdao = new BookDAO();
 		bdto.setIsbn(req.getParameter("isbn"));
 		String description = req.getParameter("description");
 		bdto.setDescription(description);
@@ -43,6 +45,7 @@ public class BookParamAction implements Action {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		bdao.insertBookDetails(bdto);
 		req.setAttribute("bookdetails", bdto);
 		forward.setPath(req.getContextPath() + "/search/bookdetails.jsp");
 		forward.setRedirect(false);

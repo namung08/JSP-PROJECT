@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>KSW 임시페이지</title>
 </head>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 <body> 
 <header>
