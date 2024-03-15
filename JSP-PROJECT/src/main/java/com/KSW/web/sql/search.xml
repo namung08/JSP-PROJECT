@@ -19,7 +19,7 @@
 		INSERT INTO KSW_BOOK
 		VALUES(#{isbn},#{title},#{image},#{author},#{discount},#{publisher},#{description},#{pubdate})
 	</insert>
-	<select id="traffic" resultType="bookdto">
+	<select id="traffic" parameterType="hashmap" resultType="bookdto">
 		SELECT b.* FROM
 		(SELECT rownum rn, a.* FROM
 		(SELECT count(*), title, IMAGE, isbn FROM KSW_BOOK group BY

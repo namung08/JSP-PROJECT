@@ -45,7 +45,7 @@
 	</c:choose>
 </div>
 </header>
-<div class="traffic">
+<div id="traffic">
 <!-- 사람들의 책 상세페이지를 들어간 횟수에 따른 추천 목록 -->
 </div>
 <div class="order-traffic">

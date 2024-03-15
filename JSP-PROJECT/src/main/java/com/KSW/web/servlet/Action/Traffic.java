@@ -20,6 +20,7 @@ public class Traffic extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BookDAO bdao = new BookDAO();
+		BookDTO bdto = new BookDTO();
 		int startRow = 1;
 		int endRow = 5;
 
