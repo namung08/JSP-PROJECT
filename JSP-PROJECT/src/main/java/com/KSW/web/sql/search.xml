@@ -21,10 +21,10 @@
 	</insert>
 	<select id="traffic" parameterType="hashmap" resultType="bookdto">
 		SELECT b.* FROM
-		(SELECT rownum rn, a.* FROM
-		(SELECT count(*), title, IMAGE, isbn FROM KSW_BOOK group BY
-		TITLE,IMAGE, isbn ORDER BY count(*) desc) a) b
-		WHERE b.rn BETWEEN #{startRow} AND #{endRow}
+	(SELECT rownum rn, a.* FROM
+	(SELECT count(*),isbn,title,image, author,discount,publisher,TO_CHAR(description) as description,pubdate FROM KSW_BOOK
+	group BY isbn,title,image, author,discount,publisher,TO_CHAR(description),pubdate ORDER BY count(*) desc)  a) b
+WHERE b.rn BETWEEN #{startRow} AND #{endRow}
 	</select>
 </mapper>
  

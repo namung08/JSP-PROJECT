@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+
 <style>
 body {
 	display: flex;
@@ -95,6 +95,7 @@ tr {
 	flex-direction: row;
 }
 </style>
+</head>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -152,8 +153,13 @@ tr {
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
 								<tr id="cartResult">
-									<td style="text-align: center;"><input type="checkbox" value="Y"></td>
-									<td><img alt="${cart.title }" src="${cart.image }"><input type="hidden" name="cartNum" value="${cart.cartNum }"></td>
+									<td style="text-align: center;">
+										<input type="checkbox" value="Y">
+									</td>
+									<td>
+										<img alt="${cart.title }" src="${cart.image }">
+										<input type="hidden" name="cartNum" value="${cart.cartNum }">
+									</td>
 									<td>${cart.title }</td>
 									<td>${cart.discount }</td>
 									<td class="td-count-con">
@@ -185,7 +191,7 @@ tr {
 					<table>
 						<tr>
 							<th style="padding-right: 10px;">총 금액</th>
-							<td>금액 * 갯수</td>
+							<td id="totalPrice">0</td>
 						</tr>
 					</table>
 				</div>

@@ -9,6 +9,64 @@
 </head>
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
+<style>
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #f5f5f5;
+	margin: 0;
+	padding: 40px;
+}
+#trafficIsNotNull {
+	text-align: center;
+}
+#traffic {
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	justify-content: space-between;
+}
+ul {
+	padding: 0px;
+	margin-right: 20px;
+}
+#traffic ul {
+	max-width : 220px;
+	padding: 10px; /* 패딩 유지 */
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+	display: flex; /* 이미지와 텍스트를 세로로 정렬 */
+	flex-direction: column; /* 컨텐츠를 세로로 정렬 */
+	align-items: center; /* 가운데 정렬 */
+}
+#traffic ul:first-child {
+	margin-left: 30px;
+}
+#traffic ul:last-child{
+	margin-right: 30px;
+}
+#traffic ul:hover {
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+#traffic img {
+	width: 100%; /* 이미지 너비를 ul에 맞춤 */
+	height: 100%; /* 이미지 비율 유지 */
+	max-width: 200px; /* 최대 너비 설정 */
+	margin-bottom: 10px; /* 이미지와 텍스트 사이의 마진 */
+}
+#traffic li {
+	list-style: none;
+	padding: 8px 12px;
+	border-bottom: 1px solid #f0f0f0;
+}
+#traffic li:last-child {
+	border-bottom: none;
+}
+
+</style>
 <body> 
 <header>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,8 +103,7 @@
 	</c:choose>
 </div>
 </header>
-<div id="traffic">
-<!-- 사람들의 책 상세페이지를 들어간 횟수에 따른 추천 목록 -->
+<div id="trafficIsNotNull">
 </div>
 <div class="order-traffic">
 <!-- 사람들의 주문량에 따른 추천 목록 -->

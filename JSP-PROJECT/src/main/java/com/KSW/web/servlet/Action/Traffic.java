@@ -1,6 +1,7 @@
 package com.KSW.web.servlet.Action;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -26,7 +27,6 @@ public class Traffic extends HttpServlet {
 
 		// BookDAO의 traffic 메서드를 호출하여 BookDTO 객체 리스트를 가져옵니다.
 		List<BookDTO> responseBody = bdao.traffic(startRow, endRow);
-		responseBody = bdao.traffic(startRow, endRow);
 		// 각 BookDTO 객체를 JSON 객체로 변환하고 JSON 배열에 추가합니다.
 		JSONArray jsonArray = new JSONArray();
 
@@ -35,6 +35,13 @@ public class Traffic extends HttpServlet {
 			bookJson.put("isbn", book.getIsbn());
 			bookJson.put("title", book.getTitle());
 			bookJson.put("image", book.getImage());
+			bookJson.put("author", book.getAuthor());
+			bookJson.put("discount", book.getDiscount());
+			bookJson.put("publisher", book.getPublisher());
+			bookJson.put("description", book.getDescription());
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String date = formatter.format(book.getPubdate());
+			bookJson.put("pubdate", date);
 			jsonArray.add(bookJson);
 		}
 

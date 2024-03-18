@@ -24,7 +24,7 @@ $(document).on('click','#cart',function() {
 	form.attr('action',  '/myPage/insertCart.bo');
 	
 	// 필드를 생성하고 값을 설정합니다.
-	var image = $('img').attr('src');
+	var image = $('#bookCover').attr('src');
 	var title = $('#bookTitle').text();
 	var discount = $('#bk_dis').text();
 	var isbn = $('#isbn').val();
