@@ -1,7 +1,5 @@
 package com.KSW.web.dto;
 
-import java.util.Date;
-
 public class NotificationDTO {
     private int notificationNum;
     private String userId;

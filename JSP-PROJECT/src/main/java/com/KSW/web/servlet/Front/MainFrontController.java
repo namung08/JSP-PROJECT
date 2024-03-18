@@ -23,6 +23,8 @@ import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
 import com.KSW.web.servlet.Action.SelectCartListAction;
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
+import com.KSW.web.servlet.Action.getNotificationListAction;
+import com.KSW.web.servlet.Action.noticeWriteAction;
 import com.KSW.web.servlet.Action.SignUpAction;
 import com.KSW.web.servlet.Action.UserInfoChangeSuccessAction;
 
@@ -147,13 +149,6 @@ public class MainFrontController extends HttpServlet{
 		case "/notice/notice-main.bo":
 		    forward = new ActionForward(true, "/notice/notice-main.jsp");
 		    break;
-		    
-			// 공지사항 목록 조회
-		case "/notice/getNotificationList.bo":
-		    List<NotificationDTO> notificationList = new NotificationDAO().getNotificationList();
-		    req.setAttribute("notificationList", notificationList);
-		    forward = new ActionForward(false, "/notice/notification-list.jsp");
-		    break;
 			// 삭제 버튼을 눌렀을 때 장바구니 테이블에서 삭제하는 액션
 		case "/delete/CartBook.bo":
 			forward = new DeleteCartAction().execute(req,resp);
@@ -178,6 +173,14 @@ public class MainFrontController extends HttpServlet{
 		case "/notice/inquiryWriteSuccess.bo":
 			forward = new InquiryWriteSuccessAction().execute(req,resp);
 			break;
+			// 공지사항 불러오기
+		case "/notice/getNotificationList.bo":
+			forward = new getNotificationListAction().execute(req,resp);
+			break;	
+			// 공지사항 작성
+		case "/notice/noticeWrite.bo":
+			forward = new noticeWriteAction().execute(req,resp);
+			break;	
 		}
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {

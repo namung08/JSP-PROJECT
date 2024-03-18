@@ -20,4 +20,8 @@
 	<insert id="insertinquiryWrite" parameterType="qnadto">
 		INSERT INTO KSW_QNA VALUES (qna_seq.nextval,#{userId},#{qnatitle},#{qnaDetails},#{createdat},null,null)
 	</insert>
+	
+	<select id="getNotificationList" resultType="notdto" >
+		SELECT * FROM KSW_NOTIFICATION
+	</select>
 </mapper>

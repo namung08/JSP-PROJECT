@@ -57,7 +57,7 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="notification" items="${notificationList}">
+            <c:forEach var="notification" items="${NotificationList}">
                 <tr>
                     <td>${notification.notificationNum}</td>
                     <td>${notification.userId}</td>
@@ -69,5 +69,6 @@
             </c:forEach>
         </tbody>
     </table>
+    <a href="${pageContext.request.contextPath}/notice/noticeWrite.bo">[공지사항 작성]</a>
 </body>
 </html>

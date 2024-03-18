@@ -9,6 +9,7 @@
 		<typeAlias type="com.KSW.web.dto.UsersDTO" alias="usersdto"/>
 		<typeAlias type="com.KSW.web.dto.CartDTO" alias="cartdto"/>
 		<typeAlias type="com.KSW.web.dto.QnaDTO" alias="qnadto"/>
+		<typeAlias type="com.KSW.web.dto.NotificationDTO" alias="notdto"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -30,7 +31,6 @@
 		<mapper resource="com/KSW/web/sql/search.xml" />
 		<mapper resource="com/KSW/web/sql/mypage.xml"/>
 		<mapper resource="com/KSW/web/sql/users.xml"/>
-		<mapper resource="com/KSW/web/sql/notice.xml"/>
 		<mapper resource="com/KSW/web/sql/qna.xml"/>
 	</mappers>
 </configuration>
