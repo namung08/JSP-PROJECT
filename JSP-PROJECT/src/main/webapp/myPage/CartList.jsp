@@ -145,8 +145,10 @@ tr {
 	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
 </ul>
 </nav>
-</header>	<div class="main">
+</header>
+<div class="main">
 		<h2>장바구니</h2>
+		<input type="hidden" id="flag" value="${flag }">
 		<form class="cartForm" action="${pageContext.request.contextPath}/myPage/InsertOrder.bo">
 			<div class="CartList">
 				<table>
@@ -163,6 +165,7 @@ tr {
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
+							<input type="hidden" id="isbn" value="${cart.isbn }">
 								<tr class="cartResult">
 									<td style="text-align: center;">
 										<input class="itemCheckbox" type="checkbox">

@@ -1,5 +1,7 @@
 package com.KSW.web.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -21,7 +23,15 @@ public class CartDAO {
 		}
 		return result;
 	}
-
+	
+	public int getCart(String userid, String isbn) {
+		HashMap<String, String> datas = new HashMap<String, String>();
+		datas.put("userid", userid);
+		datas.put("isbn", isbn);
+		
+		return sqlSession.selectOne("MyPage.getCart",datas);
+	}
+	
 	public boolean deleteCart(int cartNum) {
 		boolean result = false;
 		if(sqlSession.delete("MyPage.delCart",cartNum) == 1) {

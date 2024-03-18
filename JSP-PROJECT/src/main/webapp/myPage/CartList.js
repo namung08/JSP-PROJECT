@@ -5,6 +5,10 @@ function errFunc(e) {
 	alert("실패: " + e.status);
 }
 $(document).ready(function() {
+	if($('#flag').val() == "false") {
+		alert('이미 장바구니에 담겨져 있습니다.\n장바구니를 확인해 주세요.')
+	};
+	
 	$('.creditbtn').click(function() {
 		// 체크된 모든 체크박스를 찾아 그 부모인 tr 요소의 정보를 가져옵니다.
 		$('input.itemCheckbox:checked').each(function() {
