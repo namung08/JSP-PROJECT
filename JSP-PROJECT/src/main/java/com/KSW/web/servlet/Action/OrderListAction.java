@@ -1,6 +1,8 @@
 package com.KSW.web.servlet.Action;
 
 import java.awt.print.Pageable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
@@ -16,6 +18,14 @@ public class OrderListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// 세션에 아이디를 저장 하기 위한 세션 객체 생성
 		HttpSession session = request.getSession();
+		// 현재 날짜 및 시간을 위한 Date 객체 생성
+        Date date = new Date();
+        
+        // 날짜 형식을 지정하기 위해 SimpleDateFormat 객체 생성
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        // format 메소드를 사용하여 날짜를 지정된 형식의 문자열로 변환
+        String formattedDate = sdf.format(date);
 		String userid = (String) session.getAttribute("userid");
 		
 		ActionForward forward = new ActionForward();
@@ -41,6 +51,7 @@ public class OrderListAction implements Action {
 		
 		
 		request.setAttribute("OrderList", bdao.getOrderList(startRow, endRow, userid));
+		request.setAttribute("nowDate", formattedDate);
 		request.setAttribute("totalCnt", totalCnt);
 		request.setAttribute("username", username);
 		
