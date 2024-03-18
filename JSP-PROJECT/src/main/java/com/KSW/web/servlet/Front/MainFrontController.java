@@ -15,6 +15,7 @@ import com.KSW.web.servlet.Action.FindIdAction;
 import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.InquiryListAction;
 import com.KSW.web.servlet.Action.InquiryWriteAction;
+import com.KSW.web.servlet.Action.InquiryWriteSuccessAction;
 import com.KSW.web.servlet.Action.InsertCartAction;
 import com.KSW.web.servlet.Action.InsertOrderListAction;
 import com.KSW.web.servlet.Action.LogOutAction;
@@ -169,8 +170,13 @@ public class MainFrontController extends HttpServlet{
 		case "/notice/inquiry.bo":
 			forward = new InquiryListAction().execute(req,resp);
 			break;
+			// 1:1문의 작성페이지로 이동
 		case "/notice/inquiryWrite.bo":
 			forward = new InquiryWriteAction().execute(req,resp);
+			break;
+			// 1:1문의 인서트
+		case "/notice/inquiryWriteSuccess.bo":
+			forward = new InquiryWriteSuccessAction().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

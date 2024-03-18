@@ -38,14 +38,13 @@
 </head>
 <body>
     <h1>1:1 문의 작성</h1>
-    <form id="inquiryWrite" action="InquiryServlet" method="post">
-        
+    <form id="inquiryWrite" action="${pageContext.request.contextPath}/notice/inquiryWriteSuccess.bo" method="post">
         <label for="userid">작성자:${userid }</label>
-        <label for="title">제목:</label>
-        <input type="text" id="title" name="title" required>
+        <label for="qnatitle">제목:</label>
+        <input type="text" id="qnatitle" name="qnatitle" required>
         
-        <label for="content">내용:</label>
-        <textarea id="content" name="content" rows="5" required></textarea>
+        <label for="qnaDetails">내용:</label>
+        <textarea id="qnaDetails" name="qnaDetails" rows="5" required></textarea>
         
         <input type="submit" value="작성하기">
     </form>
