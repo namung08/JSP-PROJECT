@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>주문내역</title>
 </head>
@@ -32,7 +33,6 @@ table {
 }
 </style>
 <script src="OrderList.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
 	<div>
 		<table style="width: 900px; border: 1px;">
@@ -60,6 +60,7 @@ table {
 			<c:choose>
 				<c:when test="${OrderList != null and fn:length(OrderList) > 0 }">
 					<c:forEach var="order" items="${OrderList }">
+					<input type="hidden" name="isbn" value="${order.isbn }">
 					<!--기준이 되는 날짜 준비-->
 					<fmt:parseDate value="${order.orderDate}" var="orderDate" pattern="yyyy-MM-dd"/>
 					<!-- 기준 날짜 변경 -->
@@ -77,7 +78,6 @@ table {
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
 							<td class="orderdate" height="23px;">
-								
 								${OrderDate }
 							</td>
 							<td height="23px;">${order.title }</td>
