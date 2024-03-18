@@ -25,6 +25,7 @@ public class UserReviewAction implements Action{
 	String userid = req.getParameter("userid");
 	String reply_insert_date = req.getParameter("reply_insert_date");
 	String reply_grade = req.getParameter("reply_grade");
+	// Clob 형태 변환
 	String reply_detail = req.getParameter("reply_detail");
 	
 	

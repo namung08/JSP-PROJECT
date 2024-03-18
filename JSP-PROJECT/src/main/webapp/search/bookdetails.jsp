@@ -315,7 +315,9 @@ a {
 							<table>
 								<tr>
 									<th>날짜</th>
+									<th></th>
 									<td>평점</td>
+									<td></td>
 								</tr>
 							</table>
 							리뷰
@@ -327,7 +329,9 @@ a {
 							<table>
 								<tr>
 									<th>날짜</th>
+									<th></th>
 									<td>평점</td>
+									<td></td>
 								</tr>
 							</table>
 							리뷰
