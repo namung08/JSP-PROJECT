@@ -1,16 +1,22 @@
 /**
  * 
  */
-
 $(document).on('click', '.count-btn', function() {
-	var clickbtn = $(this);
-	var btnval = clickbtn.val();
-	if (btnval == '128465') {
+	var btn = $(this);
+    var tr = btn.closest('tr');
+    var countText = tr.find('.count-text');
+    var text = parseInt(countText.val(), 10);
+	if (btn.val() == '128465') {
 		trash();
-	} else if (btnval == '8592') {
-		left();
-	} else if (btnval == '8594') {
-		right();
+	} else if (btn.val() == '8592') {
+		if (text == 1) {
+			return false;
+		}
+		text -= 1;
+		countText.val(text);
+	} else if (btn.val() == '8594') {
+		text += 1;
+		countText.val(text);
 	}
 });
 function trash() {
@@ -24,21 +30,8 @@ function trash() {
 	form.attr('action', '/delete/CartBook.bo');
 	// 필드를 생성하고 값을 설정합니다.
 	form.append('<input type="hidden" name="cartNum" value="' + cartNum + '">');
-	
+
 	// form을 body에 추가하고 submit 합니다.
 	$('body').append(form);
 	form.submit();
-}
-function left() {
-	var text = parseInt($('.count-text').val(), 10);
-	if (text == 1) {
-		return false;
-	}
-	text -= 1;
-	$('.count-text').val(text);
-}
-function right() {
-	var text = parseInt($('.count-text').val(), 10);
-	text += 1;
-	$('.count-text').val(text);
 }
