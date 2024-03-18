@@ -32,6 +32,7 @@ a:hover {
 </style>
 </head>
 <body>
+<a align="right" valign="middle" href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
 <h1>코시웨 고객센터</h1>
 	<a href="/notice/getNotificationList.bo">공지사항</a>	<!-- 데이터베이스에서 목록 불러오기까지만 가능합니다 -->
 	<a href="/notice/faq.jsp">FAQ</a>					<!-- FAQ 내용은 임의로 작성했습니다 -->
