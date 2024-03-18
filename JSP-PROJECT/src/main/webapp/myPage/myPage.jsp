@@ -118,8 +118,8 @@ body {
 					[회원정보 수정]</button>
 				</div>
 				<div>
-					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/myPage/.bo'">
-					[문의 내역]</button>
+					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath}/notice/notice-main.bo'">
+					[고객 센터]</button>
 				</div>
 			</div>
 		</div>
