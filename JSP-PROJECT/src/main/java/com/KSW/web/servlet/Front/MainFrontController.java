@@ -13,6 +13,9 @@ import com.KSW.web.servlet.Action.CheckLoginDBAction;
 import com.KSW.web.servlet.Action.DeleteCartAction;
 import com.KSW.web.servlet.Action.FindIdAction;
 import com.KSW.web.servlet.Action.FindPwAction;
+import com.KSW.web.servlet.Action.InquiryListAction;
+import com.KSW.web.servlet.Action.InquiryWriteAction;
+import com.KSW.web.servlet.Action.InquiryWriteSuccessAction;
 import com.KSW.web.servlet.Action.InsertCartAction;
 import com.KSW.web.servlet.Action.InsertOrderListAction;
 import com.KSW.web.servlet.Action.LogOutAction;
@@ -155,11 +158,25 @@ public class MainFrontController extends HttpServlet{
 		case "/delete/CartBook.bo":
 			forward = new DeleteCartAction().execute(req,resp);
 			break;
+			// 회원정보 수정 성공시 페이지
 		case "/myPage/UserInfoChangeSuccess.bo":
 			forward = new UserInfoChangeSuccessAction().execute(req,resp);
 			break;
+			// 구매내역에 인서트 후 구매내역으로 이동
 		case "/myPage/insertOrderList.bo":
 			forward = new InsertOrderListAction().execute(req,resp);
+			break;
+			// 1:1 문의내역 페이지로 이동
+		case "/notice/inquiry.bo":
+			forward = new InquiryListAction().execute(req,resp);
+			break;
+			// 1:1문의 작성페이지로 이동
+		case "/notice/inquiryWrite.bo":
+			forward = new InquiryWriteAction().execute(req,resp);
+			break;
+			// 1:1문의 인서트
+		case "/notice/inquiryWriteSuccess.bo":
+			forward = new InquiryWriteSuccessAction().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

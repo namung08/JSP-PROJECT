@@ -57,9 +57,7 @@ $(document).ready(function() {
         // 필드를 생성하고 값을 설정합니다.
         var title = $('#bookTitle').text();
         var discount = $('#bk_dis').text();
-        var isbn = $('#isbn').val();
         
-        form.append('<input type="hidden" name="isbn" value="' + isbn + '">');
         form.append('<input type="hidden" name="title" value="' + title + '">');
         form.append('<input type="hidden" name="discount" value="' + discount + '">');
         

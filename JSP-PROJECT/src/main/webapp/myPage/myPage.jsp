@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${userid }'smyPage</title>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="mypage.js"></script>
@@ -31,16 +32,44 @@ body {
 	flex-direction: column; /* 컨텐츠를 세로로 정렬 */
 	align-items: center; /* 가운데 정렬 */
 }
+.order-list {
+	width: 100%;
+	justify-content:space-evenly;
+	display: flex;
+	margin: 10px;
+}
+.config-list {
+	width: 100%;	
+	justify-content:space-evenly;
+	display: flex;
+	margin: 10px;
+}
+.btn {
+	width: 150px;
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn:hover {
+	opacity: 0.9;
+}
 </style>
 <body>
 	<header>
 		<input type="hidden" value="${userid }">
 		<div class="header-flex">
 			<div class="header-left">
-				<a href="${pageContext.request.contextPath}/main/main-page.bo"><img
-					class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+					<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 			</div>
+<<<<<<< HEAD
 			<form id="searchFrm"  action="/search/SearchView.bo" method="post">
+=======
+			<form id="searchFrm" action="/search/SearchView.bo" method="post">
+>>>>>>> 0209e4f14ba6316a15879b82d484439e6f97d1ad
 				<div>
 					<input type="text" name="search" id="keyword"
 						placeholder="검색하실 책 제목을 입력하세요">
@@ -52,44 +81,51 @@ body {
 			<c:choose>
 				<c:when test="${not empty userid}">
 					<div class="header-right">
-						<div>${userid }님안녕하세요.</div>
-						<div class="header-menu">
-							<div style="margin-right: 20px;">
-								<a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a>
-							</div>
-							<div>
-								<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a>
-							</div>
+						<div>${userid }님 안녕하세요.</div>
+						<div class="header-menu" >
+							<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+							<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
 						</div>
 					</div>
 				</c:when>
 				<c:otherwise>
-					<div class="header-right">
-						<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-					</div>
+					  <div style="display: flex;">
+					    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+					  </div>
 				</c:otherwise>
 			</c:choose>
 		</div>
+		<nav>
+		<ul class="nav-bar">
+			<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+			<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+		</ul>
+		</nav>
 	</header>
 	<input type="hidden" id="flag" value="${flag}">
-	<div class="list">
-		<h1>${userid }님의마이페이지</h1>
-		<div>
-			<a href="${pageContext.request.contextPath }/myPage/UserInfoCheck.bo">
-				[회원정보 수정] </a>
-		</div>
-		<div>
-			<a href="${pageContext.request.contextPath }/myPage/OrderList.bo">
-				[구매 내역] </a>
-		</div>
-		<div>
-			<a href="${pageContext.request.contextPath }/myPage/.bo"> [문의 내역]
-			</a>
-		</div>
-		<div>
-			<a id="cartlist"
-				href="${pageContext.request.contextPath }/search/CartList.bo">
-				[장바구니] </a>
+	<div style="text-align: -webkit-center;">
+		<div class="list">
+			<h1>${userid }님의마이페이지</h1>
+			<div class="order-list">
+				<div>
+					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/myPage/OrderList.bo'">
+					[구매 내역]</button>
+				</div>
+				<div>
+					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/search/CartList.bo'">
+					[장바구니]</button>
+				</div>
+			</div>
+			<div class='config-list'>
+				<div>
+					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/myPage/UserInfoCheck.bo'">
+					[회원정보 수정]</button>
+				</div>
+				<div>
+					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath}/notice/inquiry.bo'">
+					[1:1문의]</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

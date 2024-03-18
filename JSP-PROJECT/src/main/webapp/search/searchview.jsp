@@ -201,6 +201,12 @@ a {
 		</c:otherwise>
 	</c:choose>
 </div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
 </header>
 <body>
 	

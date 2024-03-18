@@ -9,7 +9,6 @@ public class OrderListDTO {
     private String title;			//책 제목
     private int discount;			//책 가격
     private String deliveryStatus;	//책 배송 상태
-    private String isbn;		//국제표준도서번호
     private int count;				//책 수량
 	
     public int getOrderNum() {
@@ -47,12 +46,6 @@ public class OrderListDTO {
 	}
 	public void setDeliveryStatus(String deliveryStatus) {
 		this.deliveryStatus = deliveryStatus;
-	}
-	public String getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
 	}
 	public int getCount() {
 		return count;

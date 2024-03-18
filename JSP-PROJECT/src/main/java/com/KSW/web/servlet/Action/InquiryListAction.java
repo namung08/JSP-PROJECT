@@ -1,37 +1,25 @@
 package com.KSW.web.servlet.Action;
 
-import java.awt.print.Pageable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
-import com.KSW.web.dao.OrderlistDAO;
+import com.KSW.web.dao.QnaDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-public class OrderListAction implements Action {
+public class InquiryListAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		// 세션에 아이디를 저장 하기 위한 세션 객체 생성
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse resp) {
+		
 		HttpSession session = request.getSession();
-		// 현재 날짜 및 시간을 위한 Date 객체 생성
-        Date date = new Date();
-        
-        // 날짜 형식을 지정하기 위해 SimpleDateFormat 객체 생성
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        
-        // format 메소드를 사용하여 날짜를 지정된 형식의 문자열로 변환
-        String formattedDate = sdf.format(date);
 		String userid = (String) session.getAttribute("userid");
 		
 		ActionForward forward = new ActionForward();
-		OrderlistDAO bdao = new OrderlistDAO();
-		int totalCnt = bdao.getOrderCnt(userid);
-		String username = bdao.getUserName(userid);
+		QnaDAO qdao = new QnaDAO();
+		int totalCnt = qdao.getinquiryCnt(userid);
+		String username = qdao.getUserName(userid);
 		// 현재 페이지 넘겨받기
 		String temp = request.getParameter("page");
 		int page = 0;
@@ -48,10 +36,13 @@ public class OrderListAction implements Action {
 		int totalPage = (totalCnt-1)/pageSize + 1;
 		
 		endPage = endPage> totalPage ? totalPage : endPage;
+		System.out.println(userid);
+		if(userid.equals("admin")) {
+			request.setAttribute("inquiryList", qdao.getinquiryListAdmin(startRow, endRow, userid));
+		} else {
+			request.setAttribute("inquiryList", qdao.getinquiryList(startRow, endRow, userid));
+		}
 		
-		
-		request.setAttribute("OrderList", bdao.getOrderList(startRow, endRow, userid));
-		request.setAttribute("nowDate", formattedDate);
 		request.setAttribute("totalCnt", totalCnt);
 		request.setAttribute("username", username);
 		
@@ -62,7 +53,7 @@ public class OrderListAction implements Action {
 		
 		// forward방식으로 페이지 이동
 		forward.setRedirect(false);
-		forward.setPath(request.getContextPath() + "/myPage/OrderList.jsp");
+		forward.setPath(request.getContextPath() + "/notice/inquiry.jsp");
 		
 		return forward;
 	}

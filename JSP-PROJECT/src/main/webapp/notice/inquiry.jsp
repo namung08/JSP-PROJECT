@@ -1,96 +1,101 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>1:1 문의</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            padding: 20px;
-        }
+a:visited {
+	color: #ce93d8;
+	text-decoration: none;
+}
 
-        h1 {
-            color: #333;
-        }
+a:hover {
+	color: #ce93d8;
+	text-decoration: none;
+	font-weight: bold;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+a:link {
+	color: #ce93d8;
+	text-decoration: none;
+}
 
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: rgb(36, 39, 39);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-        }
-
-        .inquiry-link {
-            display: block;
-            margin-bottom: 10px;
-            background-color: rgb(36, 39, 39);
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            width: 200px;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .inquiry-link:hover {
-            background-color: gray;
-        }
-    </style>
+table {
+	width: 100%; /* 브라우저의 가로 너비에 맞게 테이블의 너비 조절 */
+    max-width: 900px; /* 최대 너비를 지정하여 테이블이 너무 커지지 않도록 제한 */
+    border-collapse: collapse;
+    border-spacing: 0;
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
-    <h1>코시웨 1:1 문의</h1>
+	<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
+	<h1>코시웨 1:1 문의</h1>
     <!-- 1:1 문의 페이지로 이동하는 링크 필요하실지 모르겠어서 남겨둡니다 -->
-    <a class="inquiry-link" href="/Inquiry/list.jsp">1:1 문의하기</a>
+    <a class="inquiry-link" href="/notice/inquiryWrite.bo">1:1 문의하기</a>
 
-    <h2>1:1 문의 목록</h2>
-    <table>
+    <h2>${username }(${userid })님의 1:1 문의 목록</h2>
+    <p align="right">총 문의 개수 ${totalCnt}</p>
+    <table border="1" style="border-collapse: collapse; border-spacing: 0; width: 900px;">
         <thead>
         <!-- 테이블 예시 -->
-            <tr>
-                <th>번호</th>
-                <th>작성자</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성일</th>
+            <tr align="center" valign="middle">
+                <th width="10%">번호</th>
+                <th width="15%">작성자</th>
+                <th width="30%">제목</th>
+                <th width="30%">내용</th>
+                <th width="15%">작성일</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>사용자1</td>
-                <td>문의 제목1</td>
-                <td>문의 내용1</td>
-                <td>2024-03-18</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>사용자2</td>
-                <td>문의 제목2</td>
-                <td>문의 내용2</td>
-                <td>2024-03-19</td>
-            </tr>
-        </tbody>
+			<c:choose>
+				<c:when test="${inquiryList != null and fn:length(inquiryList) > 0 }">
+					<c:forEach var="inquiry" items="${inquiryList }">
+						<tr align="center" valign="middle"
+							onmouseover="this.style.background='#bbdefb'"
+							onmouseout="this.style.background=''" height="23px">
+							<td height="23px;">${inquiry.qnaNum }</td>
+							<td height="23px;">${inquiry.userId}</td>
+							<td height="23px;">${inquiry.qnatitle }</td>
+							<td height="23px;">${inquiry.qnaDetails }</td>
+							<td height="23px;">${inquiry.createdat }</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr style="height: 50px;">
+						<td colspan="7" style="text-align: center">문의 내역이 없습니다.</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
+		</tbody>
     </table>
+    <!-- 페이징 처리 -->
+	<table class="pagination-table">
+		<tr align="center" valign="middle">
+			<td>
+				<c:if test="${nowPage > 1 }">
+					<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${nowPage -1}">[&lt;]</a>
+				</c:if> 
+				<c:forEach var="i" begin="${startPage}" end="${endPage}">
+					<c:choose>
+						<c:when test="${i == nowPage }">[${i }]</c:when>
+						<c:otherwise>
+							<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${i}">[${i}]</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach> 
+				<c:if test="${nowPage < totalPage }">
+					<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${nowPage + 1}">[&gt;]</a>
+				</c:if>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

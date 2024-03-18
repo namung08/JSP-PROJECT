@@ -18,12 +18,13 @@ body {
 	margin: 0;
 	padding: 40px;
 }
-#cartResult img {
+.cartResult img {
 	width: 100%; /* 이미지 너비를 ul에 맞춤 */
 	height: 50%; /* 이미지 비율 유지 */
 	max-width: 150px; /* 최대 너비 설정 */
 }
 .CartList {
+	text-align: center;
 	margin: 0; /* 기존 마진 제거 */
 	margin-bottom:10px;
 	padding: 10px; /* 패딩 유지 */
@@ -94,14 +95,19 @@ tr {
 #credit {
 	flex-direction: row;
 }
+.creditbtn:hover {
+	background-color: #0056b3;
+	border-radius: 5px;
+}
 </style>
-</head>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/header.css">
-
+<link rel="icon" href="/img/favicon.png" type="image/x-icon">
+</head>
 <body>
 <header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
@@ -127,14 +133,19 @@ tr {
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="header-right">
-				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-			</div>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
 		</c:otherwise>
 	</c:choose>
 </div>
-</header>
-	<div class="main">
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>	<div class="main">
 		<h2>장바구니</h2>
 		<form class="cartForm" action="${pageContext.request.contextPath}/myPage/InsertOrder.bo">
 			<div class="CartList">
@@ -152,16 +163,16 @@ tr {
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
-								<tr id="cartResult">
+								<tr class="cartResult">
 									<td style="text-align: center;">
-										<input type="checkbox" value="Y">
+										<input class="itemCheckbox" type="checkbox">
 									</td>
 									<td>
 										<img alt="${cart.title }" src="${cart.image }">
-										<input type="hidden" name="cartNum" value="${cart.cartNum }">
+										<input type="hidden" class="cartNum" name="cartNum" value="${cart.cartNum }">
 									</td>
-									<td>${cart.title }</td>
-									<td>${cart.discount }</td>
+									<td><input type="hidden" name="title" value="${cart.title }">${cart.title }</td>
+									<td><input type="hidden" name="disc" value="${cart.discount }">${cart.discount }</td>
 									<td class="td-count-con">
 										<button type="button" class="count-btn" value="128465">&#128465;</button>
 										<div class="count-con">
@@ -174,14 +185,6 @@ tr {
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<!-- 장바구니에 담은 물건이 없는 경우 -->
-							<tr>
-								<td>등록된</td>
-								<td>물건이</td>
-								<td>없음</td>
-								<td></td>
-								<td></td>
-							</tr>
 						</c:otherwise>
 					</c:choose>
 				</table>
@@ -194,7 +197,7 @@ tr {
 							<td id="totalPrice">0</td>
 						</tr>
 					</table>
-				</div>
+				</div> 
 				<button class="creditbtn" type="button" style=" width: 25%;">결제</button>
 			</div>
 		</form>
