@@ -33,6 +33,6 @@
 	    UPDATE KSW_USERS SET useraddr = #{useraddr} WHERE USERID = #{userid}
 	</update>
 	<insert id="setOrder" parameterType="orderdto">
-		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},'배송완료',#{count})
+		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},#{isbn},'배송완료',#{count})
 	</insert>
 </mapper>
