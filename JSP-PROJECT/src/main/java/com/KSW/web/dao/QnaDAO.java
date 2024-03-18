@@ -49,5 +49,11 @@ public class QnaDAO {
 		return sqlSession.selectOne("getUserName", userid);
 	}
 	
-	
+	public boolean insertinquiryWrite(QnaDTO qdto) {
+		boolean result = false;
+		if(sqlSession.insert("insertinquiryWrite",qdto) == 1) {
+			result = true;
+		}
+		return result;
+	}
 }
