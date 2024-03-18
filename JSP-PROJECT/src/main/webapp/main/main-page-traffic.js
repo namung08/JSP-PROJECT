@@ -61,7 +61,7 @@ function ready() {
 };
 
 // ul 태그 안의 내용을 form 태그를 만들어 보냄
-$(document).on('click', 'ul', function() {
+$(document).on('click', '#trafficIsNotNull', function() {
 	var ulElement = $(this); // 클릭된 ul 요소를 가져옵니다.
 	// ul 요소 안에 있는 정보들을 가져옵니다.
 	var isbn = ulElement.find('input[name="isbn"]').val();

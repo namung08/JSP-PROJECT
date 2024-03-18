@@ -95,14 +95,14 @@ tr {
 	flex-direction: row;
 }
 </style>
-</head>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
-
+</head>
 <body>
 <header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
@@ -128,14 +128,19 @@ tr {
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="header-right">
-				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-			</div>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
 		</c:otherwise>
 	</c:choose>
 </div>
-</header>
-	<div class="main">
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>	<div class="main">
 		<h2>장바구니</h2>
 		<form class="cartForm" action="${pageContext.request.contextPath}/myPage/InsertOrder.bo">
 			<div class="CartList">
