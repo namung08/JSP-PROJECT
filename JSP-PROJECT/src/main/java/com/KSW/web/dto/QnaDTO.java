@@ -7,8 +7,8 @@ public class QnaDTO {
     private String userId;		//유저 아이디 FK
     private String qnatitle;	//문의 제목
     private String qnaDetails;	//문의 내용
-    private String created_at;	//작성 날짜
-    private String answer_at;		//답변 날짜
+    private String createdat;	//작성 날짜
+    private String answerat;		//답변 날짜
     private String qnaanswer;	//답변 내용
 
     // Getters and Setters
@@ -44,20 +44,20 @@ public class QnaDTO {
 		this.qnatitle = qnatitle;
 	}
 
-	public String getCreated_at() {
-		return created_at;
+	public String getCreatedat() {
+		return createdat;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreatedat(String createdat) {
+		this.createdat = createdat;
 	}
 
-	public String getAnswer_at() {
-		return answer_at;
+	public String getAnswerat() {
+		return answerat;
 	}
 
-	public void setAnswer_at(String answer_at) {
-		this.answer_at = answer_at;
+	public void setAnswerat(String answerat) {
+		this.answerat = answerat;
 	}
 
 	public String getQnaanswer() {

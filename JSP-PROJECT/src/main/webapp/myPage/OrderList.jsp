@@ -46,15 +46,13 @@ table {
 				<td>총 구매내역 : ${totalCnt} 개</td>
 			</tr>
 		</table>
-		<table border="1"
-			style="border-collapse: collapse; border-spacing: 0; width: 900px;">
+		<table border="1" style="border-collapse: collapse; border-spacing: 0; width: 900px;">
 			<tr align="center" valign="middle">
 				<th width="8%">주문번호</th>
 				<th width="30%">주문일</th>
-				<th width="15%">책이름</th>
+				<th width="25%">책이름</th>
 				<th width="15%">가격</th>
 				<th width="15%">주문상태</th>
-				<th width="10%">ISBN</th>
 				<th width="7">수량</th>
 			</tr>
 			<!-- 게시글 작성 : 게시글이 있는경우 -->
@@ -69,7 +67,6 @@ table {
 							<td height="23px;">${order.title }</td>
 							<td height="23px;">${order.discount }</td>
 							<td height="23px;">${order.deliveryStatus }</td>
-							<td height="23px;">${order.isbn }</td>
 							<td height="23px;">${order.count }</td>
 						</tr>
 					</c:forEach>

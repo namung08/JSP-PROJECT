@@ -27,8 +27,6 @@ public class InsertOrderListAction implements Action{
 		discount = discount.trim().replace(",", "").replace("원", "");
 		int dis = Integer.parseInt(discount);
 		String image = req.getParameter("image");
-		String isbn = req.getParameter("isbn");
-		
 		
 		odto.setUserId(userid);
 		
@@ -39,7 +37,6 @@ public class InsertOrderListAction implements Action{
 		odto.setOrderDate(formattedDate);
 		odto.setTitle(title);
 		odto.setDiscount(dis);
-		odto.setIsbn(isbn);
 		System.out.println(odto);
 		
 		if(odao.insertOrderList(odto)) {

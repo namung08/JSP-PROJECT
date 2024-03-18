@@ -28,6 +28,17 @@ public class QnaDAO {
 		return inquiryList;
 	}
 	
+	public List<QnaDTO> getinquiryListAdmin(int startRow, int endRow, String userid) {
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("startRow", startRow);
+		datas.put("endRow", endRow);
+		datas.put("userid", userid);
+		
+		List<QnaDTO> inquiryList 
+			= sqlSession.selectList("getinquiryListAdmin", datas);
+		return inquiryList;
+	}
+	
 	public int getinquiryCnt(String userid) {
 		return sqlSession.selectOne("getinquiryCnt", userid);
 	}

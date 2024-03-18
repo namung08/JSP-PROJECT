@@ -9,127 +9,62 @@
     <meta charset="UTF-8">
     <title>1:1 문의</title>
     <style>
-.pagination-table {
-    border: 0px;
-    width: 900px;
-}
-
-.pagination-table td {
-    text-align: center;
-}
-
-.pagination-table td a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: rgb(36, 39, 39);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.pagination-table td a:hover {
-    background-color: gray;
-}
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f8f8f8;
-	padding: 20px;
-}
-
-h1 {
-	color: #333;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
-}
-
-th, td {
-	padding: 10px;
-	text-align: center;
-	border: 1px solid #ddd;
-}
-
-th {
-	background-color: rgb(36, 39, 39);
-	color: white;
-}
-
-tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-tr:hover {
-	background-color: #ddd;
-}
-
-.inquiry-link {
-	display: block;
-	margin-bottom: 10px;
-	background-color: rgb(36, 39, 39);
-	color: white;
+a:visited {
+	color: #ce93d8;
 	text-decoration: none;
-	padding: 10px;
-	width: 200px;
-	text-align: center;
-	font-weight: bold;
-	border-radius: 5px;
-}
-
-.inquiry-link:hover {
-	background-color: gray;
-}
-
-a {
-	display: block;
-	margin-bottom: 10px;
-	background-color: rgb(36, 39, 39);
-	color: white;
-	text-decoration: none;
-	padding: 10px;
-	width: 30px;
-	text-align: center;
-	font-weight: bold;
-	border-radius: 5px;
 }
 
 a:hover {
-	background-color: gray;
+	color: #ce93d8;
+	text-decoration: none;
+	font-weight: bold;
 }
 
+a:link {
+	color: #ce93d8;
+	text-decoration: none;
+}
+
+table {
+	width: 100%; /* 브라우저의 가로 너비에 맞게 테이블의 너비 조절 */
+    max-width: 900px; /* 최대 너비를 지정하여 테이블이 너무 커지지 않도록 제한 */
+    border-collapse: collapse;
+    border-spacing: 0;
+	margin: 0 auto;
+}
 </style>
 </head>
 <body>
+	<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
 	<h1>코시웨 1:1 문의</h1>
     <!-- 1:1 문의 페이지로 이동하는 링크 필요하실지 모르겠어서 남겨둡니다 -->
-    <a class="inquiry-link" href="/Inquiry/list.jsp">1:1 문의하기</a>
+    <a class="inquiry-link" href="/notice/inquiryWrite.bo">1:1 문의하기</a>
 
     <h2>${username }(${userid })님의 1:1 문의 목록</h2>
     <p align="right">총 문의 개수 ${totalCnt}</p>
-    <table>
+    <table border="1" style="border-collapse: collapse; border-spacing: 0; width: 900px;">
         <thead>
         <!-- 테이블 예시 -->
-            <tr>
-                <th>번호</th>
-                <th>작성자</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성일</th>
+            <tr align="center" valign="middle">
+                <th width="10%">번호</th>
+                <th width="15%">작성자</th>
+                <th width="30%">제목</th>
+                <th width="30%">내용</th>
+                <th width="15%">작성일</th>
             </tr>
         </thead>
         <tbody>
 			<c:choose>
 				<c:when test="${inquiryList != null and fn:length(inquiryList) > 0 }">
 					<c:forEach var="inquiry" items="${inquiryList }">
-						<tr>
-							<td>${inquiry.qnaNum }</td>
-							<td>${inquiry.userId}</td>
-							<td>${inquiry.qnatitle }</td>
-							<td>${inquiry.qnaDetails }</td>
-							<td>${inquiry.created_at }</td>
+						<tr align="center" valign="middle"
+							onmouseover="this.style.background='#bbdefb'"
+							onmouseout="this.style.background=''" height="23px">
+							<td height="23px;">${inquiry.qnaNum }</td>
+							<td height="23px;">${inquiry.userId}</td>
+							<td height="23px;">${inquiry.qnatitle }</td>
+							<td height="23px;">${inquiry.qnaDetails }</td>
+							<td height="23px;">${inquiry.createdat }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
