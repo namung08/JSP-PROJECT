@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보 수정완료</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<header>
@@ -17,11 +17,8 @@
 		</div>
 	</header>
 	${userid } <br>
-	${useremail } <br>
-	${userpw } <br>
-	${username } <br>
-	${userbirth } <br>
-	${userphone } <br>
-	${useraddr } <br>
+	${qnatitle } <br>
+	${qnaDetails } <br>
+	${createdat } <br>
 </body>
 </html>

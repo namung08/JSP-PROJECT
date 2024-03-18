@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.KSW.web.dto.OrderListDTO;
 import com.KSW.web.dto.QnaDTO;
 import com.KSW.web.mybatis.SqlMapConfig;
 
@@ -45,5 +46,13 @@ public class QnaDAO {
 	
 	public String getUserName(String userid) {
 		return sqlSession.selectOne("getUserName", userid);
+	}
+	
+	public boolean insertinquiryWrite(QnaDTO qdto) {
+		boolean result = false;
+		if(sqlSession.insert("insertinquiryWrite",qdto) == 1) {
+			result = true;
+		}
+		return result;
 	}
 }

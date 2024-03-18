@@ -2,6 +2,8 @@ package com.KSW.web.servlet.Action;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.QnaDAO;
+import com.KSW.web.dto.QnaDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
