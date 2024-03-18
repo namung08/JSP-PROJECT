@@ -120,6 +120,7 @@ a {
 }
 </style>
 <body>
+	<a href="${pageContext.request.contextPath}/myPage/myPage.bo">[마이페이지로 돌아가기]</a>
     <form id="signupForm" action="${pageContext.request.contextPath}/myPage/UserInfoChangeSuccess.bo" method="post">
         <h3 style="text-align: center;"> 회원정보 수정 </h3>
         <!-- 사용자 아이디 작성 -->
