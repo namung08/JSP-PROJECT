@@ -65,11 +65,7 @@ body {
 			<div class="header-left">
 					<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 			</div>
-<<<<<<< HEAD
-			<form id="searchFrm"  action="/search/SearchView.bo" method="post">
-=======
 			<form id="searchFrm" action="/search/SearchView.bo" method="post">
->>>>>>> 0209e4f14ba6316a15879b82d484439e6f97d1ad
 				<div>
 					<input type="text" name="search" id="keyword"
 						placeholder="검색하실 책 제목을 입력하세요">
