@@ -138,6 +138,11 @@ public class MainFrontController extends HttpServlet{
 		case "/search/CartList.bo":
 			forward = new SelectCartListAction().execute(req, resp);
 			break;
+			// 고객센터 메인페이지로 이동
+		case "/notice/notice-main.bo":
+		    forward = new ActionForward(true, "/notice/notice-main.jsp");
+		    break;
+		    
 			// 공지사항 목록 조회
 		case "/notice/getNotificationList.bo":
 		    List<NotificationDTO> notificationList = new NotificationDAO().getNotificationList();
