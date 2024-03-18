@@ -107,7 +107,6 @@ DROP TABLE KSW_BOOK;
 CREATE TABLE KSW_BOOK(
 	isbn varchar2(355) PRIMARY KEY ,
 	title varchar2(355),
-	link varchar2(355),
 	image varchar2(355),
 	author varchar2(355),
 	discount number(10),
