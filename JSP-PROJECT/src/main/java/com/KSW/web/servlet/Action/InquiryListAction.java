@@ -36,9 +36,13 @@ public class InquiryListAction implements Action {
 		int totalPage = (totalCnt-1)/pageSize + 1;
 		
 		endPage = endPage> totalPage ? totalPage : endPage;
+		System.out.println(userid);
+		if(userid.equals("admin")) {
+			request.setAttribute("inquiryList", qdao.getinquiryListAdmin(startRow, endRow, userid));
+		} else {
+			request.setAttribute("inquiryList", qdao.getinquiryList(startRow, endRow, userid));
+		}
 		
-		
-		request.setAttribute("inquiryList", qdao.getinquiryList(startRow, endRow, userid));
 		request.setAttribute("totalCnt", totalCnt);
 		request.setAttribute("username", username);
 		
