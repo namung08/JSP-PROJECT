@@ -260,7 +260,7 @@ a {
 			</div>
 			<div class="topColRight">
 				<div class="bk_infoTop">
-					<h2 class="booktitle" id="bookTitle"></h2>
+					<h2 class="booktitle" id="bookTitle">${bookdetails.title}</h2>
 				</div>
 				<div class="book-info">
 					<table>
