@@ -108,7 +108,7 @@ body {
 					[구매 내역]</button>
 				</div>
 				<div>
-					<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/search/CartList.bo'">
+					<button id="cart" class="btn" type="button" onclick="location.href='${pageContext.request.contextPath }/search/CartList.bo'">
 					[장바구니]</button>
 				</div>
 			</div>

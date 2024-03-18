@@ -18,6 +18,9 @@
 	<insert id="setCart" parameterType="cartdto">
 		INSERT INTO KSW_CART VALUES (cart_seq.nextval,#{userId},#{title},#{discount},#{image},#{isbn},1)
 	</insert>
+	<select id="getCart" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*) FROM KSW_CART WHERE USERID = #{userid} AND isbn =#{isbn}
+	</select>
 	<delete id="delCart" parameterType="_int">
 		DELETE FROM KSW_CART WHERE CARTNUM = #{cartNum}
 	</delete>
@@ -33,6 +36,6 @@
 	    UPDATE KSW_USERS SET useraddr = #{useraddr} WHERE USERID = #{userid}
 	</update>
 	<insert id="setOrder" parameterType="orderdto">
-		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},'배송완료',#{count})
+		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},#{isbn},'배송완료',#{count})
 	</insert>
 </mapper>

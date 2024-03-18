@@ -24,6 +24,7 @@ public class InsertCartAction implements Action{
 		int dis = Integer.parseInt(discount);
 		String image = req.getParameter("image");
 		String isbn = req.getParameter("isbn");
+		System.out.println(cdao.getCart(userid,isbn));
 		
 		cdto.setUserId(userid);
 		cdto.setTitle(title);
@@ -31,8 +32,12 @@ public class InsertCartAction implements Action{
 		cdto.setImage(image);
 		cdto.setIsbn(isbn);
 		System.out.println(cdto);
-		
-		if(cdao.insertCart(cdto)) {
+		if(cdao.getCart(userid,isbn) >= 1) {
+			System.out.println("이미 있음");
+			forward.setPath(req.getContextPath()+"/search/CartList.bo");
+			req.setAttribute("flag", "false");
+			forward.setRedirect(false);
+		} else if(cdao.insertCart(cdto)) {
 			System.out.println("성공!");
 			forward.setPath(req.getContextPath()+"/search/CartList.bo");
 			forward.setRedirect(false);

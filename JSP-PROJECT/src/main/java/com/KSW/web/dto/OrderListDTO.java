@@ -10,8 +10,15 @@ public class OrderListDTO {
     private int discount;			//책 가격
     private String deliveryStatus;	//책 배송 상태
     private int count;				//책 수량
+    private String isbn;
 	
-    public int getOrderNum() {
+    public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public int getOrderNum() {
 		return orderNum;
 	}
 	public void setOrderNum(int orderNum) {

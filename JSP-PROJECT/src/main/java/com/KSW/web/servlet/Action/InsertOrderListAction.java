@@ -26,22 +26,25 @@ public class InsertOrderListAction implements Action{
 		String discount = req.getParameter("discount");
 		System.out.println(discount);
 		String quantity = req.getParameter("quantity");
-		int count = Integer.parseInt(quantity);
+		int count;
+		if(quantity != null && quantity != "") {
+			count = Integer.parseInt(quantity);
+			odto.setCount(count);
+		} else {
+			count = 1;
+			odto.setCount(count);
+		}
+		String isbn = req.getParameter("isbn");
 		discount = discount.trim().replace(",", "").replace("원", "");
 		int dis = Integer.parseInt(discount);
 		dis = dis*count;
 		
-		if(quantity != null && quantity != "") {
-			odto.setCount(count);
-		} else {
-			odto.setCount(1);
-		}
 		odto.setUserId(userid);
 		
 		LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
-		
+		odto.setIsbn(isbn);
 		odto.setOrderDate(formattedDate);
 		odto.setTitle(title);
 		odto.setDiscount(dis);
