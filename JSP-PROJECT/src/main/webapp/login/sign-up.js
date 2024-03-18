@@ -54,16 +54,15 @@ function checkPassword() {
 }
 
 function joinsubmit() {
-	sendit();
-	document.getElementById('sample4_roadAddress').disabled = false;
-	document.getElementById('sample4_postcode').disabled = false;
-	signupForm.submit();
+    if (sendit()) {
+        document.getElementById('sample4_roadAddress').disabled = false;
+        document.getElementById('sample4_postcode').disabled = false;
+        document.getElementById('signForm').submit();
+    } else {
+        return false; // 유효성 검사 실패 시 폼 제출 방지
+    }
 }
-$(function() {
-	$('#login').click(function(e) {
-		login(e); // 기본적으로 첫 페이지 로드
-	});
-});
+
 // 회원가입 유효성 검사 작성
 /**
  *  회원가입 validation check
@@ -77,20 +76,20 @@ function sendit() {
    if(userid.value.length < 4 || userid.value.length > 16){
        alert("아이디는 4자 이상, 16자 이하로 입력해주세요.")
        userid.focus();
-       return;
+       return false; // 유효성 검사 실패 시 false 반환
    }   
    if(!reg.test(password.value)){
        alert("비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자 모두 포함해야 합니다.");
        password.focus();
-       return;
-   }	
-	if(frm.password.value.search(/\s/) != -1){
-		alert("비밀번호에 공백 없이 입력해주세요.");
-		frm.password.focus();
-		return;
-	}
-
-}	
+       return false; // 유효성 검사 실패 시 false 반환
+   }   
+   if(frm.password.value.search(/\s/) != -1){
+       alert("비밀번호에 공백 없이 입력해주세요.");
+       frm.password.focus();
+       return false; // 유효성 검사 실패 시 false 반환
+   }
+   return true; // 모든 조건 통과 시 true 반환
+}
 
 	
 	/*sessionStorage.setItem("userid",userid.value);

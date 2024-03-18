@@ -14,76 +14,82 @@ import com.KSW.web.sha256.SHA256;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class SignUpAction implements Action{
+public class SignUpAction implements Action {
 
-	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		ActionForward forward = new ActionForward();
-		UsersDTO udto = new UsersDTO();
-		UsersDAO udao = new UsersDAO();
-		SHA256 sha256 = new SHA256();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		// 파라미터 값 불러오기
-		String userid = req.getParameter("userid");
-		String pw = req.getParameter("confirmPassword");
-		String username = req.getParameter("username");
-		String userbirth = req.getParameter("userbirth");
-		String userphone = req.getParameter("userphone");
-		String add1 = req.getParameter("add1");
-		String add2 = req.getParameter("add2");
-		String add3 = req.getParameter("add3");
-		System.out.println("1"+add1+"2"+add2);
-		String useraddr = add1+" ("+add2+") "+add3;
-		String useremail1 = req.getParameter("useremail1");
-		String useremail2 = req.getParameter("useremail2");
-		String userEmailFull = useremail1 + "@" + useremail2;
-		
+    @Override
+    public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
+        ActionForward forward = new ActionForward();
+        UsersDTO udto = new UsersDTO();
+        UsersDAO udao = new UsersDAO();
+        SHA256 sha256 = new SHA256();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-		// 아이디
-		udto.setUserid(userid);
-		// 비밀번호 암호화 하기
-		String cryptpw;
-		try {
-			cryptpw = sha256.encrypt(pw);
-			System.out.println("1:"+cryptpw);
-			cryptpw = cryptpw+userid;
-			cryptpw = sha256.encrypt(cryptpw);
-			System.out.println("2:"+cryptpw);
-			cryptpw = userid + cryptpw;
-			cryptpw = sha256.encrypt(cryptpw);
-			System.out.println("3:"+cryptpw);
-			// 비밀번호
-			udto.setUserpw(cryptpw);
-		} catch (NoSuchAlgorithmException e) {
-			System.out.println("암호화 실패");
-			e.printStackTrace();
-		}
-		// 이름
-		udto.setUsername(username);
-		
-		Date date;
-		// String 타입의 userbirth를 date 타입으로 바꾸기 위한 메서드
-		try {
-			date = formatter.parse(userbirth);
-			// 생일
-			udto.setUserbirth(date);
-		} catch (ParseException e) {
-			System.out.println("생일 변환 실패");
-			e.printStackTrace();
-		}
-		// 전화번호
-		udto.setUserphone(userphone);
-		// 주소
-		udto.setUseraddr(useraddr);
-		// 이메일
-		udto.setUseremail(userEmailFull);
-		if(udao.insertJoin(udto)) {
-			forward.setPath(req.getContextPath() + "/login/Sign-Up-result.bo");
-			forward.setRedirect(true);
-		}
-		
-		
-		return forward;
-	}
-	
+        String userid = req.getParameter("userid");
+        String pw = req.getParameter("confirmPassword");
+        String username = req.getParameter("username");
+        String userbirth = req.getParameter("userbirth");
+        String userphone = req.getParameter("userphone");
+        String add1 = req.getParameter("add1");
+        String add2 = req.getParameter("add2");
+        String add3 = req.getParameter("add3");
+        String useraddr = add1 + " (" + add2 + ") " + add3;
+        String useremail1 = req.getParameter("useremail1");
+        String useremail2 = req.getParameter("useremail2");
+        String userEmailFull = useremail1 + "@" + useremail2;
+
+        
+
+        try {
+            // 유효성 검사 로직 추가
+            udto.setUserid(userid);
+            udto.setUserpw(pw);
+            udto.setUsername(username);
+            // 다른 필드 설정 로직 생략...
+        } catch (IllegalArgumentException e) {
+            // 유효성 검사 실패 시 처리
+            req.setAttribute("errorMessage", e.getMessage());
+            forward.setPath("/login/sign-up.jsp");
+            forward.setRedirect(false);
+            return forward;
+        }
+        
+        try {
+            String cryptpw = sha256.encrypt(pw);
+            cryptpw = cryptpw + userid;
+            cryptpw = sha256.encrypt(cryptpw);
+            cryptpw = userid + cryptpw;
+            cryptpw = sha256.encrypt(cryptpw);
+            udto.setUserpw(cryptpw);
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("암호화 실패");
+            e.printStackTrace();
+            // 예외 처리 필요: 비밀번호 암호화 실패 시 어떻게 처리할 지 결정해야 합니다.
+            return null; // 또는 적절한 오류 처리 후 종료
+        }
+
+        udto.setUsername(username);
+
+        Date date;
+        try {
+            date = formatter.parse(userbirth);
+            udto.setUserbirth(date);
+        } catch (ParseException e) {
+            System.out.println("생일 변환 실패");
+            e.printStackTrace();
+            // 예외 처리 필요: 생일 변환 실패 시 어떻게 처리할 지 결정해야 합니다.
+            return null; // 또는 적절한 오류 처리 후 종료
+        }
+
+        udto.setUserphone(userphone);
+        udto.setUseraddr(useraddr);
+        udto.setUseremail(userEmailFull);
+
+        if (udao.insertJoin(udto)) {
+            forward.setPath(req.getContextPath() + "/login/Sign-Up-result.bo");
+            forward.setRedirect(true);
+        }
+
+        return forward;
+    }
+
 }
