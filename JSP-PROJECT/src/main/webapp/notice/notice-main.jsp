@@ -36,6 +36,6 @@ a:hover {
 <h1>코시웨 고객센터</h1>
 	<a href="/notice/getNotificationList.bo">공지사항</a>	<!-- 데이터베이스에서 목록 불러오기까지만 가능합니다 -->
 	<a href="/notice/faq.jsp">FAQ</a>					<!-- FAQ 내용은 임의로 작성했습니다 -->
-	<a href="/notice/inquiry.jsp">1:1문의</a>				<!-- 데이터베이스와 작업을 안 거쳐서 우선 jsp로 바로 갈 수 있게 했습니다 -->
+	<a href="${pageContext.request.contextPath}/notice/inquiry.bo">1:1문의</a>				<!-- 데이터베이스와 작업을 안 거쳐서 우선 jsp로 바로 갈 수 있게 했습니다 -->
 </body>
 </html>

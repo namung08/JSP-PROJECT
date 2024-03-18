@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,6 +77,11 @@ a {
 a:hover {
 	background-color: gray;
 }
+/* 페이징 처리 테이블에 적용될 CSS */
+.pagination-table {
+    border: 0px;
+    width: 900px;
+}
 </style>
 </head>
 <body>
@@ -81,7 +90,8 @@ a:hover {
     <!-- 1:1 문의 페이지로 이동하는 링크 필요하실지 모르겠어서 남겨둡니다 -->
     <a class="inquiry-link" href="/Inquiry/list.jsp">1:1 문의하기</a>
 
-    <h2>1:1 문의 목록</h2>
+    <h2>${username }(${userid })님의 1:1 문의 목록</h2>
+    <p align="right">총 문의 개수 ${totalCnt}</p>
     <table>
         <thead>
         <!-- 테이블 예시 -->
@@ -94,21 +104,46 @@ a:hover {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>사용자1</td>
-                <td>문의 제목1</td>
-                <td>문의 내용1</td>
-                <td>2024-03-18</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>사용자2</td>
-                <td>문의 제목2</td>
-                <td>문의 내용2</td>
-                <td>2024-03-19</td>
-            </tr>
-        </tbody>
+			<c:choose>
+				<c:when test="${inquiryList != null and fn:length(inquiryList) > 0 }">
+					<c:forEach var="inquiry" items="${inquiryList }">
+						<tr>
+							<td>${inquiry.qnaNum }</td>
+							<td>${inquiry.userId}</td>
+							<td>${inquiry.qnatitle }</td>
+							<td>${inquiry.qnaDetails }</td>
+							<td>${inquiry.created_at }</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr style="height: 50px;">
+						<td colspan="7" style="text-align: center">문의 내역이 없습니다.</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
+		</tbody>
     </table>
+    <!-- 페이징 처리 -->
+	<table class="pagination-table">
+		<tr align="center" valign="middle">
+			<td>
+				<c:if test="${nowPage > 1 }">
+					<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${nowPage -1}">[&lt;]</a>
+				</c:if> 
+				<c:forEach var="i" begin="${startPage}" end="${endPage}">
+					<c:choose>
+						<c:when test="${i == nowPage }">[${i }]</c:when>
+						<c:otherwise>
+							<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${i}">[${i}]</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach> 
+				<c:if test="${nowPage < totalPage }">
+					<a href="${pageContext.request.contextPath }/notice/inquiry.bo?page=${nowPage + 1}">[&gt;]</a>
+				</c:if>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
