@@ -31,6 +31,7 @@ table {
 	margin: 0 auto;
 }
 </style>
+<script src="OrderList.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
 	<div>
@@ -52,6 +53,8 @@ table {
 				<th width="15%">가격</th>
 				<th width="15%">주문상태</th>
 				<th width="7">수량</th>
+				<th width="8">리뷰</th>
+				
 			</tr>
 			<!-- 게시글 작성 : 게시글이 있는경우 -->
 			<c:choose>
@@ -86,6 +89,11 @@ table {
 								<c:if test="${odate >= ndate+3 }">배송 완료</c:if>
 							</td>
 							<td height="23px;">${order.count }</td>
+							<td class="replybutton">
+								<c:if test="${odate >= ndate+3 }">
+								<button class="btn" type="button">리뷰 작성</button>
+								</c:if>
+							</td>
 						</tr>
 					</c:forEach>
 				</c:when>
