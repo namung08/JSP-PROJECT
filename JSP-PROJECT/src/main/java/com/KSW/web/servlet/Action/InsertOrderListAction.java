@@ -24,12 +24,17 @@ public class InsertOrderListAction implements Action{
 		String userid = (String)session.getAttribute("userid");
 		String title = req.getParameter("title");
 		String discount = req.getParameter("discount");
+		System.out.println(discount);
+		String quantity = req.getParameter("quantity");
+		int count = Integer.parseInt(quantity);
 		discount = discount.trim().replace(",", "").replace("원", "");
 		int dis = Integer.parseInt(discount);
-		String image = req.getParameter("image");
-		String isbn = req.getParameter("isbn");
 		
-		
+		if(quantity != null && quantity != "") {
+			odto.setCount(count);
+		} else {
+			odto.setCount(1);
+		}
 		odto.setUserId(userid);
 		
 		LocalDate currentDate = LocalDate.now();
@@ -39,7 +44,6 @@ public class InsertOrderListAction implements Action{
 		odto.setOrderDate(formattedDate);
 		odto.setTitle(title);
 		odto.setDiscount(dis);
-		odto.setIsbn(isbn);
 		System.out.println(odto);
 		
 		if(odao.insertOrderList(odto)) {

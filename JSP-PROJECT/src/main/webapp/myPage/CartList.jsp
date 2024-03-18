@@ -95,6 +95,10 @@ tr {
 #credit {
 	flex-direction: row;
 }
+.creditbtn:hover {
+	background-color: #0056b3;
+	border-radius: 5px;
+}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
@@ -161,13 +165,13 @@ tr {
 							<c:forEach var="cart" items="${cartList }">
 								<tr class="cartResult">
 									<td style="text-align: center;">
-										<input type="checkbox" value="Y">
+										<input class="itemCheckbox" type="checkbox">
 									</td>
 									<td>
 										<img alt="${cart.title }" src="${cart.image }">
 										<input type="hidden" class="cartNum" name="cartNum" value="${cart.cartNum }">
 									</td>
-									<td>${cart.title }</td>
+									<td><input type="hidden" name="title" value="${cart.title }">${cart.title }</td>
 									<td><input type="hidden" name="disc" value="${cart.discount }">${cart.discount }</td>
 									<td class="td-count-con">
 										<button type="button" class="count-btn" value="128465">&#128465;</button>
