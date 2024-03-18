@@ -9,7 +9,7 @@ $(document).ready(function() {
 		// 체크된 모든 체크박스를 찾아 그 부모인 tr 요소의 정보를 가져옵니다.
 		$('input.itemCheckbox:checked').each(function() {
 			var $tr = $(this).closest('tr'); // 체크박스가 위치한 tr 요소
-			var cartNum = $tr.find('.cartNum').val(); // 카트 번호
+			var cartNum = $tr.find('input[name="cartNum"').val(); // 카트 번호
 			var title = $tr.find('input[name="title"]').val(); // 제목
 			var discount = $tr.find('input[name="disc"]').val(); // 할인 가격
 			var quantity = $tr.find('.count-text').val(); // 수량
@@ -21,12 +21,10 @@ $(document).ready(function() {
 					title:title,
 					discount:discount,
 					quantity:quantity
-				},success: function(cartNum) {
-					trash(cartNum);
 				},
 				error: errFunc
 			});
-			
+			trash(cartNum);
 		});
 	});
 	// 페이지 로드 시 총액 계산

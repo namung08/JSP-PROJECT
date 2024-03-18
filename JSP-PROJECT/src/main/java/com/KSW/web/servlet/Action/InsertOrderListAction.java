@@ -29,6 +29,7 @@ public class InsertOrderListAction implements Action{
 		int count = Integer.parseInt(quantity);
 		discount = discount.trim().replace(",", "").replace("원", "");
 		int dis = Integer.parseInt(discount);
+		dis = dis*count;
 		
 		if(quantity != null && quantity != "") {
 			odto.setCount(count);
