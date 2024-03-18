@@ -9,6 +9,28 @@
     <meta charset="UTF-8">
     <title>1:1 문의</title>
     <style>
+.pagination-table {
+    border: 0px;
+    width: 900px;
+}
+
+.pagination-table td {
+    text-align: center;
+}
+
+.pagination-table td a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: rgb(36, 39, 39);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination-table td a:hover {
+    background-color: gray;
+}
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f8f8f8;
@@ -68,7 +90,7 @@ a {
 	color: white;
 	text-decoration: none;
 	padding: 10px;
-	width: 200px;
+	width: 30px;
 	text-align: center;
 	font-weight: bold;
 	border-radius: 5px;
@@ -77,15 +99,10 @@ a {
 a:hover {
 	background-color: gray;
 }
-/* 페이징 처리 테이블에 적용될 CSS */
-.pagination-table {
-    border: 0px;
-    width: 900px;
-}
+
 </style>
 </head>
 <body>
-	<a align="right" valign="middle" href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터로 돌아가기</a>
 	<h1>코시웨 1:1 문의</h1>
     <!-- 1:1 문의 페이지로 이동하는 링크 필요하실지 모르겠어서 남겨둡니다 -->
     <a class="inquiry-link" href="/Inquiry/list.jsp">1:1 문의하기</a>
