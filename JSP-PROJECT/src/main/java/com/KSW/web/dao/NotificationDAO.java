@@ -21,4 +21,35 @@ public class NotificationDAO {
 	public List<NotificationDTO> getNotificationList(){
 		return sqlSession.selectList("getNotificationList");
 	}
+	
+	public boolean insertnoticeWrite(NotificationDTO ndto) {
+		boolean result = false;
+		if(sqlSession.insert("insertnoticeWrite",ndto) == 1) {
+			result = true;
+		}
+		return result;
+	}
+	
+	public boolean deletenotice(int notificationNum) {
+		boolean result = false;
+		if(sqlSession.delete("deletenotice",notificationNum) == 1) {
+			result = true;
+		}
+		return result;
+	}
+	
+	public boolean updatenotice(int notificationNum) {
+		boolean result = false;
+		if(sqlSession.update("deletenotice",notificationNum) == 1) {
+			result = true;
+		}
+		return result;
+	}
+	
+	public String getnotificationTitle(int notificationNum) {
+		return sqlSession.selectOne("getnotificationTitle",notificationNum);
+	}
+	public String getnotificationDetails(int notificationNum) {
+		return sqlSession.selectOne("getnotificationDetails",notificationNum);
+	}
 }

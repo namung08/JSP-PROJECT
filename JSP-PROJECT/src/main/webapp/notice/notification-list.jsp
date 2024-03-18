@@ -44,6 +44,13 @@
     </style>
 </head>
 <body>
+	<c:if test="${not empty param.flag}">
+		<c:if test="${not param.flag}">
+			<script>
+				alert("관리자가 아닙니다.");
+			</script>
+		</c:if>
+	</c:if>
     <h1>공지사항 목록</h1>
     <table>
         <thead>
@@ -54,6 +61,10 @@
                 <th>내용</th>
                 <th>작성일</th>
                 <th>수정일</th>
+                <c:if test="${isAdmin}">
+                    <th>수정</th>
+                    <th>삭제</th>
+                </c:if>
             </tr>
         </thead>
         <tbody>
@@ -65,6 +76,10 @@
                     <td>${notification.notificationDetails}</td>
                     <td>${notification.createdAt}</td>
                     <td>${notification.updatedAt}</td>
+                    <c:if test="${isAdmin}">
+                        <td><a href="${pageContext.request.contextPath}/notice/noticemodify.bo?notificationNum=${notification.notificationNum}">수정</a></td>
+                        <td><a href="${pageContext.request.contextPath}/notice/noticdelete.bo?notificationNum=${notification.notificationNum}">삭제</a></td>
+                    </c:if>
                 </tr>
             </c:forEach>
         </tbody>

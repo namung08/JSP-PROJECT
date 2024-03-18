@@ -14,15 +14,14 @@ public class noticeWriteAction implements Action {
 		ActionForward forward = new ActionForward();
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("userid");
+		System.out.println(userid);
 		
-		
-		
-		if(userid == "admin") {
+		if(userid.equals("admin")) {
 			forward.setRedirect(false);
 			forward.setPath(req.getContextPath() + "/notice/noticeWrite.jsp");
 		} else {
 			forward.setRedirect(false);
-			forward.setPath(req.getContextPath() + "/notice/noticeWrite.jsp?flag=false");
+			forward.setPath(req.getContextPath() + "/notice/getNotificationList.bo?flag=false");
 		}
 		
 		return forward;

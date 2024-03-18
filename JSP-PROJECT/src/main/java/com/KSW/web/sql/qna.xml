@@ -24,4 +24,26 @@
 	<select id="getNotificationList" resultType="notdto" >
 		SELECT * FROM KSW_NOTIFICATION
 	</select>
+	
+	<insert id="insertnoticeWrite" parameterType="notdto">
+		INSERT INTO KSW_NOTIFICATION VALUES (notification_seq.nextval,#{userId},#{notificationTitle},#{notificationDetails},#{createdAt},null)
+	</insert>
+	
+	<delete id="deletenotice" parameterType="_int">
+		DELETE FROM KSW_NOTIFICATION WHERE notificationNum = #{notificationNum}
+	</delete>
+	
+	<update id="updatenotice" parameterType="_int">
+		UPDATE KSW_NOTIFICATION 
+		SET notificationTitle = #{notificationTitle}, notificationDetails = #{notificationDetails}, updatedAt = #{updatedAt} 
+		WHERE notificationNum = #{notificationNum}
+	</update>
+	
+	<select id="getnotificationTitle" resultType="String" parameterType="_int">
+		SELECT notificationTitle FROM KSW_NOTIFICATION WHERE notificationNum = #{notificationNum}
+	</select>
+	
+	<select id="getnotificationDetails" resultType="String" parameterType="_int">
+		SELECT notificationDetails FROM KSW_NOTIFICATION WHERE notificationNum = #{notificationNum}
+	</select>
 </mapper>
