@@ -15,20 +15,33 @@ public class UsersDTO {
 		return userid;
 	}
 	public void setUserid(String userid) {
-		this.userid = userid;
-	}
+        // 아이디 유효성 검사 로직 추가
+        if (userid == null || userid.length() < 4 || userid.length() > 16) {
+            throw new IllegalArgumentException("아이디는 4자 이상, 16자 이하여야 합니다.");
+        }
+        this.userid = userid;
+    }
 	public String getUserpw() {
 		return userpw;
 	}
 	public void setUserpw(String userpw) {
-		this.userpw = userpw;
-	}
+        // 비밀번호 유효성 검사 로직 추가
+        String pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+        if (!userpw.matches(pattern)) {
+            throw new IllegalArgumentException("비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자를 모두 포함해야 합니다.");
+        }
+        this.userpw = userpw;
+    }
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
-		this.username = username;
-	}
+        // 이름 유효성 검사 로직 추가 (예: 공백 없이 2자 이상)
+        if (username == null || username.trim().length() < 2) {
+            throw new IllegalArgumentException("이름은 2자 이상이어야 합니다.");
+        }
+        this.username = username;
+    }
 	public Date getUserbirth() {
 		return userbirth;
 	}

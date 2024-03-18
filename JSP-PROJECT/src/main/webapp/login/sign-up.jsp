@@ -131,9 +131,24 @@ a {
 			</div>
 		</div>
 	</header>
+	
+	
+	<%
+        String errorMessage = (String) request.getAttribute("errorMessage");
+        if (errorMessage != null) {
+    %>
+    <div style="color: red; text-align: center; margin-bottom: 10px;">
+        <%= errorMessage %>
+    </div>
+    <%
+        }
+    %>
+	
+	
+	
 	<form id="signForm" name="joinForm"
-		action="${pageContext.request.contextPath}/login/Sign-Up.bo"
-		method="post">
+    action="${pageContext.request.contextPath}/login/Sign-Up.bo"
+    method="post">
 		<div class="content">
 			<div>
 				<h3 style="text-align: center;">KSW 회원가입</h3>
