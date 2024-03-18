@@ -14,6 +14,7 @@ import com.KSW.web.servlet.Action.DeleteCartAction;
 import com.KSW.web.servlet.Action.FindIdAction;
 import com.KSW.web.servlet.Action.FindPwAction;
 import com.KSW.web.servlet.Action.InsertCartAction;
+import com.KSW.web.servlet.Action.InsertOrderListAction;
 import com.KSW.web.servlet.Action.LogOutAction;
 import com.KSW.web.servlet.Action.OrderListAction;
 import com.KSW.web.servlet.Action.SearchViewAction;
@@ -72,6 +73,7 @@ public class MainFrontController extends HttpServlet{
 			// 로그아웃을 위한 메서드
 			forward = new LogOutAction().execute(req, resp);
 			break;
+			//구매내역
 		case "/myPage/OrderList.bo":
 			forward = new OrderListAction().execute(req, resp);
 			break;
@@ -138,6 +140,11 @@ public class MainFrontController extends HttpServlet{
 		case "/search/CartList.bo":
 			forward = new SelectCartListAction().execute(req, resp);
 			break;
+			// 고객센터 메인페이지로 이동
+		case "/notice/notice-main.bo":
+		    forward = new ActionForward(true, "/notice/notice-main.jsp");
+		    break;
+		    
 			// 공지사항 목록 조회
 		case "/notice/getNotificationList.bo":
 		    List<NotificationDTO> notificationList = new NotificationDAO().getNotificationList();
@@ -150,6 +157,9 @@ public class MainFrontController extends HttpServlet{
 			break;
 		case "/myPage/UserInfoChangeSuccess.bo":
 			forward = new UserInfoChangeSuccessAction().execute(req,resp);
+			break;
+		case "/myPage/insertOrderList.bo":
+			forward = new InsertOrderListAction().execute(req,resp);
 			break;
 		}
 		// 페이지 이동에 대한 일괄 처리

@@ -32,4 +32,7 @@
 	<update id="updateUserAddress" parameterType="map">
 	    UPDATE KSW_USERS SET useraddr = #{useraddr} WHERE USERID = #{userid}
 	</update>
+	<insert id="setOrder" parameterType="orderdto">
+		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},'배송완료',#{isbn},1)
+	</insert>
 </mapper>

@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.KSW.web.dto.CartDTO;
 import com.KSW.web.dto.OrderListDTO;
 import com.KSW.web.mybatis.SqlMapConfig;
 
@@ -35,6 +36,14 @@ public class OrderlistDAO {
 	
 	public String getUserName(String userid) {
 		return sqlSession.selectOne("getUserName", userid);
+	}
+	
+	public boolean insertOrderList(OrderListDTO odto) {
+		boolean result = false;
+		if(sqlSession.insert("MyPage.setOrder",odto) == 1) {
+			result = true;
+		}
+		return result;
 	}
 	
 }

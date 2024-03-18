@@ -66,6 +66,25 @@ ul {
 	border-bottom: none;
 }
 
+
+.header-right {
+  display: inline-block; /* 인라인 블록 요소로 변경 */
+  margin-right: 10px;
+}
+
+.header-right:last-child {
+  margin-right: 0;
+}
+
+.header-right {
+  display: inline-block;
+  margin-right: 10px;
+  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+}
+
+
+</style>
+
 </style>
 <body> 
 <header>
@@ -96,9 +115,10 @@ ul {
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="header-right">
-				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-			</div>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></div>
+			  </div>
 		</c:otherwise>
 	</c:choose>
 </div>

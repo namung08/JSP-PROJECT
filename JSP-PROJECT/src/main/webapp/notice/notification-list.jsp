@@ -6,12 +6,46 @@
     <meta charset="UTF-8">
     <title>공지사항 목록</title>
     <style>
-        /* CSS 스타일링 작성 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgb(36, 39, 39);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
     <h1>공지사항 목록</h1>
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>번호</th>
@@ -23,7 +57,6 @@
             </tr>
         </thead>
         <tbody>
-            <%-- 공지사항 목록을 반복하여 출력 --%>
             <c:forEach var="notification" items="${notificationList}">
                 <tr>
                     <td>${notification.notificationNum}</td>
