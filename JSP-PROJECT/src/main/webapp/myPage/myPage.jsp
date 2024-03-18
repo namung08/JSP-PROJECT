@@ -40,13 +40,13 @@ body {
 				<a href="${pageContext.request.contextPath}/main/main-page.bo"><img
 					class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 			</div>
-			<form id="searchFrm">
+			<form id="searchFrm"  action="/search/SearchView.bo" method="post">
 				<div>
 					<input type="text" name="search" id="keyword"
 						placeholder="검색하실 책 제목을 입력하세요">
 				</div>
 				<div>
-					<button type="button" id="searchBtn">검색</button>
+					<button type="submit" id="searchBtn">검색</button>
 				</div>
 			</form>
 			<c:choose>
