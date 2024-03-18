@@ -18,12 +18,13 @@ body {
 	margin: 0;
 	padding: 40px;
 }
-#cartResult img {
+.cartResult img {
 	width: 100%; /* 이미지 너비를 ul에 맞춤 */
 	height: 50%; /* 이미지 비율 유지 */
 	max-width: 150px; /* 최대 너비 설정 */
 }
 .CartList {
+	text-align: center;
 	margin: 0; /* 기존 마진 제거 */
 	margin-bottom:10px;
 	padding: 10px; /* 패딩 유지 */
@@ -98,7 +99,7 @@ tr {
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../myPage/CartList.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/header.css">
-<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
+<link rel="icon" href="/img/favicon.png" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -158,16 +159,16 @@ tr {
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
-								<tr id="cartResult">
+								<tr class="cartResult">
 									<td style="text-align: center;">
 										<input type="checkbox" value="Y">
 									</td>
 									<td>
 										<img alt="${cart.title }" src="${cart.image }">
-										<input type="hidden" name="cartNum" value="${cart.cartNum }">
+										<input type="hidden" class="cartNum" name="cartNum" value="${cart.cartNum }">
 									</td>
 									<td>${cart.title }</td>
-									<td>${cart.discount }</td>
+									<td><input type="hidden" name="disc" value="${cart.discount }">${cart.discount }</td>
 									<td class="td-count-con">
 										<button type="button" class="count-btn" value="128465">&#128465;</button>
 										<div class="count-con">
@@ -180,14 +181,6 @@ tr {
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<!-- 장바구니에 담은 물건이 없는 경우 -->
-							<tr>
-								<td>등록된</td>
-								<td>물건이</td>
-								<td>없음</td>
-								<td></td>
-								<td></td>
-							</tr>
 						</c:otherwise>
 					</c:choose>
 				</table>
@@ -200,7 +193,7 @@ tr {
 							<td id="totalPrice">0</td>
 						</tr>
 					</table>
-				</div>
+				</div> 
 				<button class="creditbtn" type="button" style=" width: 25%;">결제</button>
 			</div>
 		</form>

@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>KSW 임시페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <style>
 body {
@@ -116,7 +118,6 @@ ul {
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 <body> 
 <header>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
