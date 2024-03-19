@@ -17,6 +17,7 @@ public class UserInfoChangeSuccessAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
+		HttpSession session = req.getSession();
 		UsersDAO udao = new UsersDAO();
 		UsersDTO udto = new UsersDTO();
 		SHA256 sha256 = new SHA256();
@@ -58,9 +59,9 @@ public class UserInfoChangeSuccessAction implements Action {
 	    if (userpw != null && !userpw.isEmpty()) {
 	        udao.updateUserPassword(userid, userpw);
 	    }
-		
-		forward.setRedirect(false);
-		forward.setPath(req.getContextPath() + "/myPage/UserInfoChangeSuccess.jsp");
+		session.removeAttribute("userid");
+		forward.setRedirect(true);
+		forward.setPath(req.getContextPath() + "/main/main-page.bo");
 		return forward;
 	}
 }
