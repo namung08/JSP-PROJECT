@@ -17,7 +17,7 @@ body {
 	margin: 0;
 }
 
-form {
+.form-horizontal {
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 5px;
@@ -44,7 +44,7 @@ input[type="text"], input[type="email"] {
 	box-sizing: border-box;
 }
 
-button {
+.findbtn {
 	width: calc(100% - 20px);
 	padding: 10px;
 	margin-bottom: 10px;
@@ -59,56 +59,26 @@ button:hover {
 	opacity: 0.9;
 }
 
-a {
-	text-decoration: none;
-	color: inherit;
-}
 
-.header-flex {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 10px 30%;
-}
-
-.header-left {
-	color: #007bff;
-}
-
-.header-right {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	border: 1px #007bff solid;
-	padding: 10px
-}
-
-.header-menu {
-	display: flex;
-	flex-direction: row;
-	align-content: flex-start;
-	justify-content: space-between;
-	margin-top: 10px;
-}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<body>
+<body> 
 <header>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
 	<div class="header-left">
 			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
 	</div>
-	<form id="searchFrm">
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
 		<div>
 			<input type="text" name="search" id="keyword"
 				placeholder="검색하실 책 제목을 입력하세요">
 		</div>
 		<div>
-			<button type="button" id="searchBtn">검색</button>
+			<button type="submit" id="searchBtn">검색</button>
 		</div>
 	</form>
 	<c:choose>
@@ -122,12 +92,18 @@ a {
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div class="header-right">
-				<a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a>
-			</div>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
 		</c:otherwise>
 	</c:choose>
 </div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
 </header>
 
 	<form class="form-horizontal" role="form" method="POST"

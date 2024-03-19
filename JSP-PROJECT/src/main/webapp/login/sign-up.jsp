@@ -8,6 +8,7 @@
 <!-- 다음 주소 찾기 API -->
 <script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <script src="sign-up.js"></script>
 </head>
 <style>
@@ -87,34 +88,7 @@ a {
 	color: inherit;
 }
 
-.header-flex {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	padding: 10px 30%;
-}
 
-.header-left {
-	color: #007bff;
-}
-
-.header-right {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	border: 1px #007bff solid;
-	padding: 10px
-}
-
-.header-menu {
-	display: flex;
-	flex-direction: row;
-	align-content: flex-start;
-	justify-content: space-between;
-	margin-top: 10px;
-}
 .password-check {
 	margin-bottom: 10px;
 }
@@ -122,16 +96,50 @@ a {
 	display: flex;
 	flex-direction: row;
 }
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header-flex {
+   display: flex;
+   flex-direction : row;
+   align-items: center;
+    justify-content: center;
+   padding : 10px 30%;
+}
+.header-left {
+   color: #007bff;
+}
+.header-right {
+   display:flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-between;
+   border: 1px #007bff solid;
+   padding: 10px
+}
+.header-menu {
+   display: flex;
+   flex-direction: row;
+   align-content: flex-start;
+   justify-content: space-between;
+   margin-top: 10px;
+}
+.logo {
+    height: 170px;
+    width: 300px;
+}
 </style>
 <body>
 
 	<header>
 		<div class="header-flex">
-			<div class="header-left">
-				<h2>
-					<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
-				</h2>
-			</div>
+		   <div class="header-left">
+		      <h2>
+		         <a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+		      </h2>
+		   </div>
 		</div>
 	</header>
 	

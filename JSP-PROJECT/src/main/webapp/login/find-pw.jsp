@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@ body {
 	height: 100vh;
 }
 
-form {
+.form-horizontal {
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 5px;
@@ -25,7 +26,7 @@ form {
 	width: 300px;
 }
 
-form h1 {
+.form-horizontal h1 {
 	color: #333;
 	margin-bottom: 20px;
 	text-align: center;
@@ -43,7 +44,7 @@ input[type="text"], input[type="email"] {
 	box-sizing: border-box;
 }
 
-button {
+.findbtn {
 	width: calc(100% - 20px);
 	padding: 10px;
 	margin-bottom: 10px;
@@ -91,21 +92,53 @@ a {
 	margin-top: 10px;
 }
 </style>
-</head>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<body>
-	<header>
-		<div class="header-flex">
-			<div class="header-left">
-				<h2>
-					<a href="${pageContext.request.contextPath}/main/main-page.bo">K.S.W.</a>
-				</h2>
-			</div>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+</head>
+<body> 
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+	</div>
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
+		<div>
+			<input type="text" name="search" id="keyword"
+				placeholder="검색하실 책 제목을 입력하세요">
 		</div>
-	</header>
-	<form class="form-horizontal" role="form" method="POST"
+		<div>
+			<button type="submit" id="searchBtn">검색</button>
+		</div>
+	</form>
+	<c:choose>
+		<c:when test="${not empty userid}">
+			<div class="header-right">
+				<div>${userid }님 안녕하세요.</div>
+				<div class="header-menu" >
+					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
+		</c:otherwise>
+	</c:choose>
+</div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>
+<form class="form-horizontal" role="form" method="POST"
 		action="${pageContext.request.contextPath}/login/FindPw.bo">
 		<h3 style="text-align: center;">비밀번호 찾기</h3>
 		<div class="row">
