@@ -57,15 +57,20 @@ function sendit() {
     let frm = document.joinForm;
     let userid = frm.userid;
     let password = frm.password;
-    let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (userid.value.length < 4 || userid.value.length > 16) {
         alert("아이디는 4자 이상, 16자 이하로 입력해주세요.");
         userid.focus();
         return false; // 유효성 검사 실패 시 false 반환
     }
+    if($('#idcheck').text() != "사용 가능한 아이디입니다." && $('#idcheck').text() == "") {
+		alert("아이디 중복체크가 완료가 되지 않았습니다.\n다시 진행해 주세요.")
+		userid.focus();
+		return false;
+	}
     if (!reg.test(password.value)) {
-        alert("비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자 모두 포함해야 합니다.");
+        alert("비밀번호는 8자리 이상이어야 하며, 영문/숫자가 하나라도 포함되어야 합니다.");
         password.focus();
         return false; // 유효성 검사 실패 시 false 반환
     }
