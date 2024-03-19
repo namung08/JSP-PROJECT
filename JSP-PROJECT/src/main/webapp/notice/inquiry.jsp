@@ -41,7 +41,7 @@ table {
     <a class="inquiry-link" href="/notice/inquiryWrite.bo">1:1 문의하기</a>
 
     <h2>${username }(${userid })님의 1:1 문의 목록</h2>
-    <p align="right">총 문의 개수 ${totalCnt}</p>
+    <p align="right">총 문의 개수 ${totalCnt}</p> 
     <table border="1" style="border-collapse: collapse; border-spacing: 0; width: 900px;">
         <thead>
         <!-- 테이블 예시 -->
@@ -60,11 +60,11 @@ table {
 						<tr align="center" valign="middle"
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
-							<td height="23px;">${inquiry.qnaNum }</td>
-							<td height="23px;">${inquiry.userId}</td>
-							<td height="23px;">${inquiry.qnatitle }</td>
-							<td height="23px;">${inquiry.qnaDetails }</td>
-							<td height="23px;">${inquiry.createdat }</td>
+							<td height="23px;">${inquiry.qnaNum }</td> <-- 문의 번호 pk값 -->
+							<td height="23px;">${inquiry.userId}</td> <-- 유저아이디 fk값 -->
+							<td height="23px;">${inquiry.qnatitle }</td> <-- 문의 제목 -->
+							<td height="23px;">${inquiry.qnaDetails }</td> <-- 문의 내용 -->
+							<td height="23px;">${inquiry.createdat }</td> <-- 작성날짜 -->
 						</tr>
 					</c:forEach>
 				</c:when>
