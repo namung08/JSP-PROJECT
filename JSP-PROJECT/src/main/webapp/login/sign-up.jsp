@@ -73,6 +73,9 @@ input[type="submit"]:hover {
 	border-radius: 3px;
 	cursor: pointer;
 }
+.btn:hover {
+	background-color: #0056b3;
+}
 
 #dbchkId {
 	margin-bottom: 10px;
@@ -200,7 +203,7 @@ a {
 			<input style="background-color: #f5f5f5;" type="text" name="add2" id="sample4_postcode" placeholder="우편번호" readonly>
 			<span id="guide" style="color: #999; display: none"></span>
 			<input type="text" name="add3" id="sample4_detailAddress" placeholder="상세주소">
-			<input type="submit" value="가입하기" onclick="joinsubmit();">
+			<button class='btn' type="button" id="signup" name="signup">회원가입</button>
 		</div>
 	</form>
 </body>

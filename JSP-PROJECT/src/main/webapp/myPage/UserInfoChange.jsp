@@ -7,7 +7,7 @@
 <!-- 다음 주소 찾기 API -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="sign-up.js"></script>
+<script src="userinfochange.js"></script>
 </head>
 <style>
 /* 스타일은 여기에 작성합니다 */
@@ -121,7 +121,7 @@ a {
 </style>
 <body>
 	<a href="${pageContext.request.contextPath}/myPage/myPage.bo">[마이페이지로 돌아가기]</a>
-    <form id="signupForm" action="${pageContext.request.contextPath}/myPage/UserInfoChangeSuccess.bo" method="post">
+    <form name="infoChangeForm" id="infoChangeForm" action="${pageContext.request.contextPath}/myPage/UserInfoChangeSuccess.bo" method="post">
         <h3 style="text-align: center;"> 회원정보 수정 </h3>
         <!-- 사용자 아이디 작성 -->
         아이디 * 변경불가능
@@ -138,6 +138,7 @@ a {
         <span id="passwordMessage" class="error"></span>
         
         <!-- 사용자 이름 작성 -->
+        <br>
         이름 
         <input type="text" id="username" name="username" value="${username }" required>
         
@@ -155,7 +156,7 @@ a {
 		<input type="text" name="add2" id="sample4_postcode" placeholder="우편번호" readonly> 
 		<span id="guide" style="color: #999; display: none"></span> 
 		<input type="text" name="add3" id="sample4_detailAddress" placeholder="상세주소">
-		<input type="submit" value="수정하기" onclick="joinsubmit();"> 
+		<input type="submit" id="changeuserinfo" value="수정하기"> 
 	</form>
 </body>
 </html>
