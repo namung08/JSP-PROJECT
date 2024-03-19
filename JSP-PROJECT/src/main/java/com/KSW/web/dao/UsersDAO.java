@@ -110,14 +110,15 @@ public class UsersDAO {
 		return result;
 	}
 
-	public String getpw(String username, String userid, String useremail) {
-		String pw = null;
+	public boolean updatepw(String userid, String newuserpw) {
+		boolean result = false;
 		HashMap<String, String> data = new HashMap<String, String>();
-		data.put("username", username);
 		data.put("userid", userid);
-		data.put("useremail", useremail);
-		pw = sqlSession.selectOne("Users.getpw",data);
-		return pw;
+		data.put("newuserpw", newuserpw);
+		if((Integer)sqlSession.update("Users.updatepw",data) ==1) {
+			result = true;
+		}
+		return result;
 	}
 
 	public boolean insertJoin(UsersDTO udto) {

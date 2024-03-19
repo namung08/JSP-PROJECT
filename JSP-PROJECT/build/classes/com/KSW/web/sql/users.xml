@@ -22,9 +22,9 @@
 	<select id="findpw" parameterType="hashmap" resultType="_int">
 			SELECT COUNT(*) FROM KSW_USERS WHERE USERNAME = #{username} AND USERID = #{userid} AND USEREMAIL = #{useremail} 
 	</select>
-	<select id="getpw" parameterType="hashmap" resultType="String">
-			SELECT USERPW FROM KSW_USERS WHERE USERNAME = #{username} AND USERID = #{userid} AND USEREMAIL = #{useremail} 
-	</select>
+	<update id="updatepw" parameterType="hashmap">
+			UPDATE KSW_USERS SET USERPW = #{newuserpw} WHERE userid = #{userid}
+	</update>
 	<select id = "CheckId" parameterType = "string" resultType = "_int">
       		SELECT count(*) FROM KSW_USERS WHERE userid = #{userid}
    </select>
