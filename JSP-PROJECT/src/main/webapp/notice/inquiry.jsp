@@ -60,11 +60,11 @@ table {
 						<tr align="center" valign="middle"
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
-							<td height="23px;">${inquiry.qnaNum }</td> <-- 문의 번호 pk값 -->
-							<td height="23px;">${inquiry.userId}</td> <-- 유저아이디 fk값 -->
-							<td height="23px;">${inquiry.qnatitle }</td> <-- 문의 제목 -->
-							<td height="23px;">${inquiry.qnaDetails }</td> <-- 문의 내용 -->
-							<td height="23px;">${inquiry.createdat }</td> <-- 작성날짜 -->
+							<td height="23px;">${inquiry.qnaNum }</td> <!-- 문의 번호 pk값 -->
+							<td height="23px;">${inquiry.userId}</td> <!-- 유저아이디 fk값 -->
+							<td height="23px;">${inquiry.qnatitle }</td> <!-- 문의 제목 -->
+							<td height="23px;">${inquiry.qnaDetails }</td> <!-- 문의 내용 -->
+							<td height="23px;">${inquiry.createdat }</td> <!-- 작성날짜 -->
 						</tr>
 					</c:forEach>
 				</c:when>
