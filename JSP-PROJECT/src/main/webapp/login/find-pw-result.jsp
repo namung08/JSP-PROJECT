@@ -104,7 +104,8 @@ a {
 				</c:otherwise>
 			</c:choose>
 			<div class="button-row">
-				<button id="login-page" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up-in.bo'">로그인</button>
+				<button style="width: 49%;" id="login-page" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Find-pw.bo'">비밀번호 찾기</button>
+				<button style="width: 49%;" id="login-page" type="button" onclick="location.href='${pageContext.request.contextPath}/login/Sign-up-in.bo'">로그인</button>
 			</div>
 		</div>
 	</form>
