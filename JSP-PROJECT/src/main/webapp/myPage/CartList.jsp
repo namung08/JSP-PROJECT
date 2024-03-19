@@ -165,9 +165,9 @@ tr {
 						<c:when test="${cartList != null and fn:length(cartList) > 0 }">
 							<!-- 장바구니에 내용이 있을 경우 출력 -->
 							<c:forEach var="cart" items="${cartList }">
-							<input type="hidden" id="isbn" value="${cart.isbn }">
 								<tr class="cartResult">
 									<td style="text-align: center;">
+										<input type="hidden" name="isbn" value="${cart.isbn }">
 										<input class="itemCheckbox" type="checkbox">
 									</td>
 									<td>

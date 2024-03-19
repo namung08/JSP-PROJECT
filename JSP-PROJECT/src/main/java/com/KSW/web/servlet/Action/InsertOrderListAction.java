@@ -48,7 +48,7 @@ public class InsertOrderListAction implements Action{
 		odto.setOrderDate(formattedDate);
 		odto.setTitle(title);
 		odto.setDiscount(dis);
-		System.out.println(odto);
+		System.out.println(odto.getIsbn());
 		
 		if(odao.insertOrderList(odto)) {
 			System.out.println("성공!");
