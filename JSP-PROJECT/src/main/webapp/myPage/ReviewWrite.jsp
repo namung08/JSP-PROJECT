@@ -70,7 +70,9 @@
 </head>
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
-<script src="ReviewWrite.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+
+<script src="../myPage/ReviewWrite.js"></script>
 <body> 
 <header>
 <input type="hidden" value="${userid }">
@@ -112,7 +114,7 @@
 </nav>
 </header>
     <div id="review">
-        <input type="hidden" name="isbn" value="${isbn }">
+        <input type="hidden" id="isbn" name="isbn" value="${isbn }">
             <table>
             	<tr>
                     <td>책제목:</td>

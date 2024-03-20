@@ -10,6 +10,7 @@
 		<typeAlias type="com.KSW.web.dto.CartDTO" alias="cartdto"/>
 		<typeAlias type="com.KSW.web.dto.QnaDTO" alias="qnadto"/>
 		<typeAlias type="com.KSW.web.dto.NotificationDTO" alias="notdto"/>
+		<typeAlias type="com.KSW.web.dto.ReviewDTO" alias="reviewdto"/>
 	</typeAliases>
 	
 	<environments default="development">

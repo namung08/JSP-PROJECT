@@ -6,10 +6,9 @@ public class ReviewDTO {
 	private String replynum;
 	private String isbn;
 	private String userid;
-	private Date reply_insert_date;
-	private String reply_grade;
-	private String reply_detail;
-	
+	private Date replyinsertdate;
+	private int replygrade;
+	private String reply;
 	public String getReplynum() {
 		return replynum;
 	}
@@ -28,25 +27,23 @@ public class ReviewDTO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public Date getReply_insert_date() {
-		return reply_insert_date;
+	public Date getReplyinsertdate() {
+		return replyinsertdate;
 	}
-	public void setReply_insert_date(Date reply_insert_date) {
-		this.reply_insert_date = reply_insert_date;
+	public void setReplyinsertdate(Date replyinsertdate) {
+		this.replyinsertdate = replyinsertdate;
 	}
-	public String getReply_grade() {
-		return reply_grade;
+	public int getReplygrade() {
+		return replygrade;
 	}
-	public void setReply_grade(String reply_grade) {
-		this.reply_grade = reply_grade;
+	public void setReplygrade(int replygrade) {
+		this.replygrade = replygrade;
 	}
-	public String getReply_detail() {
-		return reply_detail;
+	public String getReply() {
+		return reply;
 	}
-	public void setReply_detail(String reply_detail) {
-		this.reply_detail = reply_detail;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
-	
-	
 	
 }	

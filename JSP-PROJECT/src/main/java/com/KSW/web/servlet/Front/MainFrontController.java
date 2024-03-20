@@ -24,6 +24,7 @@ import com.KSW.web.servlet.Action.SearchViewAction;
 import com.KSW.web.servlet.Action.SelectCartListAction;
 import com.KSW.web.servlet.Action.UserInfoCheckAction;
 import com.KSW.web.servlet.Action.getNotificationListAction;
+import com.KSW.web.servlet.Action.insertReplyAction;
 import com.KSW.web.servlet.Action.noticeWriteAction;
 import com.KSW.web.servlet.Action.noticeWriteOkAction;
 import com.KSW.web.servlet.Action.noticedeleteAction;
@@ -206,6 +207,10 @@ public class MainFrontController extends HttpServlet{
 		case "/book/writeReply.bo":
 			forward = new writeReplyAction().execute(req,resp);
 			break;	
+			// 작성된 리뷰를 테이블에 인서트
+		case "/book/insertReply.bo":
+			forward = new insertReplyAction().execute(req,resp);
+			break;
 		}
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {

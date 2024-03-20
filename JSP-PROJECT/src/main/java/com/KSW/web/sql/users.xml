@@ -43,6 +43,9 @@
 	<select id="getuseraddr" parameterType="String" resultType="String">
 			SELECT useraddr FROM KSW_USERS WHERE USERID = #{userid}
 	</select>
+	<insert id="setreply" parameterType="reviewdto">
+		INSERT INTO KSW_REPLY VALUES (reply_seq.nextval,#{isbn},#{userid},sysdate,#{Replygrade},#{Reply})
+	</insert>
 </mapper>
  
  
