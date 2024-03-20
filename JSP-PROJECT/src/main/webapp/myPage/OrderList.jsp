@@ -112,7 +112,7 @@ table {
 							<td class="deliverystatus" height="23px;">
 								
 								<c:if test="${odate == ndate }">배송 준비중</c:if>
-								<c:if test="${odate < ndate+3 }">배송 중</c:if>
+								<c:if test="${odate < ndate+3 and odate != ndate}">배송 중</c:if>
 								<c:if test="${odate >= ndate+3 }">배송 완료</c:if>
 							</td>
 							<td height="23px;">${order.count }</td>
