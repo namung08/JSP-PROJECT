@@ -31,7 +31,6 @@ CREATE TABLE KSW_CART(
 	COUNT NUMBER (10) NOT NULL,		-- 책 수량
 	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
-
 SELECT * FROM KSW_CART;
 
 CREATE SEQUENCE cart_seq
@@ -47,11 +46,13 @@ CREATE TABLE KSW_ORDERLIST(
 	USERID VARCHAR2(50) NOT NULL,
 	title VARCHAR2(300) NOT NULL,
 	discount NUMBER(10),					-- 판매 가격
-	DELIVERYSTATUS VARCHAR2(100) NOT NULL,	-- 배송 상태 ex) 배송완료, 배송중, 배송준비중 등등
 	isbn varchar2(500) NOT NULL,
+	replystatus VARCHAR2(100) NOT NULL,	 -- 초기 값 : 리뷰미작성
 	COUNT NUMBER(10) NOT NULL,				-- 구매 수량
 	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
+INSERT INTO KSW_ORDERLIST values(order_seq.nextval,sysdate,'namung','극락가 1 (더블특전판)',5400,'9788937462849','리뷰미작성',1);
+
 
 SELECT * FROM KSW_ORDERLIST;
 
@@ -118,11 +119,11 @@ CREATE TABLE KSW_BOOK(
 -----------------------------------------------------
 -- 리뷰 테이블
 CREATE TABLE ksw_reply (
-	replynum number(100) PRIMARY KEY,  -- 리뷰 고유 숫자(int)
+	replynum number(38) PRIMARY KEY,  -- 리뷰 고유 숫자(int)
 	isbn varchar2(355) NOT null,  -- 책 isbn 값(String)
 	userid varchar2(355) NOT null,  -- 유저 id(String)
-	reply_insert_date DATE NOT null, -- 리뷰 작성 날짜(date)
-	reply_grade number(10) NOT null, -- 리뷰 평점(int)
-	reply clob NOT NULL, -- 리뷰 내용 (자바에서 clob 타입으로 변환이 되어서 넣거나 가져올 때 변환(fometter)을 해야함)
+	replyinsertdate DATE NOT null, -- 리뷰 작성 날짜(date)
+	replygrade number(10) NOT null, -- 리뷰 평점(int)
+	reply clob NOT NULL, -- 리뷰 내용
 	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
