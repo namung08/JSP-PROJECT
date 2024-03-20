@@ -16,7 +16,7 @@ public class ReviewDAO {
 
 	public boolean insertReply(ReviewDTO rdto) {
 		boolean result = false;
-		if(sqlSession.insert("Users.setreply") == 1) {
+		if(sqlSession.insert("Users.setreply",rdto) == 1) {
 			result = true;
 		}
 		return result;

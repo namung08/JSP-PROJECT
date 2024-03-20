@@ -208,7 +208,8 @@ public class MainFrontController extends HttpServlet{
 			forward = new writeReplyAction().execute(req,resp);
 			break;	
 			// 작성된 리뷰를 테이블에 인서트
-		case "/book/insertReply.bo":
+		case "/reply/insertReply.bo":
+			System.out.println("인서트 실행");
 			forward = new insertReplyAction().execute(req,resp);
 			break;
 		}
