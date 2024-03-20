@@ -81,37 +81,6 @@ ul {
   margin-right: 10px;
   white-space: nowrap; /* 텍스트를 한 줄로 유지 */
 }
-.nav-bar {
-	list-style: none;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.nav-bar li {
-	margin: 0 10px; /* li 태그의 좌우 여백을 조정합니다. */
-	width: 49%;
-	text-align: center;
-}
-
-.nav-bar a {
-	display: block; /* a 태그를 블록 레벨 요소로 만들어 영역 전체가 클릭 가능하게 합니다. */
-	padding: 10px 20px; /* 클릭 가능한 영역을 늘립니다. */
-	color: white; /* a 태그의 텍스트 색상을 지정합니다. */
-	text-decoration: none; /* 밑줄을 제거합니다. */
-}
-
-.nav-bar a:hover {
-	background-color: #0056b3; /* 마우스 오버 시 배경색 변경 */
-	border-radius: 5px; /* 마우스 오버 시 테두리 둥글게 */
-}
 </style>
 <script src="main-page-traffic.js"></script>
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 

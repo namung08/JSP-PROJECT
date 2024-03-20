@@ -3,8 +3,8 @@
  */
 $(document).ready(function() {
 	$('.btn').click(function() {
-		var btn = $(this);
-		var tr = btn.closest('tr');
+		var $tr = $(this).closest('tr');
+		var isbn = $tr.find('input[name="isbn"]').val();
 	})
 });
 

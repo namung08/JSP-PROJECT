@@ -17,7 +17,7 @@ $(document).ready(function() {
 			var title = $tr.find('input[name="title"]').val(); // 제목
 			var discount = $tr.find('input[name="disc"]').val(); // 할인 가격
 			var quantity = $tr.find('.count-text').val(); // 수량
-			var isbn = $tr.find('input[name="isbn"').val();
+			var isbn = $tr.find('input[name="isbn"]').val();
 			console.log(isbn);
 			$.ajax({
 				url:"/myPage/insertOrderList.bo",
