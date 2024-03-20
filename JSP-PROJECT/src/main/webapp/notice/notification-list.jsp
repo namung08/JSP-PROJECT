@@ -43,7 +43,49 @@
         }
     </style>
 </head>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+	</div>
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
+		<div>
+			<input type="text" name="search" id="keyword"
+				placeholder="검색하실 책 제목을 입력하세요">
+		</div>
+		<div>
+			<button type="submit" id="searchBtn">검색</button>
+		</div>
+	</form>
+	<c:choose>
+		<c:when test="${not empty userid}">
+			<div class="header-right">
+				<div>${userid }님 안녕하세요.</div>
+				<div class="header-menu" >
+					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
+		</c:otherwise>
+	</c:choose>
+</div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>
 <body>
+<div>
 	<c:if test="${not empty param.flag}">
 		<c:if test="${not param.flag}">
 			<script>
@@ -51,7 +93,7 @@
 			</script>
 		</c:if>
 	</c:if>
-    <h1>공지사항 목록</h1>
+    <h1>공지사항</h1>
     <table>
         <thead>
             <tr>
@@ -84,6 +126,7 @@
             </c:forEach>
         </tbody>
     </table>
-    <a href="${pageContext.request.contextPath}/notice/noticeWrite.bo">[공지사항 작성]</a>
+    <a style="float: right;" href="${pageContext.request.contextPath}/notice/noticeWrite.bo">[공지사항 작성]</a>
+</div>
 </body>
 </html>

@@ -9,6 +9,23 @@
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
+<style>
+.ulIndex {
+	list-style: none;
+	padding: 20px;
+}
+.index {
+	background-color: white;
+	width: 40%;
+}
+.movebtn {
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.movebtn:last-child {
+	margin-bottom: 0;
+}
+</style>
 <body>
 <header>
 <input type="hidden" value="${userid }">
@@ -49,9 +66,14 @@
 </ul>
 </nav>
 </header>
-<h1>코시웨 고객센터</h1>
-	<a href="/notice/getNotificationList.bo">공지사항</a>	<!-- 데이터베이스에서 목록 불러오기까지만 가능합니다 -->
-	<a href="/notice/faq.jsp">FAQ</a>					<!-- FAQ 내용은 임의로 작성했습니다 -->
-	<a href="${pageContext.request.contextPath}/notice/inquiry.bo">1:1문의</a>				<!-- 데이터베이스와 작업을 안 거쳐서 우선 jsp로 바로 갈 수 있게 했습니다 -->
+<div style="text-align: -webkit-center;">
+	<div class="index">
+		<ul class="ulIndex">	
+			<li class="movebtn btn" onclick="location.href='${pageContext.request.contextPath}/notice/getNotificationList.bo'">공지사항</li>	<!-- 데이터베이스에서 목록 불러오기까지만 가능합니다 -->
+			<li class="movebtn btn" onclick="location.href='${pageContext.request.contextPath}/notice/faq.jsp'">자주 묻는 질문</li>					<!-- FAQ 내용은 임의로 작성했습니다 -->
+			<li class="movebtn btn" onclick='location.href="${pageContext.request.contextPath}/notice/inquiry.bo"'>1:1문의</li>				<!-- 데이터베이스와 작업을 안 거쳐서 우선 jsp로 바로 갈 수 있게 했습니다 -->
+		</ul>
+	</div>
+</div>
 </body>
 </html>
