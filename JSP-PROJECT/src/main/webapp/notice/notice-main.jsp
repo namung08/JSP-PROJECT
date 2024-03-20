@@ -1,38 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>고객센터</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    padding: 20px;
-}
-h1 {
-    color: #333;
-}
-a {
-    display: block;
-    margin-bottom: 10px;
-    background-color: rgb(36, 39, 39);
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 5px;
-}
-a:hover {
-    background-color: gray;
-}
-</style>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
-<a align="right" valign="middle" href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+	</div>
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
+		<div>
+			<input type="text" name="search" id="keyword"
+				placeholder="검색하실 책 제목을 입력하세요">
+		</div>
+		<div>
+			<button type="submit" id="searchBtn">검색</button>
+		</div>
+	</form>
+	<c:choose>
+		<c:when test="${not empty userid}">
+			<div class="header-right">
+				<div>${userid }님 안녕하세요.</div>
+				<div class="header-menu" >
+					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
+		</c:otherwise>
+	</c:choose>
+</div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>
 <h1>코시웨 고객센터</h1>
 	<a href="/notice/getNotificationList.bo">공지사항</a>	<!-- 데이터베이스에서 목록 불러오기까지만 가능합니다 -->
 	<a href="/notice/faq.jsp">FAQ</a>					<!-- FAQ 내용은 임의로 작성했습니다 -->

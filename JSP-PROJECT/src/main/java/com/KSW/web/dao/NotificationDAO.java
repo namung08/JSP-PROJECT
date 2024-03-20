@@ -38,9 +38,9 @@ public class NotificationDAO {
 		return result;
 	}
 	
-	public boolean updatenotice(int notificationNum) {
+	public boolean updatenotice(NotificationDTO ndto) {
 		boolean result = false;
-		if(sqlSession.update("deletenotice",notificationNum) == 1) {
+		if(sqlSession.update("updatenotice",ndto) == 1) {
 			result = true;
 		}
 		return result;

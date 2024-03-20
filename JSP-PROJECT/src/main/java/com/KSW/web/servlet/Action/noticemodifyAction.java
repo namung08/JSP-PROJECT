@@ -25,6 +25,7 @@ public class noticemodifyAction implements Action {
 		String getnotificationTitle = ndao.getnotificationTitle(notificationNum);
 		String getnotificationDetails = ndao.getnotificationDetails(notificationNum);
 		
+		req.setAttribute("notificationNum", notificationNum);
 		req.setAttribute("getnotificationTitle", getnotificationTitle);
 		req.setAttribute("getnotificationTitle", getnotificationDetails);
 		
