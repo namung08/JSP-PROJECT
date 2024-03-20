@@ -33,7 +33,7 @@
 		DELETE FROM KSW_NOTIFICATION WHERE notificationNum = #{notificationNum}
 	</delete>
 	
-	<update id="updatenotice" parameterType="_int">
+	<update id="updatenotice" parameterType="notdto">
 		UPDATE KSW_NOTIFICATION 
 		SET notificationTitle = #{notificationTitle}, notificationDetails = #{notificationDetails}, updatedAt = #{updatedAt} 
 		WHERE notificationNum = #{notificationNum}

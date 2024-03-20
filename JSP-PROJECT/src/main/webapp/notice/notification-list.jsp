@@ -68,9 +68,9 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="notification" items="${NotificationList}">
+            <c:forEach var="notification" items="${NotificationList}" varStatus="loop">
                 <tr>
-                    <td>${notification.notificationNum}</td>
+                    <td>${loop.index + 1}</td>
                     <td>${notification.userId}</td>
                     <td>${notification.notificationTitle}</td>
                     <td>${notification.notificationDetails}</td>

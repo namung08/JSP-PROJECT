@@ -38,7 +38,7 @@
 </head>
 <body>
     <h1>공지사항 수정</h1>
-    <form id="inquiryWrite" action="${pageContext.request.contextPath}/notice/noticeModifyOk.bo" method="post">
+    <form id="inquiryWrite" action="${pageContext.request.contextPath}/notice/noticemodifyOk.bo?notificationNum=${notificationNum}" method="post">
         <label for="userid">작성자:${userid }</label>
         <label for="notificationTitle">제목:</label>
         <input type="text" id="notificationTitle" name="notificationTitle" value="${getnotificationTitle }" required>

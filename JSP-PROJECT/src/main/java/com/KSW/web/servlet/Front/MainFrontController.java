@@ -28,6 +28,7 @@ import com.KSW.web.servlet.Action.noticeWriteAction;
 import com.KSW.web.servlet.Action.noticeWriteOkAction;
 import com.KSW.web.servlet.Action.noticedeleteAction;
 import com.KSW.web.servlet.Action.noticemodifyAction;
+import com.KSW.web.servlet.Action.noticemodifyOkAction;
 import com.KSW.web.servlet.Action.SignUpAction;
 import com.KSW.web.servlet.Action.UserInfoChangeSuccessAction;
 
@@ -192,13 +193,14 @@ public class MainFrontController extends HttpServlet{
 		case "/notice/noticemodify.bo":
 			forward = new noticemodifyAction().execute(req,resp);
 			break;
+			// 공지사항 수정
+		case "/notice/noticemodifyOk.bo":
+			forward = new noticemodifyOkAction().execute(req,resp);
+			break;
 			// 공지사항 삭제
 		case "/notice/noticdelete.bo":
 			forward = new noticedeleteAction().execute(req,resp);
 			break;	
-//		case "/notice/noticeModifyOk.bo":
-//			forward = new noticeModifyOk().execute(req,resp);
-//			break;	
 		}
 		// 페이지 이동에 대한 일괄 처리
         if (forward != null) {
