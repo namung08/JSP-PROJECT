@@ -30,11 +30,14 @@ public class insertReplyAction implements Action{
 		rdto.setReply(reply);
 		rdto.setReplygrade(rating);
 		rdto.setUserid(userid);
-		
+		System.out.println("id : "+userid);
+		System.out.println("isbn : "+isbn);
+		System.out.println("reply : "+reply);
+		System.out.println("rating : "+rating);
 		// dto를 파라미터로 dao 실행
 		if(rdao.insertReply(rdto)) {
-			forward.setPath(req.getContextPath()+"/myPage/OrderList.jsp");
-			forward.setRedirect(true);
+			forward.setPath(req.getContextPath()+"/main/main-page.bo");
+			forward.setRedirect(false);
 		}
 		
 		return forward;
