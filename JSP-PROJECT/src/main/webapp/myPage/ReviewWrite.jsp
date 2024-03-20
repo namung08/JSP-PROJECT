@@ -119,10 +119,6 @@
                     <td><input type="text" id="reviewTitle" name="reviewTitle"></td>
                 </tr>
                 <tr>
-                    <td>제목:</td>
-                    <td><input type="text" id="reviewTitle" name="reviewTitle"></td>
-                </tr>
-                <tr>
                     <td>별점:</td>
                     <td>
                         <select id="rating" name="rating">
