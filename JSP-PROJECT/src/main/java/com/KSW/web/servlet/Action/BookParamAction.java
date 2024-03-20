@@ -7,7 +7,9 @@ import java.util.Date;
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
 import com.KSW.web.dao.BookDAO;
+import com.KSW.web.dao.ReviewDAO;
 import com.KSW.web.dto.BookDTO;
+import com.KSW.web.dto.ReviewDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -39,6 +41,14 @@ public class BookParamAction implements Action {
 		// 스트링 타입을 date 타입으로 변환
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date setdate;
+		
+		ReviewDTO rdto = new ReviewDTO();
+		ReviewDAO rdao = new ReviewDAO();
+		String isbn = req.getParameter("isbn");
+		System.out.println(isbn);
+		req.setAttribute("getreplys", rdao.getReplys(isbn));
+		System.out.println(rdao.getReplys(isbn));
+		
 		try {
 			setdate = formatter.parse(date);
 			bdto.setPubdate(setdate);

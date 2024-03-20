@@ -9,21 +9,13 @@
     <meta charset="UTF-8">
     <title>1:1 문의</title>
     <style>
-a:visited {
-	color: #ce93d8;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #ce93d8;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-a:link {
-	color: #ce93d8;
-	text-decoration: none;
-}
+.inquiry-link {
+            display: block;
+            text-align: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #4285f4;
+        }
 
 table {
 	width: 100%; /* 브라우저의 가로 너비에 맞게 테이블의 너비 조절 */
@@ -34,12 +26,48 @@ table {
 }
 </style>
 </head>
+<link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 <body>
-	<a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지로 돌아가기</a>
-	<h1>코시웨 1:1 문의</h1>
-    <!-- 1:1 문의 페이지로 이동하는 링크 필요하실지 모르겠어서 남겨둡니다 -->
-    <a class="inquiry-link" href="/notice/inquiryWrite.bo">1:1 문의하기</a>
-
+<header>
+<input type="hidden" value="${userid }">
+<div class="header-flex">
+	<div class="header-left">
+			<a href="${pageContext.request.contextPath}/main/main-page.bo"><img class="logo" alt="메인페이지로 이동" src="../img/ksw.png"></a>
+	</div>
+	<form id="searchFrm" action="/search/SearchView.bo" method="post">
+		<div>
+			<input type="text" name="search" id="keyword"
+				placeholder="검색하실 책 제목을 입력하세요">
+		</div>
+		<div>
+			<button type="submit" id="searchBtn">검색</button>
+		</div>
+	</form>
+	<c:choose>
+		<c:when test="${not empty userid}">
+			<div class="header-right">
+				<div>${userid }님 안녕하세요.</div>
+				<div class="header-menu" >
+					<div style="margin-right: 20px;"><a href="${pageContext.request.contextPath}/login/LogOut.bo">로그아웃</a></div>
+					<div><a href="${pageContext.request.contextPath}/myPage/myPage.bo">마이페이지</a></div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			  <div style="display: flex;">
+			    <div class="header-right"><a href="${pageContext.request.contextPath}/login/Sign-up-in.bo">로그인</a></div>
+			  </div>
+		</c:otherwise>
+	</c:choose>
+</div>
+<nav>
+<ul class="nav-bar">
+	<li><a href="${pageContext.request.contextPath}/main/main-page.bo">메인 페이지</a></li>
+	<li><a href="${pageContext.request.contextPath}/notice/notice-main.bo">고객센터</a></li>
+</ul>
+</nav>
+</header>
     <h2>${username }(${userid })님의 1:1 문의 목록</h2>
     <p align="right">총 문의 개수 ${totalCnt}</p> 
     <table border="1" style="border-collapse: collapse; border-spacing: 0; width: 900px;">
@@ -97,5 +125,6 @@ table {
 			</td>
 		</tr>
 	</table>
+	<a class="inquiry-link" href="/notice/inquiryWrite.bo">[1:1 문의하기]</a>
 </body>
 </html>

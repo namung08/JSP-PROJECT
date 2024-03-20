@@ -43,7 +43,7 @@ public class InquiryWriteSuccessAction implements Action {
 		
 		if(qdao.insertinquiryWrite(qdto)) {
 			System.out.println("성공!");
-			forward.setPath(req.getContextPath()+"/notice/inquiryWriteSuccess.jsp");
+			forward.setPath(req.getContextPath()+"/notice/inquiry.bo");
 			forward.setRedirect(false);
 		}
 		
