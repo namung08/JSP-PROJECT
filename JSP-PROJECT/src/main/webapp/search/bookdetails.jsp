@@ -320,28 +320,37 @@ a {
 			<hr>
 			<div class="botCol2" id="botCol2">
 				<table>
-					<c:forEach var="replys" items="${getreplys }">
-						<tr>
-							<th>${replys.userid }</th>
-							<td>
-								<table>
-									<tr>
-										<th>날짜</th>
-										<th>${replys.replyinsertdate }</th>
-										<td>평점</td>
-										<td>
-											<c:if test="${replys.replygrade == 1 }">&#10029;&#10025;&#10025;&#10025;&#10025;</c:if>
-											<c:if test="${replys.replygrade == 2 }">&#10029;&#10029;&#10025;&#10025;&#10025;</c:if>
-											<c:if test="${replys.replygrade == 3 }">&#10029;&#10029;&#10029;&#10025;&#10025;</c:if>
-											<c:if test="${replys.replygrade == 4 }">&#10029;&#10029;&#10029;&#10029;&#10025;</c:if>
-											<c:if test="${replys.replygrade == 5 }">&#10029;&#10029;&#10029;&#10029;&#10029;</c:if>
-										</td>
-									</tr>
-								</table> 
-								${replys.reply }
-							</td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+					    <c:when test="${empty getreplys}">
+					        <tr>
+					            <td colspan="4" style="text-align: center;">리뷰가 없습니다.</td>
+					        </tr>
+					    </c:when>
+					    <c:otherwise>
+					        <c:forEach var="replys" items="${getreplys}">
+					            <tr>
+					                <th>${replys.userid}</th>
+					                <td>
+					                    <table>
+					                        <tr>
+					                            <th>날짜</th>
+					                            <th>${replys.replyinsertdate}</th>
+					                            <td>평점</td>
+					                            <td>
+					                                <c:if test="${replys.replygrade == 1}">&#10029;&#10025;&#10025;&#10025;&#10025;</c:if>
+					                                <c:if test="${replys.replygrade == 2}">&#10029;&#10029;&#10025;&#10025;&#10025;</c:if>
+					                                <c:if test="${replys.replygrade == 3}">&#10029;&#10029;&#10029;&#10025;&#10025;</c:if>
+					                                <c:if test="${replys.replygrade == 4}">&#10029;&#10029;&#10029;&#10029;&#10025;</c:if>
+					                                <c:if test="${replys.replygrade == 5}">&#10029;&#10029;&#10029;&#10029;&#10029;</c:if>
+					                            </td>
+					                        </tr>
+					                    </table>
+					                    ${replys.reply}
+					                </td>
+					            </tr>
+					        </c:forEach>
+					    </c:otherwise>
+					</c:choose>
 				</table>
 			</div>
 		</div>
