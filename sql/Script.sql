@@ -22,15 +22,17 @@ SELECT * FROM KSW_USERS;
 
 DROP TABLE KSW_cart;
 CREATE TABLE KSW_CART(
-	CARTNUM NUMBER (10) PRIMARY KEY,
-	USERID VARCHAR2(50) NOT NULL,
-	title VARCHAR2(300) NOT NULL,
-	discount NUMBER (10),	-- 책 가격 / 값이 null 인경우 매진, 절판 등등
-	image VARCHAR2(500) NOT NULL,
-	isbn varchar2(500) NOT NULL,	-- 국제표준 도서번호
-	COUNT NUMBER (10) NOT NULL,		-- 책 수량
-	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
+   CARTNUM NUMBER (10) PRIMARY KEY,
+   USERID VARCHAR2(50) NOT NULL,
+   title VARCHAR2(300) NOT NULL,
+   discount NUMBER (10),   -- 책 가격 / 값이 null 인경우 매진, 절판 등등
+   image VARCHAR2(500) NOT NULL,
+   isbn varchar2(500) NOT NULL,   -- 국제표준 도서번호
+   COUNT NUMBER (10) NOT NULL,      -- 책 수량
+   FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
+
+
 SELECT * FROM KSW_CART;
 
 CREATE SEQUENCE cart_seq
@@ -41,18 +43,18 @@ INCREMENT BY 1;
 
 DROP TABLE KSW_ORDERLIST ;
 CREATE TABLE KSW_ORDERLIST(
-	ORDERNUM NUMBER (10) PRIMARY KEY,
-	ORDERDATE DATE NOT NULL,
-	USERID VARCHAR2(50) NOT NULL,
-	title VARCHAR2(300) NOT NULL,
-	discount NUMBER(10),					-- 판매 가격
-	isbn varchar2(500) NOT NULL,
-	replystatus VARCHAR2(100) NOT NULL,	 -- 초기 값 : 리뷰미작성
-	COUNT NUMBER(10) NOT NULL,				-- 구매 수량
-	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
+   ORDERNUM NUMBER (10) PRIMARY KEY,
+   ORDERDATE DATE NOT NULL,
+   USERID VARCHAR2(50) NOT NULL,
+   title VARCHAR2(300) NOT NULL,
+   discount NUMBER(10),               -- 판매 가격
+   isbn varchar2(500) NOT NULL,
+   replystatus varchar2 (100) NOT NULL,
+   COUNT NUMBER(10) NOT NULL,            -- 구매 수량
+   FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
-INSERT INTO KSW_ORDERLIST values(order_seq.nextval,sysdate,'namung','극락가 1 (더블특전판)',5400,'9788937462849','리뷰미작성',1);
 
+UPDATE KSW_ORDERLIST SET ORDERDATE = sysdate+5 WHERE ORDERNUM=360;
 
 SELECT * FROM KSW_ORDERLIST;
 
@@ -106,18 +108,19 @@ INCREMENT BY 1;
 
 DROP TABLE KSW_BOOK;
 CREATE TABLE KSW_BOOK(
-	isbn varchar2(355) PRIMARY KEY ,
-	title varchar2(355),
-	image varchar2(355),
-	author varchar2(355),
-	discount number(10),
-	publisher varchar2(355),
-	description clob,
-	pubdate DATE
+   isbn varchar2(355) ,
+   title varchar2(355),
+   image varchar2(355),
+   author varchar2(355),
+   discount number(38),
+   publisher varchar2(355),
+   description clob,
+   pubdate DATE
 );
 
------------------------------------------------------
--- 리뷰 테이블
+
+SELECT * FROM KSW_BOOK;
+
 CREATE TABLE ksw_reply (
 	replynum number(38) PRIMARY KEY,  -- 리뷰 고유 숫자(int)
 	isbn varchar2(355) NOT null,  -- 책 isbn 값(String)
@@ -127,3 +130,4 @@ CREATE TABLE ksw_reply (
 	reply clob NOT NULL, -- 리뷰 내용
 	FOREIGN KEY (USERID) REFERENCES KSW_USERS(USERID)
 );
+SELECT * FROM KSW_REPLY;
