@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>주문내역</title>
+    <title>${title } 리뷰</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body {
@@ -72,6 +72,10 @@
     <div id="review">
         <form id="reviewForm" action="${pageContext.request.contextPath}/myPage/WriteReviewAction.bo" method="post">
             <table>
+            	
+                    <td>책제목:${title }</td>
+                    <td><input type="text" id="reviewTitle" name="reviewTitle"></td>
+                </tr>
                 <tr>
                     <td>제목:</td>
                     <td><input type="text" id="reviewTitle" name="reviewTitle"></td>

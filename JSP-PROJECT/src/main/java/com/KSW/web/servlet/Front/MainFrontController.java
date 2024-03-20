@@ -29,6 +29,7 @@ import com.KSW.web.servlet.Action.noticeWriteOkAction;
 import com.KSW.web.servlet.Action.noticedeleteAction;
 import com.KSW.web.servlet.Action.noticemodifyAction;
 import com.KSW.web.servlet.Action.noticemodifyOkAction;
+import com.KSW.web.servlet.Action.writeReplyAction;
 import com.KSW.web.servlet.Action.SignUpAction;
 import com.KSW.web.servlet.Action.UserInfoChangeSuccessAction;
 
@@ -200,6 +201,10 @@ public class MainFrontController extends HttpServlet{
 			// 공지사항 삭제
 		case "/notice/noticdelete.bo":
 			forward = new noticedeleteAction().execute(req,resp);
+			break;	
+			// 리뷰작성
+		case "/book/writeReplyReply.bo":
+			forward = new writeReplyAction().execute(req,resp);
 			break;	
 		}
 		// 페이지 이동에 대한 일괄 처리

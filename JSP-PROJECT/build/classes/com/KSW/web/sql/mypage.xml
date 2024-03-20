@@ -4,7 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MyPage">
 	<select id="getOrderList" resultType="orderdto" parameterType="hashmap">
-		SELECT b.ordernum, b.isbn , TO_CHAR(b.orderdate, 'YYYY-MM-DD')orderdate, b.userid, b.title, b.discount, b.deliverystatus, b. count FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST WHERE USERID = #{userid} ORDER BY ORDERNUM DESC) a) b
+		SELECT b.ordernum, b.isbn , TO_CHAR(b.orderdate, 'YYYY-MM-DD')orderdate, b.userid, b.title, b.discount, b.replystatus, b. count FROM (SELECT rownum r , a.* FROM (SELECT * FROM KSW_ORDERLIST WHERE USERID = #{userid} ORDER BY ORDERNUM DESC) a) b
 		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
@@ -36,6 +36,6 @@
 	    UPDATE KSW_USERS SET useraddr = #{useraddr} WHERE USERID = #{userid}
 	</update>
 	<insert id="setOrder" parameterType="orderdto">
-		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},#{isbn},'배송완료',#{count})
+		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},#{isbn},'리뷰미작성',#{count})
 	</insert>
 </mapper>

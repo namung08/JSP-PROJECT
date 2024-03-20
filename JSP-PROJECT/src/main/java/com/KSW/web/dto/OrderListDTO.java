@@ -8,7 +8,7 @@ public class OrderListDTO {
     private String userId;			//유저 아이디 FK
     private String title;			//책 제목
     private int discount;			//책 가격
-    private String deliveryStatus;	//책 배송 상태
+    private String replystatus;	//책 배송 상태
     private int count;				//책 수량
     private String isbn;
 	
@@ -48,11 +48,11 @@ public class OrderListDTO {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-	public String getDeliveryStatus() {
-		return deliveryStatus;
+	public String getreplystatus() {
+		return replystatus;
 	}
-	public void setDeliveryStatus(String deliveryStatus) {
-		this.deliveryStatus = deliveryStatus;
+	public void setreplystatus(String replystatus) {
+		this.replystatus = replystatus;
 	}
 	public int getCount() {
 		return count;

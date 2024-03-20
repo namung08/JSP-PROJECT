@@ -103,6 +103,7 @@ table {
 						<tr align="center" valign="middle"
 							onmouseover="this.style.background='#bbdefb'"
 							onmouseout="this.style.background=''" height="23px">
+							<input type="hidden" id="flag" name="flag" value="${order.replystatus }">
 							<input type="hidden" id="isbn" name="isbn" value="${order.isbn }">
 							<td class="orderdate" height="23px;">
 								${OrderDate }
@@ -112,7 +113,7 @@ table {
 							<td class="deliverystatus" height="23px;">
 								
 								<c:if test="${odate == ndate }">배송 준비중</c:if>
-								<c:if test="${odate < ndate+3 }">배송 중</c:if>
+								<c:if test="${odate < ndate+3 and odate != ndate }">배송 중</c:if>
 								<c:if test="${odate >= ndate+3 }">배송 완료</c:if>
 							</td>
 							<td height="23px;">${order.count }</td>
