@@ -39,6 +39,6 @@
 		INSERT INTO KSW_ORDERLIST VALUES (order_seq.nextval,#{orderDate},#{userId},#{title},#{discount},#{isbn},'리뷰미작성',#{count})
 	</insert>
 	<select id="getTitle" parameterType="String" resultType="String">
-		SELECT TITLE FROM KSW_ORDERLIST WHERE ISBN = #{ISBN}
+		SELECT TITLE FROM KSW_ORDERLIST WHERE ordernum = #{ordernum}
 	</select>
 </mapper>

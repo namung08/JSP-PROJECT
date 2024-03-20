@@ -46,8 +46,8 @@ public class OrderlistDAO {
 		return result;
 	}
 	
-	public String getTitle(String isbn) {
-		return sqlSession.selectOne("getTitle", isbn);
+	public String getTitle(String ordernum) {
+		return sqlSession.selectOne("getTitle", ordernum);
 	}
 	
 }

@@ -20,9 +20,11 @@ public class writeReplyAction implements Action {
 		OrderListDTO odto = new OrderListDTO();
 		OrderlistDAO odao = new OrderlistDAO();
 		
+		String ordernum = req.getParameter("ordernum");
 		String isbn = req.getParameter("isbn");
-		String title = odao.getTitle(isbn);
+		String title = odao.getTitle(ordernum);
 		
+		req.setAttribute("ordernum", ordernum);
 		req.setAttribute("isbn", isbn);
 		req.setAttribute("title", title);
 		
