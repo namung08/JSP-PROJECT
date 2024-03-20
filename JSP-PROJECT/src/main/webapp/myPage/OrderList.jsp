@@ -105,6 +105,8 @@ table {
 							onmouseout="this.style.background=''" height="23px">
 							<input type="hidden" id="flag" name="flag" value="${order.replystatus }">
 							<input type="hidden" id="isbn" name="isbn" value="${order.isbn }">
+							<input type="hidden" name="ordernum" value="${order.orderNum }">
+							
 							<td class="orderdate" height="23px;">
 								${OrderDate }
 							</td>
