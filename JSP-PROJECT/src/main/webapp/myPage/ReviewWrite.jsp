@@ -114,9 +114,9 @@
     <div id="review">
         <input type="hidden" name="isbn" value="${isbn }">
             <table>
-            	
-                    <td>책제목:${title }</td>
-                    <td><input type="text" id="reviewTitle" name="reviewTitle"></td>
+            	<tr>
+                    <td>책제목:</td>
+                    <td><input type="text" readonly value="${title }" id="reviewTitle" name="reviewTitle"></td>
                 </tr>
                 <tr>
                     <td>제목:</td>
