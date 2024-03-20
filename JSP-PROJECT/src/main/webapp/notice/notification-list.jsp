@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,8 +117,14 @@
                     <td>${notification.userId}</td>
                     <td>${notification.notificationTitle}</td>
                     <td>${notification.notificationDetails}</td>
-                    <td>${notification.createdAt}</td>
-                    <td>${notification.updatedAt}</td>
+                     <td>
+                        <fmt:parseDate var="createdDate" value="${notification.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${createdDate}" pattern="yyyy년 MM월 dd일" />
+                    </td>
+                    <td>
+                        <fmt:parseDate var="updatedDate" value="${notification.updatedAt}" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${updatedDate}" pattern="yyyy년 MM월 dd일" />
+                    </td>
                     <c:if test="${isAdmin}">
                         <td><a href="${pageContext.request.contextPath}/notice/noticemodify.bo?notificationNum=${notification.notificationNum}">수정</a></td>
                         <td><a href="${pageContext.request.contextPath}/notice/noticdelete.bo?notificationNum=${notification.notificationNum}">삭제</a></td>

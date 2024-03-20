@@ -1,5 +1,7 @@
 package com.KSW.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -21,6 +23,10 @@ public class ReviewDAO {
 		}
 		return result;
 	}
-
+	
+	public List<ReviewDTO> getReplys(String isbn) {
+		List<ReviewDTO> replys = sqlSession.selectList("getreplys", isbn);
+		return replys;
+    }
 	
 }

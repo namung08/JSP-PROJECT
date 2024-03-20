@@ -26,6 +26,9 @@
 	group BY isbn,title,image, author,discount,publisher,TO_CHAR(description),pubdate ORDER BY count(*) desc)  a) b
 WHERE b.rn BETWEEN #{startRow} AND #{endRow}
 	</select>
+	<select id="getreplys" parameterType="String" resultType="reviewdto">
+		SELECT * FROM KSW_REPLY WHERE ISBN = #{ISBN}
+	</select>
 </mapper>
  
  

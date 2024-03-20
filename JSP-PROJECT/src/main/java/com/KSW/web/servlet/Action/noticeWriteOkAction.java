@@ -45,7 +45,7 @@ public class noticeWriteOkAction implements Action {
 		
 		if(ndao.insertnoticeWrite(ndto)) {
 			System.out.println("성공!");
-			forward.setPath(req.getContextPath()+"/notice/noticeWriteOk.jsp");
+			forward.setPath(req.getContextPath()+"/notice/getNotificationList.bo");
 			forward.setRedirect(false);
 		}
 		
