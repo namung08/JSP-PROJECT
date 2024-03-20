@@ -203,7 +203,7 @@ public class MainFrontController extends HttpServlet{
 			forward = new noticedeleteAction().execute(req,resp);
 			break;	
 			// 리뷰작성
-		case "/book/writeReplyReply.bo":
+		case "/book/writeReply.bo":
 			forward = new writeReplyAction().execute(req,resp);
 			break;	
 		}
