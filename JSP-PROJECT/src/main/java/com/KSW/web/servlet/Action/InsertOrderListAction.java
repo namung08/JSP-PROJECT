@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
+import com.KSW.web.dao.CartDAO;
 import com.KSW.web.dao.OrderlistDAO;
 import com.KSW.web.dto.OrderListDTO;
 
@@ -19,9 +20,13 @@ public class InsertOrderListAction implements Action{
 		ActionForward forward = new ActionForward();
 		OrderListDTO odto = new OrderListDTO();
 		OrderlistDAO odao = new OrderlistDAO();
+		CartDAO cdao = new CartDAO();
 		
 		HttpSession session = req.getSession();
 		String userid = (String)session.getAttribute("userid");
+		int cartnum = Integer.parseInt(req.getParameter("cartNum"));
+		System.out.println(cartnum);
+		cdao.deleteCart(cartnum);
 		String title = req.getParameter("title");
 		String discount = req.getParameter("discount");
 		System.out.println(discount);

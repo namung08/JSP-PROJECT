@@ -5,10 +5,10 @@ function errFunc(e) {
 	alert("실패: " + e.status);
 }
 $(document).ready(function() {
-	if($('#flag').val() == "false") {
+	if ($('#flag').val() == "false") {
 		alert('이미 장바구니에 담겨져 있습니다.\n장바구니를 확인해 주세요.')
 	};
-	
+
 	$('.creditbtn').click(function() {
 		// 체크된 모든 체크박스를 찾아 그 부모인 tr 요소의 정보를 가져옵니다.
 		$('input.itemCheckbox:checked').each(function() {
@@ -20,18 +20,20 @@ $(document).ready(function() {
 			var isbn = $tr.find('input[name="isbn"]').val();
 			console.log(isbn);
 			$.ajax({
-				url:"/myPage/insertOrderList.bo",
-				type:"post",
+				url: "/myPage/insertOrderList.bo",
+				type: "post",
 				data: {
-					isbn:isbn,
-					cartNum:cartNum,
-					title:title,
-					discount:discount,
-					quantity:quantity
+					isbn: isbn,
+					cartNum: cartNum,
+					title: title,
+					discount: discount,
+					quantity: quantity
+				},success: function(data) {
+					location.href="/myPage/OrderList.bo";
 				},
-				error: errFunc
+				 error: errFunc
 			});
-			trash(cartNum);
+
 		});
 	});
 	// 페이지 로드 시 총액 계산
