@@ -46,7 +46,6 @@
 </head>
 <link rel="icon" href="/img/favicon.png" type="image/x-icon"> 
 <link rel="stylesheet" type="text/css" href="../css/header.css">
-<body>
 <header>
 <input type="hidden" value="${userid }">
 <div class="header-flex">
@@ -86,6 +85,8 @@
 </ul>
 </nav>
 </header>
+<body>
+<div>
 	<c:if test="${not empty param.flag}">
 		<c:if test="${not param.flag}">
 			<script>
@@ -93,7 +94,7 @@
 			</script>
 		</c:if>
 	</c:if>
-    <h1>공지사항 목록</h1>
+    <h1>공지사항</h1>
     <table>
         <thead>
             <tr>
@@ -132,6 +133,7 @@
             </c:forEach>
         </tbody>
     </table>
-    <a href="${pageContext.request.contextPath}/notice/noticeWrite.bo">[공지사항 작성]</a>
+    <a style="float: right;" href="${pageContext.request.contextPath}/notice/noticeWrite.bo">[공지사항 작성]</a>
+</div>
 </body>
 </html>
