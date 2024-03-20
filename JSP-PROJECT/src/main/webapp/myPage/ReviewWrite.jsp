@@ -10,21 +10,61 @@
     <title>주문내역</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333333;
+        }
+
         a:visited {
-            color: #ce93d8;
+            color: #555555;
             text-decoration: none;
         }
+
         a:hover {
-            color: #ce93d8;
+            color: #000000;
             text-decoration: none;
             font-weight: bold;
         }
+
         a:link {
-            color: #ce93d8;
+            color: #555555;
             text-decoration: none;
         }
+
         table {
             margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #555555;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #000000;
         }
     </style>
 </head>
@@ -61,18 +101,5 @@
             </table>
         </form>
     </div>
-    <button type="button" onclick="showReviewForm()">리뷰 작성</button>
-
-    <script>
-        // 리뷰 작성 양식을 보여주는 함수
-        function showReviewForm() {
-            document.getElementById("review").style.display = "block";
-        }
-
-        // 리뷰 작성 양식을 숨기는 함수
-        function closeReviewForm() {
-            document.getElementById("review").style.display = "none";
-        }
-    </script>
 </body>
 </html>
