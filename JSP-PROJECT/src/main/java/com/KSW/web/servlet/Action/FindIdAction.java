@@ -1,14 +1,9 @@
 package com.KSW.web.servlet.Action;
 
-import java.net.HttpCookie;
-import java.util.HashMap;
-
 import com.KSW.web.action.Action;
 import com.KSW.web.action.ActionForward;
 import com.KSW.web.dao.UsersDAO;
-import com.KSW.web.dto.UsersDTO;
 
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
