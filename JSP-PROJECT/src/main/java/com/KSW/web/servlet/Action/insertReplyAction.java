@@ -25,6 +25,9 @@ public class insertReplyAction implements Action{
 		String reply = req.getParameter("reply");
 		int rating = Integer.parseInt(req.getParameter("rating"));
 		String userid = (String)session.getAttribute("userid");
+		
+		int ordernum = Integer.parseInt(req.getParameter("ordernum"));
+		
 		// dto에 받아온 파라미터 값 담기
 		rdto.setIsbn(isbn);
 		rdto.setReply(reply);
@@ -36,6 +39,7 @@ public class insertReplyAction implements Action{
 		System.out.println("rating : "+rating);
 		// dto를 파라미터로 dao 실행
 		if(rdao.insertReply(rdto)) {
+			rdao.updateReplyStatus(ordernum);
 			forward.setPath(req.getContextPath()+"/main/main-page.bo");
 			forward.setRedirect(false);
 		}

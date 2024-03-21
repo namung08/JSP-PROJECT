@@ -6,6 +6,7 @@ $(document).ready(function() {
 		var rating = $('#rating').val();
 		var reply = $('#reviewContent').val();
 		var isbn = $('#isbn').val();
+		var ordernum = $('#ordernum').val();
 		if (reply.length < 1) {
 			alert("리뷰 내용를 입력해 주세요");
 			$('#reviewContent').focus();
@@ -20,6 +21,7 @@ $(document).ready(function() {
 		form.append('<input type="hidden" name="rating" value="' + rating + '">');
 		form.append('<input type="hidden" name="reply" value="' + reply + '">');
 		form.append('<input type="hidden" name="isbn" value="' + isbn + '">');
+		form.append('<input type="hidden" name="ordernum" value="' + ordernum + '">');
 		// form을 body에 추가하고 submit 합니다.
 		$('body').append(form);
 		form.submit();

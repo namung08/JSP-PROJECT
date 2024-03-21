@@ -117,6 +117,10 @@
         <input type="hidden" id="isbn" name="isbn" value="${isbn }">
             <table>
             	<tr>
+                    <td>주문번호:</td>
+                    <td><input type="text" readonly value="${ordernum }" id="ordernum" name="ordernum"></td>
+                </tr>
+            	<tr>
                     <td>책제목:</td>
                     <td><input type="text" readonly value="${title }" id="reviewTitle" name="reviewTitle"></td>
                 </tr>

@@ -41,4 +41,7 @@
 	<select id="getTitle" parameterType="String" resultType="String">
 		SELECT TITLE FROM KSW_ORDERLIST WHERE ordernum = #{ordernum}
 	</select>
+	<update id="updateReplyStatus" parameterType="_int">
+	    UPDATE KSW_ORDERLIST SET REPLYSTATUS = '리뷰작성' WHERE ORDERNUM = #{ordernum}
+	</update>
 </mapper>

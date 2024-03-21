@@ -28,5 +28,12 @@ public class ReviewDAO {
 		List<ReviewDTO> replys = sqlSession.selectList("getreplys", isbn);
 		return replys;
     }
+	public boolean updateReplyStatus(int ordernum) {
+		boolean result = false;
+		if(sqlSession.update("updateReplyStatus",ordernum) == 1) {
+			result = true;
+		}
+		return result;
+	}
 	
 }
