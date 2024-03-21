@@ -20,7 +20,7 @@ public class InsertOrderListAction implements Action{
 		OrderListDTO odto = new OrderListDTO();
 		OrderlistDAO odao = new OrderlistDAO();
 		CartDAO cdao = new CartDAO();
-		
+
 		HttpSession session = req.getSession();
 		String userid = (String)session.getAttribute("userid");
 		String cartnum = req.getParameter("cartNum");
@@ -45,18 +45,18 @@ public class InsertOrderListAction implements Action{
 		discount = discount.trim().replace(",", "").replace("원", "");
 		int dis = Integer.parseInt(discount);
 		dis = dis*count;
-		
+
 		odto.setUserId(userid);
-		
+
 		LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDate = currentDate.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String formattedDate = currentDate.format(formatter);
 		odto.setIsbn(isbn);
 		odto.setOrderDate(formattedDate);
 		odto.setTitle(title);
 		odto.setDiscount(dis);
 		System.out.println(odto.getIsbn());
-		
+
 		if(odao.insertOrderList(odto)) {
 			System.out.println("성공!");
 			forward.setPath(req.getContextPath()+"/myPage/OrderList.bo");
@@ -64,7 +64,7 @@ public class InsertOrderListAction implements Action{
 		}
 		return forward;
 	}
-	
-	
+
+
 
 }
