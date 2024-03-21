@@ -190,3 +190,9 @@ replay_pid*
 /JSP-PROJECT/.classpath
 /JSP-PROJECT/build/
 /JSP-PROJECT/.project
+web2/WEB-INF/web.xml
+*.iml
+*.name
+*.xml
+JSP-PROJECT/.idea/
+JSP-PROJECT/classes/
