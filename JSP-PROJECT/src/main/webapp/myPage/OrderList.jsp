@@ -113,14 +113,15 @@ table {
 							<td height="23px;">${order.title }</td>
 							<td height="23px;">${order.discount }</td>
 							<td class="deliverystatus" height="23px;">
-								
-								<c:if test="${odate == ndate }">배송 준비중</c:if>
-								<c:if test="${odate < ndate+3 and odate != ndate }">배송 중</c:if>
-								<c:if test="${odate >= ndate+3 }">배송 완료</c:if>
+								<c:choose>
+									<c:when test="${odate == ndate }">배송 준비중</c:when>
+									<c:when test="${odate+3 <= ndate}">배송 완료</c:when>
+									<c:otherwise>배송중</c:otherwise>
+								</c:choose>
 							</td>
 							<td height="23px;">${order.count }</td>
 							<td class="replybutton">
-								<c:if test="${odate >= ndate+3 }">
+								<c:if test="${odate+3 <= ndate }">
 								<button class="btn" type="button">리뷰 작성</button>
 								</c:if>
 							</td>
