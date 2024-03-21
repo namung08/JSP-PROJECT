@@ -152,8 +152,8 @@ fabric.properties
 
 .idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
+.idea/codeStyles
+.idea/runConfigurations
 
 ### Java ###
 # Compiled class file
@@ -181,4 +181,12 @@ fabric.properties
 hs_err_pid*
 replay_pid*
 
-# End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,eclipse
+# End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,eclipse!/.idea/
+/.metadata/
+/Servers/
+/JSP-PROJECT/.metadata/
+/JSP-PROJECT/.settings/
+/JSP-PROJECT/bin/
+/JSP-PROJECT/.classpath
+/JSP-PROJECT/build/
+/JSP-PROJECT/.project
