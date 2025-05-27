@@ -1,71 +1,105 @@
-# JSP-PROJECT
- **1조 프로젝트 깃 허브**
- ## 홈페이지 구조
+# JSP 프로젝트 <img src="img/jsp-icon.png" alt="" width="30">
 
- ## 메인 페이지
-    - 로그인
-    - 검색
-    - 고객센터
-   ### 로그인 이후 페이지
-    - 회원 정보
-    - 장바구니
-    - 주문 내역
- ## 로그인
-    - 회원가입
-     > 아이디(중복체크), 비밀번호, 이름, 생년월일, 이메일(google, naver 만)(이메일 중복체크), 주소, 
-       전화번호
-     ( 회원가입시 이름에 admin 사용 금지, 공지사항 작성시 userid가 admin경우에만 가 
-      능하도록 하는 기능 추가 )
-    - 로그인
-     > 아이디, 비밀번호, 아이디 및 비밀번호 찾기
-    - 회원정보
- ### 아이디 및 비밀번호 찾기
-   - 아이디 찾기
-   > 이름, 이메일 입력<br>
-   > --> 이메일로 아이디의 앞, 뒤 3자리 씩 출력 이외의 정보 (*) 표시
-   > --> 이름 이메일 DB에서 조회로 사용자 아이디 찾기
-   - 비밀번호 찾기
-   > 이름, 아이디, 이메일 입력<br>
-   > --> 이메일로 비밀번호 변경 페이지 전송(google, naver 정도로 제한)
- ## 회원정보
-    - 비밀번호 변경 (원래 사용하던 비밀번호 입력 시 변경 가능)
-    - 주소 변경(배송지)
-    - 전화번호 변경
-    - 주문 내역
-    - 문의 내역
-   ### 주문 내역
-    - 주문 날짜(년-월-일)
-    - 배송지
-    - 물건 정보(제품 이미지, 제목, 저자)
-    - 배송 상태(결재 완료, 이동, 배송지, 배송중, 배송 완료)
- ## 상품 상세 페이지
-    - 이미지
-    - 가격
-    - 제목
-    - 출판사
-    - 저자
-    - 출간일
-    - 구매 버튼(장바구니에 담기, 즉시 구매)
- ## 장바구니
-    - input type="checkbox"를 이용한 선택
-    - 구매 버튼
-    - checked 된 물건들의 가격들의 합 표시
- ## 고객센터 및 도움말
-    - 공지
-    - Q&A
-    - 1대1 문의
- 
- ## 마이페이지 (회원 상세정보)
-   - 회원정보 수정
-   - 문의내역
-   - 구매내역
-   - 장바구니 담기 -> 결재 -> 오더리스트 테이블로 인서트됨 -> 오더리스트에서 배송완료 상태면 리뷰페이지로 이동 버튼 추가
+---
 
- ###
-- 조 이름 : 
-- 조장 : 
-- 조원 :
---------------------------------
-# 추가하면 좋을 듯?
-- 장바구니 ( 추가 완?)
-> 전체선택, 선택삭제, 주문하기
+- 이 프로젝트는 **JSP와 Java**를 활용한 웹 애플리케이션입니다.
+
+<h1>JSP Web Application v1.0</h1>
+
+---
+
+> **SeSAC**  
+> **개발기간 : 2024.03.13 - 2024.03.19**
+
+# 개발자 <img src="img/developer-icon.png" alt="" width="30">
+
+---
+
+|                              **이상준**                               |
+| :-------------------------------------------------------------------: |
+| ![profile.png](https://avatars.githubusercontent.com/u/113490780?v=4) |
+|               [@namung08](https://github.com/namung08)                |
+|                    안산대학교 컴퓨터 정보학과 졸업                    |
+
+# 프로젝트 소개 <img src="img/info-icon.png" alt="" width="30">
+
+---
+
+- **웹 애플리케이션** : JSP와 Java를 활용한 웹 기반 애플리케이션입니다.
+- **데이터베이스 연동** : SQL을 활용하여 데이터를 관리합니다.
+- **서버 환경** : Apache Tomcat 서버를 사용합니다.
+- **개발 환경** : Eclipse IDE를 활용한 개발 환경을 구성했습니다.
+
+# 시작 가이드 <img src="img/guide-icon.png" alt="" width="30">
+
+---
+
+- **프로그래밍 언어** : [Java](https://www.java.com/), [JSP](https://www.oracle.com/java/technologies/javaserver-pages.html)
+- **서버** : [Apache Tomcat](https://tomcat.apache.org/)
+- **데이터베이스** : [MySQL](https://www.mysql.com/)
+- **개발 도구** : [Eclipse](https://www.eclipse.org/)
+
+```bash
+git clone https://github.com/namung08/JSP-PROJECT.git
+cd JSP-PROJECT
+```
+
+# 기술 스택 📚
+
+---
+
+<div align=center> 
+<h3>Environment</h3>
+    <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white">
+<h3>Development</h3>
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=Java&logoColor=white">
+<img src="https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=Java&logoColor=white">
+<h3>Server</h3>
+<img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=black">
+<h3>Database</h3>
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+<h3>Communication </h3>
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+</div>
+
+# 프로젝트 구조 <img src="img/structure-icon.png" alt="" width="30">
+
+---
+
+```
+JSP-PROJECT/
+├── src/
+│   ├── main/
+│   │   ├── java/ # Java 소스 코드
+│   │   ├── webapp/ # 웹 리소스
+│   │   └── resources/ # 설정 파일
+│   └── test/ # 테스트 코드
+├── sql/ # 데이터베이스 스크립트
+├── .settings/ # 프로젝트 설정
+├── .classpath # 클래스패스 설정
+├── .project # 프로젝트 설정
+└── README.md # 프로젝트 설명 파일
+```
+
+# 주요 기능 <img src="img/feature-icon.png" alt="" width="30">
+
+---
+
+## ⭐️ 웹 애플리케이션 기능
+
+- JSP를 활용한 동적 웹 페이지 구현
+- Java 서블릿을 통한 서버 사이드 로직 처리
+- 데이터베이스 연동을 통한 데이터 관리
+
+## ⭐️ 개발 환경
+
+- Eclipse IDE를 활용한 개발 환경
+- Apache Tomcat 서버 설정
+- MySQL 데이터베이스 연동
+
+## ⭐️ 배포 환경
+
+- Apache Tomcat 서버 배포
+- 데이터베이스 서버 설정
+- 웹 애플리케이션 배포 및 운영
